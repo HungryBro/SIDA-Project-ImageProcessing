@@ -101,11 +101,12 @@ class ActivationsAndGradients:
 
 # Target module to compute custom score for gradients backpropagation
 class yolov8_target(torch.nn.Module):
-    def __init__(self, output_type, conf, ratio) -> None:
+    def __init__(self, output_type, conf, ratio, target_class_ids=None) -> None:
         super().__init__()
         self.output_type = output_type
         self.conf = conf
         self.ratio = ratio
+        self.target_class_ids = target_class_ids  # List of allowed class IDs, or None for all
 
     def forward(self, data):
         post_result, pre_post_boxes = data
@@ -113,11 +114,20 @@ class yolov8_target(torch.nn.Module):
         for i in range(int(post_result.size(0) * self.ratio)):
             if float(post_result[i].max()) < self.conf:
                 break
+            
+            class_id = int(post_result[i].argmax())
+            if self.target_class_ids is not None and class_id not in self.target_class_ids:
+                continue
+                
             if self.output_type == 'class' or self.output_type == 'all':
                 result.append(post_result[i].max())
             elif self.output_type == 'box' or self.output_type == 'all':
                 for j in range(4):
                     result.append(pre_post_boxes[i, j])
+                    
+        if len(result) == 0:
+            return torch.tensor(0.0, device=post_result.device, requires_grad=True)
+            
         return sum(result)
 
 # Main heatmap generator class
@@ -132,34 +142,31 @@ class yolov8_heatmap:
         ratio=0.02,
         show_box=True,
         renormalize=False,
+        target_class_ids=None,
     ) -> None:
         self.device = device
         self.conf_threshold = conf_threshold
         self.ratio = ratio
         self.show_box = show_box
         self.renormalize = renormalize
+        self.target_class_ids = target_class_ids
 
-        # Load YOLO model using standard high-level API
+        # Load YOLO model
         print(f"[*] Loading model weight: {weight} using ultralytics YOLO...")
         yolo_model = YOLO(weight)
         model = yolo_model.model
         model.to(device)
         
-        # Save model details
         self.model = model
         self.model_names = yolo_model.names
         
-        # Enable gradients for parameters so backward pass works
         for p in self.model.parameters():
             p.requires_grad_(True)
         self.model.eval()
 
-        self.target = yolov8_target("all", conf_threshold, ratio)
-        
-        # Target layers to hook (usually deep layers of the backbone/neck)
+        self.target = yolov8_target("all", conf_threshold, ratio, target_class_ids)
         self.target_layers = [self.model.model[l] for l in layer]
 
-        # Initialize the CAM method from pytorch-grad-cam
         cam_class = globals()[method]
         self.method = cam_class(self.model, self.target_layers, use_cuda=device.type == 'cuda')
         self.method.activations_and_grads = ActivationsAndGradients(self.model, self.target_layers, None)
@@ -192,13 +199,12 @@ class yolov8_heatmap:
 
         try:
             grayscale_cam = self.method(tensor, [self.target])
-        except AttributeError as e:
+        except Exception as e:
             print(f"[-] Error generating CAM: {e}")
             return None
             
         grayscale_cam = grayscale_cam[0, :]
 
-        # Run inference to get predictions for drawing boxes
         with torch.no_grad():
             pred1 = self.model(tensor)[0]
         pred = self.post_process(pred1)
@@ -215,6 +221,10 @@ class yolov8_heatmap:
                 data = data.cpu().detach().numpy()
                 conf = float(data[4])
                 class_id = int(data[5])
+                
+                if self.target_class_ids is not None and class_id not in self.target_class_ids:
+                    continue
+                    
                 cam_image = self.draw_detections(
                     data[:4],
                     self.colors[class_id],
@@ -257,13 +267,23 @@ def download_sample_image(url, save_path):
 
 def run_gradcam_experiment():
     output_dir = "outputs"
-    os.makedirs(output_dir, exist_ok=True)
+    comparison_dir = "outputs_comparison"
     
-    sample_img_path = "sample_cat_dog.jpg"
-    sample_url = "https://raw.githubusercontent.com/jacobgil/pytorch-grad-cam/master/examples/both.png"
-    download_sample_image(sample_url, sample_img_path)
+    # Create subdirectories for YOLOv8 and YOLO11
+    for d in [output_dir, comparison_dir]:
+        os.makedirs(os.path.join(d, "yolov8"), exist_ok=True)
+        os.makedirs(os.path.join(d, "yolo11"), exist_ok=True)
     
-    # We will try multiple CAM methods
+    # Download sample images
+    img_a_path = "sample_cat_dog.jpg"
+    img_a_url = "https://raw.githubusercontent.com/jacobgil/pytorch-grad-cam/master/examples/both.png"
+    download_sample_image(img_a_url, img_a_path)
+    
+    img_b_path = "test_bus.jpg"
+    img_b_url = "https://raw.githubusercontent.com/ultralytics/yolov5/master/data/images/bus.jpg"
+    download_sample_image(img_b_url, img_b_path)
+    
+    # CAM methods
     cam_methods = {
         "GradCAM": "GradCAM",
         "GradCAMPlusPlus": "GradCAMPlusPlus",
@@ -273,56 +293,93 @@ def run_gradcam_experiment():
     
     # Define models to compare
     models_to_test = {
-        "yolov8n": {
+        "yolov8": {
             "weight": "yolov8n.pt",
-            "layers": [12, 15, 16, 18, 21]  # Convolutional/C2f layers in YOLOv8
+            "layers": [12, 15, 16, 18, 21]
         },
-        "yolo11n": {
+        "yolo11": {
             "weight": "yolo11n.pt",
-            "layers": [13, 16, 19, 22]      # Convolutional/C3k2 layers in YOLO11
+            "layers": [13, 16, 19, 22]
         }
     }
     
-    print("\n[*] Initializing YOLO Grad-CAM comparison...")
+    print("\n[*] Initializing YOLO Grad-CAM Folder-Separated Experiment...")
     
-    for model_name, model_info in models_to_test.items():
+    for model_key, model_info in models_to_test.items():
         print(f"\n==========================================")
-        print(f"[*] Processing Model: {model_name.upper()}")
+        print(f"[*] Processing Model: {model_key.upper()}")
         print(f"==========================================")
         
         weight_file = model_info["weight"]
         target_layers = model_info["layers"]
         
+        # 1. RUN STANDARD EXPERIMENT (outputs/yolov8/ or outputs/yolo11/)
+        # Targets all classes on sample_cat_dog.jpg
+        print(f"\n--- [Standard Run] Target: All Classes (sample_cat_dog.jpg) ---")
         for label, method_class_name in cam_methods.items():
-            print(f"\n[*] Generating heatmap for {model_name.upper()} using: {label}...")
+            print(f"[*] Generating standard heatmap using {label}...")
             try:
-                # Initialize custom heatmap explainer
                 model = yolov8_heatmap(
                     weight=weight_file,
                     method=method_class_name,
                     layer=target_layers,
                     conf_threshold=0.25,
-                    show_box=True
+                    show_box=True,
+                    target_class_ids=None,
                 )
-                
-                # Generate heatmap
-                imagelist = model(img_path=sample_img_path)
-                
+                imagelist = model(img_path=img_a_path)
                 if imagelist and len(imagelist) > 0:
-                    print(f"[+] Successfully generated heatmap for {model_name.upper()} using {label}.")
-                    for idx, img in enumerate(imagelist):
-                        out_filename = os.path.join(output_dir, f"{model_name}_{label.lower()}_result_{idx}.jpg")
-                        img.save(out_filename)
-                        print(f"    Saved: {out_filename}")
-                else:
-                    print(f"[-] No objects detected or heatmaps generated for {label}.")
-                    
+                    out_filename = os.path.join(output_dir, model_key, f"{label.lower()}_result_0.jpg")
+                    imagelist[0].save(out_filename)
+                    print(f"    Saved: {out_filename}")
             except Exception as e:
-                print(f"[-] Error running {label} on {model_name.upper()}: {e}")
-                import traceback
-                traceback.print_exc()
+                print(f"[-] Error: {e}")
+        
+        # 2. RUN COMPARISON EVALUATION (outputs_comparison/yolov8/ or outputs_comparison/yolo11/)
+        # Test Case A: Dog Only (shows EigenCAM weakness)
+        print(f"\n--- [Evaluation A] Class-Specific: Dog Only (sample_cat_dog.jpg) ---")
+        for label, method_class_name in cam_methods.items():
+            print(f"[*] Generating dog-only heatmap using {label}...")
+            try:
+                model = yolov8_heatmap(
+                    weight=weight_file,
+                    method=method_class_name,
+                    layer=target_layers,
+                    conf_threshold=0.25,
+                    show_box=True,
+                    target_class_ids=[16],  # Dog class only
+                )
+                imagelist = model(img_path=img_a_path)
+                if imagelist and len(imagelist) > 0:
+                    out_filename = os.path.join(comparison_dir, model_key, f"dog_only_{label.lower()}.jpg")
+                    imagelist[0].save(out_filename)
+                    print(f"    Saved: {out_filename}")
+            except Exception as e:
+                print(f"[-] Error: {e}")
+                
+        # Test Case B: Multi-Object (shows Grad-CAM weakness)
+        print(f"\n--- [Evaluation B] Multi-Object: All Classes (test_bus.jpg) ---")
+        for label, method_class_name in cam_methods.items():
+            print(f"[*] Generating multi-object heatmap using {label}...")
+            try:
+                model = yolov8_heatmap(
+                    weight=weight_file,
+                    method=method_class_name,
+                    layer=target_layers,
+                    conf_threshold=0.25,
+                    show_box=True,
+                    target_class_ids=None,
+                )
+                imagelist = model(img_path=img_b_path)
+                if imagelist and len(imagelist) > 0:
+                    out_filename = os.path.join(comparison_dir, model_key, f"multi_object_{label.lower()}.jpg")
+                    imagelist[0].save(out_filename)
+                    print(f"    Saved: {out_filename}")
+            except Exception as e:
+                print(f"[-] Error: {e}")
 
-    print("\n[+] Comparison experiment completed! Check the 'outputs' directory for results.")
+    print("\n[+] Folder-separated experiment completed successfully!")
+    print(f"[+] Outputs saved to 'outputs/' and 'outputs_comparison/' subfolders.")
 
 if __name__ == "__main__":
     run_gradcam_experiment()
