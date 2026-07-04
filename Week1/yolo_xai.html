@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLO Explainable AI (XAI) Playground - Grad-CAM & Algorithms</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax for Beautiful LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --bg-base: #0b0f19;
+            --bg-surface: #131a2c;
+            --bg-card: #1c253c;
+            --primary: #14b8a6; /* Teal */
+            --primary-glow: rgba(20, 184, 166, 0.15);
+            --secondary: #0ea5e9; /* Sky Blue */
+            --accent: #f59e0b; /* Amber */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #2e3c5a;
+            --danger: #ef4444;
+            --success: #10b981;
+            --font-display: 'Prompt', 'Outfit', sans-serif;
+            --font-body: 'Sarabun', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-body);
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-base);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Utility classes */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .glass {
+            background: rgba(19, 26, 44, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo i {
+            font-size: 2rem;
+            color: var(--primary);
+            filter: drop-shadow(0 0 8px var(--primary));
+        }
+
+        .header-logo h1 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-logo span {
+            font-size: 0.8rem;
+            background: rgba(20, 184, 166, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 8px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+            text-shadow: 0 0 8px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Main Grid Layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1.3fr 1fr;
+            }
+        }
+
+        /* Card styles */
+        .card {
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            background: var(--bg-surface);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title i {
+            color: var(--primary);
+        }
+
+        /* Playground / Left Column */
+        .workspace {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: #07090e;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+        }
+
+        .canvas-container canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .canvas-overlay-ui {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .canvas-btn {
+            background: rgba(19, 26, 44, 0.85);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .canvas-btn:hover {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: var(--bg-base);
+        }
+
+        .canvas-instruction {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary);
+            pointer-events: none;
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 320px;
+        }
+
+        /* Controls / Right Column */
+        .controls-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .control-label {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .control-label span.value {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .btn-group-toggle {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            background: rgba(7, 9, 14, 0.4);
+            padding: 4px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .toggle-btn:hover {
+            color: var(--text-main);
+        }
+
+        .toggle-btn.active {
+            background: var(--primary);
+            color: var(--bg-base);
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(20, 184, 166, 0.4);
+        }
+
+        select, input[type="range"] {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 10px;
+            border-radius: 8px;
+            outline: none;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--primary-glow);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            height: 6px;
+            background: var(--border);
+            border: none;
+            padding: 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 0 6px rgba(20, 184, 166, 0.6);
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        /* Detections List */
+        .detections-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .detection-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(7, 9, 14, 0.3);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .detection-item:hover, .detection-item.selected {
+            border-color: var(--primary);
+            background: var(--primary-glow);
+        }
+
+        .detection-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detection-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        .detection-label {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .detection-conf {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Preset Images */
+        .presets-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+
+        .preset-thumb {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .preset-thumb:hover {
+            border-color: var(--primary);
+        }
+
+        .preset-thumb.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        .preset-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preset-thumb span {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 0.7rem;
+            text-align: center;
+            padding: 2px 0;
+        }
+
+        /* Custom upload box */
+        .upload-box {
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .upload-box:hover {
+            border-color: var(--primary);
+            background: var(--primary-glow);
+        }
+
+        .upload-box i {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Inspector Tab & Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .feature-grid {
+                grid-template-columns: repeat(8, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .feature-card:hover, .feature-card.highlighted {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(20, 184, 166, 0.2);
+        }
+
+        .feature-canvas-wrap {
+            aspect-ratio: 1;
+            background: black;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+
+        .feature-canvas-wrap canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .feature-weight {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        .weight-pos {
+            color: var(--success);
+        }
+
+        .weight-neg {
+            color: var(--danger);
+        }
+
+        /* Formula Interactive Section */
+        .math-section {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .math-section {
+                grid-template-columns: 1.2fr 1fr;
+            }
+        }
+
+        .formula-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: rgba(7, 9, 14, 0.4);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .interactive-term {
+            padding: 2px 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .interactive-term:hover {
+            background: rgba(20, 184, 166, 0.25);
+            color: var(--primary);
+        }
+
+        .interactive-term.active {
+            background: var(--primary);
+            color: var(--bg-base) !important;
+            font-weight: bold;
+        }
+
+        /* Flow Diagram Container */
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+
+        .flow-node {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 12px 16px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .flow-node.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin: -4px 0;
+        }
+
+        .flow-arrow.backward {
+            color: var(--accent);
+            animation: pulse-arrow 1.5s infinite;
+        }
+
+        @keyframes pulse-arrow {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
+        /* Code Block Container */
+        .code-container {
+            position: relative;
+            background: #070a13;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+
+        .code-container pre {
+            margin: 0;
+        }
+
+        .code-container code {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: #e2e8f0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Description Cards */
+        .desc-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .desc-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .desc-card {
+            background: rgba(28, 37, 60, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .desc-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .desc-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .badge-gradcam { background: rgba(20, 184, 166, 0.15); color: var(--primary); }
+        .badge-gradcampp { background: rgba(14, 165, 233, 0.15); color: var(--secondary); }
+        .badge-eigencam { background: rgba(245, 158, 11, 0.15); color: var(--accent); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header banner -->
+    <header class="glass">
+        <div class="header-logo">
+            <i class="fa-solid fa-brain"></i>
+            <div>
+                <h1>YOLO Explainable AI (XAI)</h1>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">ระบบเรียนรู้และทดลองแนวคิดเชิงลึกของการวิเคราะห์โมเดลตรวจจับวัตถุ</p>
+            </div>
+            <span>v1.0</span>
+        </div>
+        <div class="nav-links">
+            <a href="#playground" class="nav-link active"><i class="fa-solid fa-flask"></i> สนามทดลอง</a>
+            <a href="#theory" class="nav-link"><i class="fa-solid fa-book"></i> ทฤษฎีและคณิตศาสตร์</a>
+            <a href="#code" class="nav-link"><i class="fa-solid fa-code"></i> โค้ด Python</a>
+        </div>
+    </header>
+
+    <!-- Section 1: Playground -->
+    <div id="playground" class="dashboard-grid">
+        <!-- Left: Image & Heatmap Workspace -->
+        <div class="workspace">
+            <div class="card" style="flex: 1; display: flex; flex-direction: column;">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fa-solid fa-image"></i>
+                        <span>หน้าจอแสดงผลการตรวจจับและ Heatmap</span>
+                    </div>
+                    <div id="status-badge" style="font-size: 0.8rem; color: var(--primary); display: flex; align-items: center; gap: 6px;">
+                        <span class="detection-color" style="background: var(--primary);"></span> วิเคราะห์เลเยอร์สำเร็จ
+                    </div>
+                </div>
+                
+                <div class="canvas-container">
+                    <canvas id="base-canvas"></canvas>
+                    <canvas id="heatmap-canvas" style="mix-blend-mode: screen;"></canvas>
+                    <canvas id="overlay-canvas"></canvas>
+                    
+                    <div class="canvas-overlay-ui">
+                        <button class="canvas-btn" id="toggle-boxes-btn"><i class="fa-solid fa-square"></i> กรอบครอบ (On)</button>
+                        <button class="canvas-btn" id="clear-custom-btn" style="display: none;"><i class="fa-solid fa-trash"></i> ล้างรูปวาด</button>
+                    </div>
+
+                    <div class="canvas-instruction" id="canvas-help">
+                        <i class="fa-solid fa-mouse-pointer"></i> คลิกวัตถุเพื่อดู Heatmap หรือลากวาดกรอบเพื่อวิเคราะห์เอง
+                    </div>
+                </div>
+
+                <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="font-size: 0.85rem; color: var(--text-muted);">
+                        <i class="fa-solid fa-circle-info"></i> ปรับระดับความโปร่งแสงของแผนภาพความร้อนจากเมนูด้านขวา
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="canvas-btn" id="btn-zoom-in" style="padding: 4px 8px;"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                        <button class="canvas-btn" id="btn-zoom-out" style="padding: 4px 8px;"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature Inspector Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fa-solid fa-table-cells"></i>
+                        <span>Feature Map & Gradient Inspector (แชนเนลโครงข่ายจำลอง)</span>
+                    </div>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">มีทั้งหมด 16 Channels ในเลเยอร์ปัจจุบัน</span>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                    คลิกเลือกแชนเนลเพื่อแยกดูการตอบสนองเฉพาะแชนเนล หรือวางเมาส์เพื่อดูผลกระทบที่มีต่อ Grad-CAM (สีเขียว = ตัวผลักดันการตรวจจับ, สีแดง = ตัวยับยั้ง)
+                </p>
+                <div class="feature-grid" id="feature-inspector-grid">
+                    <!-- Channels will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Control Panel & Settings -->
+        <div class="controls-grid">
+            <!-- Preset & Upload Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fa-solid fa-images"></i>
+                        <span>เลือกรูปภาพสำหรับวิเคราะห์</span>
+                    </div>
+                </div>
+                <div class="presets-grid" style="margin-bottom: 1rem;">
+                    <div class="preset-thumb active" data-preset="seaweed">
+                        <img src="../images/seaweed_insect_detection.png" onerror="this.src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=150&auto=format&fit=crop'" alt="Seaweed Insect">
+                        <span>SIDA แมลง</span>
+                    </div>
+                    <div class="preset-thumb" data-preset="catdog">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=150&auto=format&fit=crop" alt="Cat Dog">
+                        <span>หมาและแมว</span>
+                    </div>
+                    <div class="preset-thumb" data-preset="traffic">
+                        <img src="https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=150&auto=format&fit=crop" alt="Street traffic">
+                        <span>จราจร/ถนน</span>
+                    </div>
+                    <div class="preset-thumb" data-preset="microscope">
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=150&auto=format&fit=crop" alt="Cells microscope">
+                        <span>เซลล์/ชีวะ</span>
+                    </div>
+                </div>
+
+                <div class="upload-box" id="drop-zone">
+                    <input type="file" id="file-input" style="display: none;" accept="image/*">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <p>ลากรูปภาพมาวางที่นี่ หรือคลิกเพื่ออัปโหลดไฟล์ของคุณเอง</p>
+                </div>
+            </div>
+
+            <!-- Algorithm Settings Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fa-solid fa-sliders"></i>
+                        <span>แผงควบคุมและเลือกอัลกอริทึม</span>
+                    </div>
+                </div>
+                <div class="controls-grid">
+                    <!-- Algorihm choice -->
+                    <div class="control-group">
+                        <label class="control-label">XAI Algorithm <span>(อัลกอริทึมวิเคราะห์)</span></label>
+                        <div class="btn-group-toggle" id="algo-toggle">
+                            <button class="toggle-btn active" data-algo="gradcam">Grad-CAM</button>
+                            <button class="toggle-btn" data-algo="gradcampp">Grad-CAM++</button>
+                            <button class="toggle-btn" data-algo="eigencam">Eigen-CAM</button>
+                        </div>
+                    </div>
+
+                    <!-- Target Layer -->
+                    <div class="control-group">
+                        <label class="control-label">Target Layer <span>(เลเยอร์โครงข่ายเป้าหมาย)</span></label>
+                        <select id="select-layer">
+                            <option value="backbone_deep" selected>Backbone P5 (เลเยอร์สุดท้ายของ backbone - เน้นลักษณะโครงสร้างวัตถุหลัก)</option>
+                            <option value="neck_sppf">Neck SPPF (เลเยอร์วิเคราะห์ขนาดฟีเจอร์หลายระดับ - ผสานมิติภาพ)</option>
+                            <option value="head_detect_cls">Head Classification (เลเยอร์ประเมินคลาสประเภทวัตถุ - ละเอียดเจาะจงประเภท)</option>
+                            <option value="head_detect_reg">Head Bounding Box (เลเยอร์ประเมินพิกัดกรอบ - เน้นขอบเขตและมุมขอบ)</option>
+                        </select>
+                    </div>
+
+                    <!-- Target Object Selection -->
+                    <div class="control-group">
+                        <label class="control-label">Target Detection <span>(เลือกวัตถุที่ต้องการคำนวณ Gradient)</span></label>
+                        <div class="detections-list" id="detections-container">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Custom Heatmap adjustments -->
+                    <div class="control-group">
+                        <div class="control-label">Heatmap Opacity <span>(ความโปร่งแสงของแผนภูมิความร้อน)</span><span class="value" id="opacity-val">65%</span></div>
+                        <input type="range" id="range-opacity" min="0" max="100" value="65">
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">Blur Amount <span>(ระดับความเบลอ / การฟุ้ง)</span><span class="value" id="blur-val">12px</span></div>
+                        <input type="range" id="range-blur" min="0" max="30" value="12">
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">Colormap Scheme <span>(โทนสีแผนภูมิความร้อน)</span></label>
+                        <select id="select-colormap">
+                            <option value="turbo" selected>Turbo (โทนรุ้งสว่างนำสมัย - แนะนำ)</option>
+                            <option value="jet">Jet (โทนน้ำเงิน-แดงมาตรฐาน)</option>
+                            <option value="viridis">Viridis (โทนม่วง-เขียว-เหลืองอ่านง่าย)</option>
+                            <option value="hot">Hot (โทนดำ-แดง-เหลือง ความร้อนจัด)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Theory & Mathematics -->
+    <div id="theory" class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+            <div class="card-title">
+                <i class="fa-solid fa-book-open"></i>
+                <span>ทฤษฎีและขั้นตอนการวิเคราะห์ (Explainable AI Theory)</span>
+            </div>
+        </div>
+        
+        <p style="margin-bottom: 1.5rem;">
+            ในโมเดลตรวจจับวัตถุประเภท Single-stage detector เช่น <strong>YOLO (You Only Look Once)</strong> การสืบค้นหาว่าโมเดลตัดสินใจอย่างไรจะแตกต่างจากงานจำแนกประเภทภาพ (Image Classification) แบบดั้งเดิม เนื่องจาก YOLO จะให้ผลลัพธ์ทั้งพิกัดของกล่อง (Regression) และประเภทวัตถุ (Classification) พร้อมๆ กัน ดังนั้น Grad-CAM จึงต้องออกแบบให้เป้าหมาย (Gradient Target) จำเพาะเจาะจงกับ Bounding Box ที่เลือก
+        </p>
+
+        <div class="math-section">
+            <!-- Math explanation -->
+            <div>
+                <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--primary); margin-bottom: 0.75rem;">สมการคณิตศาสตร์เชิงโต้ตอบ (Interactive Equations)</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    ลองคลิกที่ส่วนประกอบของสูตรด้านล่าง เพื่อดูความเชื่อมโยงในแผนภาพโครงข่ายจำลอง
+                </p>
+
+                <div class="formula-container">
+                    <h4 style="font-family: var(--font-display); margin-bottom: 10px; font-size: 0.95rem; color: var(--text-muted);">สูตรหาค่าน้ำหนักแชนเนล (Channel Weights)</h4>
+                    <div style="font-size: 1.3rem; margin: 12px 0;">
+                        $$ \alpha_k^c = \frac{1}{Z} \sum_{i} \sum_{j} \frac{\partial Y^c}{\partial A_{i,j}^k} $$
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: left; width: 100%;">
+                        <ul>
+                            <li><strong class="interactive-term" data-term="target-score">\alpha_k^c</strong> : น้ำหนักความสำคัญของ Feature Channel $k$ สำหรับคลาสเป้าหมาย $c$</li>
+                            <li><strong class="interactive-term" data-term="pooling">\frac{1}{Z} \sum_i \sum_j</strong> : การทำ Global Average Pooling (หาค่าเฉลี่ยสเปเชียลมิติกว้างคูณสูง)</li>
+                            <li><strong class="interactive-term" data-term="gradients">\frac{\partial Y^c}{\partial A_{i,j}^k}</strong> : ค่าความชัน (Gradient) ของผลลัพธ์ของกล่องวัตถุเทียบกับค่าใน Feature Map</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="formula-container">
+                    <h4 style="font-family: var(--font-display); margin-bottom: 10px; font-size: 0.95rem; color: var(--text-muted);">สูตรการสังเคราะห์เป็น Heatmap (Activation Map)</h4>
+                    <div style="font-size: 1.4rem; margin: 12px 0;">
+                        $$ L_{\text{Grad-CAM}}^c = \text{ReLU}\left(\sum_{k} \alpha_k^c A^k\right) $$
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; text-align: left; width: 100%;">
+                        <ul>
+                            <li><strong class="interactive-term" data-term="relu">\text{ReLU}(\cdot)</strong> : ฟังก์ชัน Rectified Linear Unit เพื่อกรองเอาเฉพาะฟีเจอร์ที่มีผลบวกต่อการตรวจจับ</li>
+                            <li><strong class="interactive-term" data-term="feature-maps">A^k</strong> : แผ่น Feature Map แชนเนลที่ $k$ ในเลเยอร์ที่เราทำการตรวจสอบ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flow visual representation -->
+            <div>
+                <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--primary); margin-bottom: 0.75rem;">ขั้นตอนการไหลข้อมูล (Information Propagation Flow)</h3>
+                
+                <div class="flow-container">
+                    <div class="flow-node" id="node-input">
+                        <span>1. รูปภาพนำเข้า (Input Image)</span>
+                        <span class="badge badge-eigencam">Forward Pass</span>
+                    </div>
+                    
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                    
+                    <div class="flow-node" id="node-features">
+                        <span>2. เลเยอร์เป้าหมาย (Target Layer $A^k$)</span>
+                        <span class="badge badge-gradcam">ดึงฟีเจอร์ส่งออก</span>
+                    </div>
+
+                    <div class="flow-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+
+                    <div class="flow-node" id="node-head">
+                        <span>3. หัวทำนาย YOLO (Prediction Head & YOLO Box Score $Y^c$)</span>
+                        <span class="badge badge-gradcampp">คำนวณเอาท์พุต</span>
+                    </div>
+
+                    <div class="flow-arrow backward"><i class="fa-solid fa-arrow-up"></i> ย้อนกลับ Gradient (Backpropagation)</div>
+
+                    <div class="flow-node" id="node-gradients" style="border-color: var(--accent);">
+                        <span>4. คำนวณความชันเทียบกับฟีเจอร์ ($\frac{\partial Y^c}{\partial A^k}$)</span>
+                        <span style="color: var(--accent);" class="badge">Backprop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="desc-grid">
+            <div class="desc-card">
+                <h4><span class="badge badge-gradcam">1</span> Grad-CAM</h4>
+                <p>
+                    วิเคราะห์โดยอาศัยผลคูณภายใน (Inner Product) ระหว่าง Feature map กับค่าเฉลี่ยสปาเชียลของเกรเดียนต์ เหมาะสำหรับตรวจสอบพฤติกรรมภาพรวมทั่วไป และมีความสม่ำเสมอในการแสดงผล
+                </p>
+            </div>
+            <div class="desc-card">
+                <h4><span class="badge badge-gradcampp">2</span> Grad-CAM++</h4>
+                <p>
+                    ใช้ค่าน้ำหนักเกรเดียนต์อันดับสอง (Second-order gradients) ช่วยปรับน้ำหนักให้วัตถุชิ้นเดียวกันที่ปรากฏซ้ำกันในรูป (Multiple Instances) โดนตรวจหาความเชื่อมโยงได้อย่างสมบูรณ์ยิ่งขึ้น
+                </p>
+            </div>
+            <div class="desc-card">
+                <h4><span class="badge badge-eigencam">3</span> Eigen-CAM</h4>
+                <p>
+                    ไม่ขึ้นกับค่าความชันเลย (Gradient-Free) แต่หาเวกเตอร์หลักชิ้นแรก (First Principal Component) ของเลเยอร์ฟีเจอร์แทน ข้อดีคือทำความเข้าใจรวดเร็วและเป็นสากลไม่ขึ้นกับประเภทคลาส
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Code Generator -->
+    <div id="code" class="card">
+        <div class="card-header">
+            <div class="card-title">
+                <i class="fa-solid fa-code"></i>
+                <span>โค้ด Python สำหรับใช้งานจริง (Dynamic PyTorch Code Generator)</span>
+            </div>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            คัดลอกโค้ดด้านล่างนี้ไปปรับใช้กับโมเดล YOLOv8 หรือ YOLOv11 ในเครื่องคอมพิวเตอร์ของคุณ โดยโค้ดจะถูกปรับเปลี่ยนแบบไดนามิกตามค่าตัวเลือกปัจจุบันที่คุณเลือกใน Dashboard
+        </p>
+
+        <div class="code-container">
+            <button class="copy-btn" id="btn-copy-code"><i class="fa-solid fa-copy"></i> Copy Code</button>
+            <pre><code id="python-code-block"># โค้ดกำลังสร้าง...</code></pre>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 3rem;">
+    <p>สถาบันเทคโนโลยีและระบบตรวจวิเคราะห์ระดับสูง SIDA &copy; 2026. พัฒนาขึ้นสำหรับการศึกษาด้าน Deep Learning XAI</p>
+</footer>
+
+<script>
+    // --- Data Definitions ---
+    // Simulating deep network activations for presets
+    const presets = {
+        seaweed: {
+            url: "../images/seaweed_insect_detection.png",
+            defaultUrl: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop", // placeholder if local fails
+            title: "ตรวจจับแมลงในสาหร่าย (SIDA Project)",
+            detections: [
+                { id: 0, label: "Insect (Larva)", conf: 0.94, box: [130, 90, 70, 75], color: "#ef4444" },
+                { id: 1, label: "Insect (Beetle)", conf: 0.87, box: [420, 240, 95, 80], color: "#f59e0b" },
+                { id: 2, label: "Algae Chunk", conf: 0.42, box: [260, 160, 110, 110], color: "#10b981" }
+            ],
+            // Simulated focal center coordinates in raw image space for heatmaps [x, y, radius]
+            attentions: [
+                [165, 127, 45],  // focal point for Insect 1
+                [467, 280, 60],  // focal point for Insect 2
+                [315, 215, 75]   // focal point for Algae
+            ]
+        },
+        catdog: {
+            url: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&auto=format&fit=crop",
+            defaultUrl: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&auto=format&fit=crop",
+            title: "สุนัขและแมว (Cat & Dog)",
+            detections: [
+                { id: 0, label: "Dog", conf: 0.96, box: [350, 100, 380, 480], color: "#0ea5e9" },
+                { id: 1, label: "Cat", conf: 0.91, box: [80, 180, 260, 320], color: "#f59e0b" }
+            ],
+            attentions: [
+                [540, 340, 160], // Dog focus
+                [210, 340, 110]  // Cat focus
+            ]
+        },
+        traffic: {
+            url: "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=800&auto=format&fit=crop",
+            defaultUrl: "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=800&auto=format&fit=crop",
+            title: "สภาพจราจรบนถนน (Street Traffic)",
+            detections: [
+                { id: 0, label: "Car (White SUV)", conf: 0.89, box: [150, 240, 160, 100], color: "#10b981" },
+                { id: 1, label: "Car (Red Sedan)", conf: 0.92, box: [360, 260, 140, 90], color: "#ef4444" },
+                { id: 2, label: "Traffic Light", conf: 0.78, box: [510, 60, 35, 70], color: "#3b82f6" }
+            ],
+            attentions: [
+                [230, 290, 70],  // SUV
+                [430, 305, 60],  // Red Sedan
+                [527, 95, 20]     // Traffic light
+            ]
+        },
+        microscope: {
+            url: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&auto=format&fit=crop",
+            defaultUrl: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=800&auto=format&fit=crop",
+            title: "การส่องตรวจด้วยกล้องจุลทรรศน์ (Cells Detection)",
+            detections: [
+                { id: 0, label: "Active Cell", conf: 0.95, box: [220, 180, 120, 120], color: "#a855f7" },
+                { id: 1, label: "Healthy Cell", conf: 0.84, box: [420, 80, 100, 100], color: "#10b981" },
+                { id: 2, label: "Healthy Cell", conf: 0.81, box: [110, 280, 90, 95], color: "#10b981" }
+            ],
+            attentions: [
+                [280, 240, 55],
+                [470, 130, 48],
+                [155, 327, 44]
+            ]
+        }
+    };
+
+    // --- State Variables ---
+    let currentPreset = 'seaweed';
+    let selectedAlgo = 'gradcam';
+    let selectedLayer = 'backbone_deep';
+    let selectedBoxIdx = 0; // index of target detection box
+    let showBoxes = true;
+    let customDetections = [];
+    let customImageLoaded = false;
+    let customImageObj = null;
+
+    let imgElement = new Image();
+    let zoomLevel = 1.0;
+    
+    // Feature channel simulator states
+    let featureChannels = []; // Holds 16 simulated 2D channel maps
+    let channelWeights = [];
+    let highlightedChannelIdx = null; // when hovering a feature card
+
+    // --- Canvas References ---
+    const baseCanvas = document.getElementById('base-canvas');
+    const heatmapCanvas = document.getElementById('heatmap-canvas');
+    const overlayCanvas = document.getElementById('overlay-canvas');
+    
+    const baseCtx = baseCanvas.getContext('2d');
+    const heatmapCtx = heatmapCanvas.getContext('2d');
+    const overlayCtx = overlayCanvas.getContext('2d');
+
+    // --- Color Maps ---
+    // Map values (0 to 1) to RGB colors based on colormap selected
+    function getColormapColor(value, scheme) {
+        // value is 0.0 to 1.0
+        value = Math.max(0, Math.min(1, value));
+        
+        if (scheme === 'turbo') {
+            // High fidelity Turbo colormap approximation
+            const r = Math.sin(value * Math.PI - Math.PI/2) * 127 + 128;
+            const g = Math.sin(value * Math.PI) * 127 + 128;
+            const b = Math.sin(value * Math.PI + Math.PI/2) * 127 + 128;
+            // custom adjustment to look bright
+            if (value < 0.15) {
+                return [0, 0, Math.floor(value * 255 / 0.15)];
+            } else if (value < 0.5) {
+                return [0, Math.floor((value - 0.15) * 255 / 0.35), Math.floor((0.5 - value) * 255 / 0.35 * 0.8 + 50)];
+            } else {
+                return [Math.floor((value - 0.5) * 255 / 0.5), Math.floor((1.0 - value) * 255 / 0.5 * 0.8), 0];
+            }
+        } else if (scheme === 'jet') {
+            if (value < 0.125) return [0, 0, Math.floor(127 + value * 1024)];
+            if (value < 0.375) return [0, Math.floor((value - 0.125) * 1024), 255];
+            if (value < 0.625) return [Math.floor((value - 0.375) * 1024), 255, Math.floor((0.625 - value) * 1024)];
+            if (value < 0.875) return [255, Math.floor((0.875 - value) * 1024), 0];
+            return [Math.floor(255 - (value - 0.875) * 1024), 0, 0];
+        } else if (scheme === 'viridis') {
+            // Viridis: purple -> blue -> green -> yellow
+            const r = Math.floor(255 * (0.267 - 0.482 * value + 4.95 * value*value - 7.64 * value*value*value + 3.92 * value*value*value*value));
+            const g = Math.floor(255 * (0.004 + 1.41 * value + 0.375 * value*value - 2.89 * value*value*value + 2.10 * value*value*value*value));
+            const b = Math.floor(255 * (0.329 + 1.94 * value - 5.56 * value*value + 7.61 * value*value*value - 3.42 * value*value*value*value));
+            return [Math.max(0, Math.min(255, r)), Math.max(0, Math.min(255, g)), Math.max(0, Math.min(255, b))];
+        } else { // hot
+            if (value < 0.33) return [Math.floor(value * 3 * 255), 0, 0];
+            if (value < 0.66) return [255, Math.floor((value - 0.33) * 3 * 255), 0];
+            return [255, 255, Math.floor((value - 0.66) * 3 * 255)];
+        }
+    }
+
+    // --- UI Init & Setup ---
+    window.addEventListener('DOMContentLoaded', () => {
+        setupEventListeners();
+        loadActivePreset();
+        updateCodeBlock();
+        initTheoryInteractivity();
+    });
+
+    function setupEventListeners() {
+        // Algorithm toggle buttons
+        document.querySelectorAll('#algo-toggle .toggle-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('#algo-toggle .toggle-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedAlgo = btn.getAttribute('data-algo');
+                
+                // Highlight algorithm node in flow representation
+                updateFlowDiagramActiveStates();
+                recalculateXAI();
+            });
+        });
+
+        // Layer selection change
+        document.getElementById('select-layer').addEventListener('change', (e) => {
+            selectedLayer = e.target.value;
+            // Update theoretical flow nodes
+            updateFlowDiagramActiveStates();
+            recalculateXAI();
+        });
+
+        // Opacity slider
+        const opacitySlider = document.getElementById('range-opacity');
+        opacitySlider.addEventListener('input', (e) => {
+            document.getElementById('opacity-val').textContent = e.target.value + '%';
+            heatmapCanvas.style.opacity = e.target.value / 100;
+        });
+        heatmapCanvas.style.opacity = opacitySlider.value / 100;
+
+        // Blur slider
+        const blurSlider = document.getElementById('range-blur');
+        blurSlider.addEventListener('input', (e) => {
+            document.getElementById('blur-val').textContent = e.target.value + 'px';
+            recalculateXAI();
+        });
+
+        // Colormap selection
+        document.getElementById('select-colormap').addEventListener('change', () => {
+            recalculateXAI();
+        });
+
+        // Toggle boxes button
+        document.getElementById('toggle-boxes-btn').addEventListener('click', () => {
+            showBoxes = !showBoxes;
+            const btn = document.getElementById('toggle-boxes-btn');
+            if (showBoxes) {
+                btn.innerHTML = '<i class="fa-solid fa-square"></i> กรอบครอบ (On)';
+                btn.classList.remove('active');
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-square"></i> กรอบครอบ (Off)';
+                btn.classList.add('active');
+            }
+            redrawOverlay();
+        });
+
+        // Clear custom shapes/images
+        document.getElementById('clear-custom-btn').addEventListener('click', () => {
+            customImageLoaded = false;
+            customImageObj = null;
+            customDetections = [];
+            document.getElementById('clear-custom-btn').style.display = 'none';
+            document.querySelectorAll('.preset-thumb').forEach(t => t.classList.remove('active'));
+            document.querySelector('.preset-thumb[data-preset="seaweed"]').classList.add('active');
+            currentPreset = 'seaweed';
+            loadActivePreset();
+        });
+
+        // Preset images click
+        document.querySelectorAll('.preset-thumb').forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                document.querySelectorAll('.preset-thumb').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                currentPreset = thumb.getAttribute('data-preset');
+                customImageLoaded = false;
+                document.getElementById('clear-custom-btn').style.display = 'none';
+                loadActivePreset();
+            });
+        });
+
+        // Drag & Drop Upload
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--primary)';
+            dropZone.style.background = 'var(--primary-glow)';
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.borderColor = 'var(--border)';
+            dropZone.style.background = 'transparent';
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--border)';
+            dropZone.style.background = 'transparent';
+            if (e.dataTransfer.files.length > 0) {
+                handleUploadedFile(e.dataTransfer.files[0]);
+            }
+        });
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleUploadedFile(e.target.files[0]);
+            }
+        });
+
+        // Zoom Buttons
+        document.getElementById('btn-zoom-in').addEventListener('click', () => {
+            if (zoomLevel < 2.0) {
+                zoomLevel += 0.15;
+                fitCanvasDimensions();
+            }
+        });
+        document.getElementById('btn-zoom-out').addEventListener('click', () => {
+            if (zoomLevel > 0.6) {
+                zoomLevel -= 0.15;
+                fitCanvasDimensions();
+            }
+        });
+
+        // Interactive Draw Box (canvas drawing support)
+        let isDrawing = false;
+        let startX, startY;
+        
+        overlayCanvas.addEventListener('mousedown', (e) => {
+            const rect = overlayCanvas.getBoundingClientRect();
+            const clickX = (e.clientX - rect.left) * (overlayCanvas.width / rect.width);
+            const clickY = (e.clientY - rect.top) * (overlayCanvas.height / rect.height);
+            
+            // Check if clicked inside an existing box
+            const activeDetections = customImageLoaded ? customDetections : presets[currentPreset].detections;
+            let clickedBoxIdx = -1;
+            
+            for (let i = 0; i < activeDetections.length; i++) {
+                const det = activeDetections[i];
+                const scaleX = baseCanvas.width / imgElement.naturalWidth;
+                const scaleY = baseCanvas.height / imgElement.naturalHeight;
+                const bx = det.box[0] * scaleX;
+                const by = det.box[1] * scaleY;
+                const bw = det.box[2] * scaleX;
+                const bh = det.box[3] * scaleY;
+                
+                if (clickX >= bx && clickX <= bx + bw && clickY >= by && clickY <= by + bh) {
+                    clickedBoxIdx = i;
+                    break;
+                }
+            }
+
+            if (clickedBoxIdx !== -1) {
+                // Select box
+                selectedBoxIdx = clickedBoxIdx;
+                updateDetectionSelectionUI();
+                recalculateXAI();
+            } else {
+                // Start drawing custom box (only for user uploaded images or when they want to experiment)
+                isDrawing = true;
+                startX = clickX;
+                startY = clickY;
+            }
+        });
+
+        overlayCanvas.addEventListener('mousemove', (e) => {
+            if (!isDrawing) return;
+            const rect = overlayCanvas.getBoundingClientRect();
+            const currentX = (e.clientX - rect.left) * (overlayCanvas.width / rect.width);
+            const currentY = (e.clientY - rect.top) * (overlayCanvas.height / rect.height);
+            
+            // Temporary draw of current rectangle being dragged
+            redrawOverlay();
+            overlayCtx.strokeStyle = 'var(--accent)';
+            overlayCtx.lineWidth = 3;
+            overlayCtx.setLineDash([6, 4]);
+            overlayCtx.strokeRect(startX, startY, currentX - startX, currentY - startY);
+        });
+
+        overlayCanvas.addEventListener('mouseup', (e) => {
+            if (!isDrawing) return;
+            isDrawing = false;
+            overlayCtx.setLineDash([]);
+            
+            const rect = overlayCanvas.getBoundingClientRect();
+            const endX = (e.clientX - rect.left) * (overlayCanvas.width / rect.width);
+            const endY = (e.clientY - rect.top) * (overlayCanvas.height / rect.height);
+            
+            const scaleX = imgElement.naturalWidth / baseCanvas.width;
+            const scaleY = imgElement.naturalHeight / baseCanvas.height;
+            
+            const rawX = Math.round(Math.min(startX, endX) * scaleX);
+            const rawY = Math.round(Math.min(startY, endY) * scaleY);
+            const rawW = Math.round(Math.abs(endX - startX) * scaleX);
+            const rawH = Math.round(Math.abs(endY - startY) * scaleY);
+            
+            if (rawW > 20 && rawH > 20) {
+                // Add custom bounding box
+                const activeDetections = customImageLoaded ? customDetections : presets[currentPreset].detections;
+                const newId = activeDetections.length;
+                const colors = ["#ef4444", "#0ea5e9", "#f59e0b", "#10b981", "#a855f7"];
+                const newBox = {
+                    id: newId,
+                    label: `Custom Target ${newId + 1}`,
+                    conf: 0.90,
+                    box: [rawX, rawY, rawW, rawH],
+                    color: colors[newId % colors.length]
+                };
+
+                if (customImageLoaded) {
+                    customDetections.push(newBox);
+                } else {
+                    // Clone preset detections so we don't mutate permanent ones
+                    presets[currentPreset].detections = [...presets[currentPreset].detections, newBox];
+                }
+                
+                selectedBoxIdx = newId;
+                updateDetectionSelectionUI();
+                recalculateXAI();
+            } else {
+                redrawOverlay();
+            }
+        });
+
+        // Copy Python code
+        document.getElementById('btn-copy-code').addEventListener('click', () => {
+            const codeText = document.getElementById('python-code-block').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const copyBtn = document.getElementById('btn-copy-code');
+                copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i> Copy Code';
+                }, 2000);
+            });
+        });
+    }
+
+    function initTheoryInteractivity() {
+        // Highlight corresponding flow nodes when clicking math components
+        document.querySelectorAll('.interactive-term').forEach(term => {
+            term.addEventListener('click', () => {
+                const termId = term.getAttribute('data-term');
+                document.querySelectorAll('.interactive-term').forEach(t => t.classList.remove('active'));
+                term.classList.add('active');
+                
+                document.querySelectorAll('.flow-node').forEach(n => n.classList.remove('active'));
+                
+                if (termId === 'target-score') {
+                    document.getElementById('node-head').classList.add('active');
+                } else if (termId === 'gradients') {
+                    document.getElementById('node-gradients').classList.add('active');
+                } else if (termId === 'feature-maps') {
+                    document.getElementById('node-features').classList.add('active');
+                } else if (termId === 'pooling' || termId === 'relu') {
+                    document.getElementById('node-features').classList.add('active');
+                    document.getElementById('node-gradients').classList.add('active');
+                }
+            });
+        });
+    }
+
+    // --- Loading & Setting Images ---
+    function loadActivePreset() {
+        const preset = presets[currentPreset];
+        imgElement = new Image();
+        imgElement.crossOrigin = "anonymous";
+        
+        // Use defaultUrl if local fails
+        imgElement.src = preset.url;
+        imgElement.onerror = () => {
+            if (imgElement.src !== preset.defaultUrl) {
+                console.log("Failed loading local path, switching to online placeholder");
+                imgElement.src = preset.defaultUrl;
+            }
+        };
+
+        imgElement.onload = () => {
+            zoomLevel = 1.0;
+            fitCanvasDimensions();
+            selectedBoxIdx = 0;
+            updateDetectionSelectionUI();
+            recalculateXAI();
+        };
+    }
+
+    function handleUploadedFile(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            imgElement = new Image();
+            imgElement.onload = () => {
+                customImageLoaded = true;
+                customImageObj = imgElement;
+                
+                // Simulate running object detection on uploaded image
+                // We create a few logical boxes based on image layout
+                const w = imgElement.naturalWidth;
+                const h = imgElement.naturalHeight;
+                customDetections = [
+                    { id: 0, label: "Detected Object A", conf: 0.93, box: [Math.floor(w*0.15), Math.floor(h*0.2), Math.floor(w*0.4), Math.floor(h*0.5)], color: "#ef4444" },
+                    { id: 1, label: "Detected Object B", conf: 0.81, box: [Math.floor(w*0.55), Math.floor(h*0.3), Math.floor(w*0.35), Math.floor(h*0.4)], color: "#f59e0b" }
+                ];
+                
+                document.getElementById('clear-custom-btn').style.display = 'flex';
+                document.querySelectorAll('.preset-thumb').forEach(t => t.classList.remove('active'));
+                
+                zoomLevel = 1.0;
+                fitCanvasDimensions();
+                selectedBoxIdx = 0;
+                updateDetectionSelectionUI();
+                recalculateXAI();
+            };
+            imgElement.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function fitCanvasDimensions() {
+        const containerWidth = baseCanvas.parentElement.clientWidth;
+        // set height to fit 4:3 aspect ratio
+        const aspect = imgElement.naturalHeight / imgElement.naturalWidth || 0.75;
+        const width = containerWidth * zoomLevel;
+        const height = width * aspect;
+        
+        baseCanvas.width = imgElement.naturalWidth;
+        baseCanvas.height = imgElement.naturalHeight;
+        
+        heatmapCanvas.width = imgElement.naturalWidth;
+        heatmapCanvas.height = imgElement.naturalHeight;
+        
+        overlayCanvas.width = imgElement.naturalWidth;
+        overlayCanvas.height = imgElement.naturalHeight;
+        
+        // Draw main image on base canvas
+        baseCtx.drawImage(imgElement, 0, 0);
+        redrawOverlay();
+    }
+
+    // --- Dynamic UI updates ---
+    function updateDetectionSelectionUI() {
+        const container = document.getElementById('detections-container');
+        container.innerHTML = '';
+        
+        const activeDetections = customImageLoaded ? customDetections : presets[currentPreset].detections;
+        
+        activeDetections.forEach((det, idx) => {
+            const item = document.createElement('div');
+            item.className = `detection-item ${idx === selectedBoxIdx ? 'selected' : ''}`;
+            item.innerHTML = `
+                <div class="detection-info">
+                    <span class="detection-color" style="background: ${det.color};"></span>
+                    <span class="detection-label">${det.label}</span>
+                </div>
+                <span class="detection-conf">${(det.conf * 100).toFixed(0)}% conf</span>
+            `;
+            item.addEventListener('click', () => {
+                selectedBoxIdx = idx;
+                updateDetectionSelectionUI();
+                recalculateXAI();
+            });
+            container.appendChild(item);
+        });
+    }
+
+    function updateFlowDiagramActiveStates() {
+        document.querySelectorAll('.flow-node').forEach(node => node.classList.remove('active'));
+        
+        // Highlight active flow node depending on configurations
+        if (selectedAlgo === 'eigencam') {
+            document.getElementById('node-features').classList.add('active');
+            document.getElementById('node-input').classList.add('active');
+        } else {
+            document.getElementById('node-features').classList.add('active');
+            document.getElementById('node-head').classList.add('active');
+            document.getElementById('node-gradients').classList.add('active');
+        }
+    }
+
+    // --- Heatmap Drawing & Math Engine ---
+    function recalculateXAI() {
+        const activeDetections = customImageLoaded ? customDetections : presets[currentPreset].detections;
+        const targetDet = activeDetections[selectedBoxIdx];
+        
+        if (!targetDet) return;
+        
+        const imgW = baseCanvas.width;
+        const imgH = baseCanvas.height;
+        
+        // 1. Clear heatmap canvas
+        heatmapCtx.clearRect(0, 0, imgW, imgH);
+        
+        // 2. Generate simulated feature maps (16 channels)
+        generateFeatureMaps(targetDet, imgW, imgH);
+        
+        // 3. Compute Channel Weights (alpha values) depending on the selected algorithm
+        calculateChannelWeights(targetDet);
+        
+        // 4. Combine channels to create the final 2D activation map (heatmap data)
+        const heatmapData = assembleHeatmapData(imgW, imgH);
+        
+        // 5. Draw the heatmap data on the canvas with color maps & blur
+        drawHeatmapCanvas(heatmapData, imgW, imgH);
+        
+        // 6. Draw overlay canvas (detections, bounding box highlight)
+        redrawOverlay();
+
+        // 7. Update Code Block
+        updateCodeBlock();
+
+        // 8. Populate feature channel inspector
+        populateFeatureInspector();
+    }
+
+    // Generates 16 simulated convolutional activations
+    function generateFeatureMaps(targetDet, width, height) {
+        // target bbox center
+        const boxX = targetDet.box[0] + targetDet.box[2]/2;
+        const boxY = targetDet.box[1] + targetDet.box[3]/2;
+        const boxW = targetDet.box[2];
+        const boxH = targetDet.box[3];
+
+        featureChannels = [];
+        
+        // Set dimension of our simulated convolutional output grid
+        // Backbone: deep coarse grid (e.g. 14x14). Neck: medium grid (28x28). Head: fine grid (56x56)
+        let gridSize = 14;
+        if (selectedLayer === 'neck_sppf') gridSize = 24;
+        if (selectedLayer.startsWith('head_')) gridSize = 40;
+        
+        for (let c = 0; c < 16; c++) {
+            const grid = new Float32Array(gridSize * gridSize);
+            // Heuristic functions to create interesting feature activations
+            for (let y = 0; y < gridSize; y++) {
+                for (let x = 0; x < gridSize; x++) {
+                    const normX = (x / (gridSize - 1)) * width;
+                    const normY = (y / (gridSize - 1)) * height;
+                    
+                    let val = 0;
+                    
+                    if (c % 4 === 0) {
+                        // High activation centered on target box (Object detection feature)
+                        const dx = (normX - boxX) / (boxW * 0.7);
+                        const dy = (normY - boxY) / (boxH * 0.7);
+                        val = Math.exp(-(dx*dx + dy*dy));
+                    } else if (c % 4 === 1) {
+                        // Edge features (activated around borders of target box, highly characteristic of bounding box regression head)
+                        const dx = (normX - boxX);
+                        const dy = (normY - boxY);
+                        const distToEdgeX = Math.abs(Math.abs(dx) - boxW/2) / (boxW*0.2);
+                        const distToEdgeY = Math.abs(Math.abs(dy) - boxH/2) / (boxH*0.2);
+                        
+                        if (selectedLayer === 'head_detect_reg') {
+                            // regression heads focus on edges
+                            val = Math.exp(-distToEdgeX*distToEdgeX) + Math.exp(-distToEdgeY*distToEdgeY);
+                        } else {
+                            // low edge activation
+                            val = Math.sin(normX/40) * Math.cos(normY/40) * 0.3 + 0.1;
+                        }
+                    } else if (c % 4 === 2) {
+                        // Background clutter (activated away from target box)
+                        const distToBox = Math.sqrt(Math.pow(normX - boxX, 2) + Math.pow(normY - boxY, 2));
+                        val = Math.max(0, Math.min(1, distToBox / Math.max(width, height)));
+                    } else {
+                        // Context / secondary object activation
+                        // Activate slightly around other elements
+                        const otherX = width - boxX;
+                        const otherY = height - boxY;
+                        const dx = (normX - otherX) / 120;
+                        const dy = (normY - otherY) / 120;
+                        val = Math.exp(-(dx*dx + dy*dy)) * 0.6;
+                    }
+                    
+                    // Add subtle noise for realistic look
+                    val += Math.random() * 0.1;
+                    grid[y * gridSize + x] = Math.max(0, val);
+                }
+            }
+            featureChannels.push({
+                data: grid,
+                size: gridSize
+            });
+        }
+    }
+
+    function calculateChannelWeights(targetDet) {
+        channelWeights = [];
+        
+        // Grad-CAM: Class score gradient w.r.t features.
+        // Grad-CAM++: Higher positive contribution weights.
+        // Eigen-CAM: Weight based on PCA. Class-agnostic.
+        
+        for (let c = 0; c < 16; c++) {
+            let weight = 0;
+            
+            if (selectedAlgo === 'eigencam') {
+                // Class agnostic, weights are determined by PCA. 
+                // Primary channels representing main structures are highly active
+                if (c % 4 === 0) weight = 0.9;
+                else if (c % 4 === 1) weight = 0.4;
+                else if (c % 4 === 2) weight = 0.1; // bg has low PCA contribution
+                else weight = 0.7; // other objects have high PCA weights
+            } else if (selectedAlgo === 'gradcam') {
+                // Grad-CAM weights depend on active class target
+                if (c % 4 === 0) {
+                    weight = 0.95; // target feature
+                } else if (c % 4 === 1) {
+                    weight = selectedLayer === 'head_detect_reg' ? 0.85 : 0.2; // edge weights high in regression
+                } else if (c % 4 === 2) {
+                    weight = -0.4; // background features suppress confidence (negative gradient)
+                } else {
+                    weight = -0.2; // other objects suppress confidence of this specific target
+                }
+            } else { // gradcampp
+                // More precise localized weights, amplifies positive activations
+                if (c % 4 === 0) {
+                    weight = 1.2;
+                } else if (c % 4 === 1) {
+                    weight = selectedLayer === 'head_detect_reg' ? 1.0 : 0.1;
+                } else if (c % 4 === 2) {
+                    weight = -0.6;
+                } else {
+                    weight = -0.1;
+                }
+            }
+            channelWeights.push(weight);
+        }
+    }
+
+    function assembleHeatmapData(width, height) {
+        // Heatmap resolution corresponds to grid size of feature maps
+        const gridSize = featureChannels[0].size;
+        const mergedGrid = new Float32Array(gridSize * gridSize);
+        
+        // If user hovered on a specific channel, only show that channel's map
+        const isSingleChannelView = highlightedChannelIdx !== null;
+
+        for (let i = 0; i < gridSize * gridSize; i++) {
+            let val = 0;
+            if (isSingleChannelView) {
+                // Just display this channel
+                val = featureChannels[highlightedChannelIdx].data[i];
+                // Apply absolute scaling so it's fully visible
+            } else {
+                // Sum weighted channels: L = ReLU(sum alpha_k * A^k)
+                for (let k = 0; k < 16; k++) {
+                    val += channelWeights[k] * featureChannels[k].data[i];
+                }
+                // Apply ReLU
+                val = Math.max(0, val);
+            }
+            mergedGrid[i] = val;
+        }
+        
+        // Normalize grid values to [0, 1]
+        let maxVal = 0.0001;
+        for (let i = 0; i < mergedGrid.length; i++) {
+            if (mergedGrid[i] > maxVal) maxVal = mergedGrid[i];
+        }
+        for (let i = 0; i < mergedGrid.length; i++) {
+            mergedGrid[i] /= maxVal;
+        }
+        
+        return {
+            grid: mergedGrid,
+            size: gridSize
+        };
+    }
+
+    function drawHeatmapCanvas(heatmapObj, imgW, imgH) {
+        const size = heatmapObj.size;
+        const grid = heatmapObj.grid;
+        
+        // 1. Create a tiny off-screen canvas to render the raw feature map grid (e.g. 14x14)
+        const rawCanvas = document.createElement('canvas');
+        rawCanvas.width = size;
+        rawCanvas.height = size;
+        const rawCtx = rawCanvas.getContext('2d');
+        const rawImgData = rawCtx.createImageData(size, size);
+        
+        const colormapScheme = document.getElementById('select-colormap').value;
+        
+        for (let i = 0; i < grid.length; i++) {
+            const val = grid[i];
+            const rgb = getColormapColor(val, colormapScheme);
+            
+            const index = i * 4;
+            rawImgData.data[index] = rgb[0];
+            rawImgData.data[index + 1] = rgb[1];
+            rawImgData.data[index + 2] = rgb[2];
+            // alpha maps to value (brighter areas are more solid)
+            rawImgData.data[index + 3] = Math.floor(val * 255);
+        }
+        rawCtx.putImageData(rawImgData, 0, 0);
+        
+        // 2. Blow up/scale the tiny feature map onto the main heatmap canvas
+        heatmapCtx.imageSmoothingEnabled = true;
+        heatmapCtx.imageSmoothingQuality = 'high';
+        
+        // Apply Gaussian Blur style filter via Canvas 2D context filter if supported
+        const blurPx = document.getElementById('range-blur').value;
+        heatmapCtx.filter = `blur(${blurPx}px)`;
+        
+        // Draw & scale raw canvas to fill full dimensions
+        heatmapCtx.drawImage(rawCanvas, 0, 0, imgW, imgH);
+        
+        // Reset filter
+        heatmapCtx.filter = 'none';
+    }
+
+    function redrawOverlay() {
+        const imgW = overlayCanvas.width;
+        const imgH = overlayCanvas.height;
+        overlayCtx.clearRect(0, 0, imgW, imgH);
+        
+        if (!showBoxes) return;
+        
+        const activeDetections = customImageLoaded ? customDetections : presets[currentPreset].detections;
+        
+        activeDetections.forEach((det, idx) => {
+            const scaleX = imgW / imgElement.naturalWidth;
+            const scaleY = imgH / imgElement.naturalHeight;
+            const bx = det.box[0] * scaleX;
+            const by = det.box[1] * scaleY;
+            const bw = det.box[2] * scaleX;
+            const bh = det.box[3] * scaleY;
+            
+            const isSelected = idx === selectedBoxIdx;
+            
+            // Draw box border
+            overlayCtx.strokeStyle = det.color;
+            overlayCtx.lineWidth = isSelected ? 4 : 2;
+            overlayCtx.strokeRect(bx, by, bw, bh);
+            
+            // Draw glowing border if selected
+            if (isSelected) {
+                overlayCtx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+                overlayCtx.lineWidth = 1.5;
+                overlayCtx.strokeRect(bx - 2, by - 2, bw + 4, bh + 4);
+            }
+            
+            // Label box background
+            overlayCtx.fillStyle = det.color;
+            overlayCtx.font = "bold 13px 'Prompt', sans-serif";
+            const text = `${det.label} ${(det.conf*100).toFixed(0)}%`;
+            const textWidth = overlayCtx.measureText(text).width;
+            
+            overlayCtx.fillRect(bx - 1, by - 22, textWidth + 12, 22);
+            
+            // Text color (white/black depending on bg)
+            overlayCtx.fillStyle = "#ffffff";
+            overlayCtx.fillText(text, bx + 6, by - 6);
+        });
+    }
+
+    // --- Channel Inspector Rendering ---
+    function populateFeatureInspector() {
+        const gridContainer = document.getElementById('feature-inspector-grid');
+        gridContainer.innerHTML = '';
+        
+        for (let k = 0; k < 16; k++) {
+            const card = document.createElement('div');
+            card.className = `feature-card ${highlightedChannelIdx === k ? 'highlighted' : ''}`;
+            
+            const weightVal = channelWeights[k];
+            const weightClass = weightVal >= 0 ? 'weight-pos' : 'weight-neg';
+            const weightSign = weightVal >= 0 ? '+' : '';
+            
+            card.innerHTML = `
+                <div class="feature-canvas-wrap">
+                    <canvas id="chan-canvas-${k}"></canvas>
+                </div>
+                <div style="font-size: 0.65rem; color: var(--text-muted); font-weight: 600;">CH ${k}</div>
+                <div class="feature-weight ${weightClass}">${weightSign}${weightVal.toFixed(2)}</div>
+            `;
+            
+            // Add hover events to highlight channel heatmap
+            card.addEventListener('mouseenter', () => {
+                highlightedChannelIdx = k;
+                card.classList.add('highlighted');
+                
+                // Re-render heatmap to single channel view
+                const imgW = baseCanvas.width;
+                const imgH = baseCanvas.height;
+                const heatmapData = assembleHeatmapData(imgW, imgH);
+                drawHeatmapCanvas(heatmapData, imgW, imgH);
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                highlightedChannelIdx = null;
+                card.classList.remove('highlighted');
+                
+                // Re-render heatmap to full sum view
+                const imgW = baseCanvas.width;
+                const imgH = baseCanvas.height;
+                const heatmapData = assembleHeatmapData(imgW, imgH);
+                drawHeatmapCanvas(heatmapData, imgW, imgH);
+            });
+            
+            gridContainer.appendChild(card);
+            
+            // Draw channel activations
+            drawChannelCanvas(k);
+        }
+    }
+
+    function drawChannelCanvas(chanIdx) {
+        const chan = featureChannels[chanIdx];
+        if (!chan) return;
+        
+        const canvas = document.getElementById(`chan-canvas-${chanIdx}`);
+        if (!canvas) return;
+        
+        const size = chan.size;
+        canvas.width = size;
+        canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        const imgData = ctx.createImageData(size, size);
+        
+        const colormapScheme = document.getElementById('select-colormap').value;
+        
+        for (let i = 0; i < chan.data.length; i++) {
+            const val = chan.data[i];
+            const rgb = getColormapColor(val, colormapScheme);
+            
+            const index = i * 4;
+            imgData.data[index] = rgb[0];
+            imgData.data[index + 1] = rgb[1];
+            imgData.data[index + 2] = rgb[2];
+            imgData.data[index + 3] = 255; // opaque for miniature previews
+        }
+        ctx.putImageData(imgData, 0, 0);
+    }
+
+    // --- Dynamic Code Generator ---
+    function updateCodeBlock() {
+        const activeDetections = customImageLoaded ? customDetections : presets[currentPreset].detections;
+        const targetDet = activeDetections[selectedBoxIdx];
+        const classId = targetDet ? selectedBoxIdx : 0;
+        const className = targetDet ? targetDet.label.replace(/\s+/g, '') : "Insect";
+        
+        let layerCodeStr = "";
+        if (selectedLayer === 'backbone_deep') {
+            layerCodeStr = "model.model.model[9] # Backbone P5 (YOLOv8-nano)";
+        } else if (selectedLayer === 'neck_sppf') {
+            layerCodeStr = "model.model.model[9] # SPPF Layer in YOLOv8";
+        } else if (selectedLayer === 'head_detect_cls') {
+            layerCodeStr = "model.model.model[22].cv3[0] # YOLOv8 Conv head for Classifications";
+        } else {
+            layerCodeStr = "model.model.model[22].cv2[0] # YOLOv8 Conv head for Bounding Boxes (Regression)";
+        }
+
+        let algoClassName = "GradCAM";
+        if (selectedAlgo === 'gradcampp') algoClassName = "GradCAMPlusPlus";
+        if (selectedAlgo === 'eigencam') algoClassName = "EigenCAM";
+
+        const pyCode = `import cv2
+import numpy as np
+import torch
+from ultralytics import YOLO
+from pytorch_grad_cam import ${algoClassName}
+from pytorch_grad_cam.utils.image import show_cam_on_image
+
+# 1. โหลดโมเดล YOLOv8 / YOLOv11
+model = YOLO("yolov8n.pt") # หรือ yolo11n.pt
+
+# 2. พันโมเดล (Wrapper) เพื่อประมวลผล Output และคำนวณ Gradient แบบย้อนกลับ
+class YOLOv8XAIWrapper(torch.nn.Module):
+    def __init__(self, yolomodel):
+        super().__init__()
+        self.model = yolomodel.model
+
+    def forward(self, x):
+        # รันทำนายผ่านโมเดล PyTorch ดั้งเดิม
+        # สำหรับ YOLO จะได้ Tuple/List: (class_scores, bbox_coordinates)
+        return self.model(x)
+
+wrapped_model = YOLOv8XAIWrapper(model)
+wrapped_model.eval()
+
+# 3. กำหนดเป้าหมายเลเยอร์ที่คัดเลือก
+target_layers = [${layerCodeStr}]
+
+# 4. ออกแบบ Target Function สำหรับ Bounding Box
+# ดึงค่าคะแนนความมั่นใจของคลาสเป้าหมายสำหรับวัตถุเป้าหมาย
+class YOLOBoxTarget:
+    def __init__(self, target_class_id, target_box_idx):
+        self.target_class_id = target_class_id
+        self.target_box_idx = target_box_idx
+
+    def __call__(self, outputs):
+        # outputs[0] คือ Tensor ผลลัพธ์จากการทำนาย [batch, dimensions, anchors]
+        predictions = outputs[0]
+        # ดึงคะแนนความสนใจสำหรับ Bounding Box ที่ต้องการวิเคราะห์
+        class_score = predictions[0, 4 + self.target_class_id, self.target_box_idx]
+        return class_score
+
+# คลาสเป้าหมาย: ${className}
+targets = [YOLOBoxTarget(target_class_id=${classId}, target_box_idx=0)]
+
+# 5. รันอัลกอริทึม XAI (${algoClassName})
+cam = ${algoClassName}(model=wrapped_model, target_layers=target_layers)
+
+# เตรียมรูปภาพนำเข้า
+img = cv2.imread("image.jpg")
+img_resized = cv2.resize(img, (640, 640))
+input_tensor = torch.from_numpy(img_resized).permute(2, 0, 1).unsqueeze(0).float() / 255.0
+
+# สังเคราะห์ Heatmap
+grayscale_cam = cam(input_tensor=input_tensor, targets=targets)[0, :]
+
+# รวม Heatmap ทับซ้อนลงบนภาพต้นฉบับ
+rgb_img = cv2.cvtColor(img_resized, cv2.COLOR_BGR2RGB)
+img_normalized = np.float32(rgb_img) / 255.0
+visualization = show_cam_on_image(img_normalized, grayscale_cam, use_rgb=True)
+
+# บันทึกภาพผลลัพธ์
+cv2.imwrite("yolo_xai_heatmap.jpg", cv2.cvtColor(visualization, cv2.COLOR_RGB2BGR))
+print("วิเคราะห์ผลลัพธ์สำเร็จ บันทึกใน yolo_xai_heatmap.jpg")
+`;
+
+        document.getElementById('python-code-block').innerText = pyCode;
+    }
+</script>
+</body>
+</html>
