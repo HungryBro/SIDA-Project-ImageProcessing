@@ -1,89 +1,82 @@
-# 📘 คู่มือการศึกษาและทดลอง YOLO Explainable AI (XAI) - Week 1
+# การทดลองตรวจวิเคราะห์ YOLOv8 ด้วย Grad-CAM & XAI (Week 1)
 
-ยินดีต้อนรับสู่ **Week 1** ของการศึกษาการทำงานภายในของ Deep Learning Model สำหรับการตรวจจับวัตถุ (Object Detection) โดยเน้นไปที่ตระกูล **YOLO (You Only Look Once)** เช่น YOLOv8 หรือ YOLOv11 และการใช้เทคนิค **Grad-CAM (Gradient-weighted Class Activation Mapping)** และ CAM รูปแบบอื่นๆ
-
----
-
-## 🧠 1. ทำความเข้าใจ Explainable AI (XAI) สำหรับ YOLO
-
-ปกติแล้ว Deep Learning เปรียบเสมือน **"กล่องดำ" (Black Box)** ที่รับภาพเข้าไปแล้วพ่นกรอบทำนายวัตถุออกมา XAI จะช่วย **"เปิดกล่องดำ"** นี้เพื่อให้เราเห็นว่า โมเดลใช้ส่วนไหนของภาพในการตัดสินใจว่ามีวัตถุนั้นอยู่จริง
-
-ในโมเดลตรวจจับวัตถุ เช่น YOLO การทำ XAI จะมีความซับซ้อนกว่างานจำแนกภาพ (Image Classification) ทั่วไป เนื่องจาก:
-1. **Multi-task Output:** YOLO ทำนายทั้งประเภทวัตถุ (Classification) และ พิกัดกล่อง (Bounding Box Regression) ในเวลาเดียวกัน
-2. **Anchor-based/Anchor-free Grid:** โมเดลประเมินค่านับพันตำแหน่งบนภาพ ทำให้การดึงค่า Gradient ย้อนกลับ (Backpropagation) ต้องทำผ่านกลไก Wrapper เพื่อเจาะจงเฉพาะกล่องทำนายที่เราสนใจ
-
-### อัลกอริทึมที่สำคัญในการทดลองนี้:
-*   **Grad-CAM:** ใช้ผลคูณระหว่าง Feature Map (ค่าคุณลักษณะในเลเยอร์ที่คัดเลือก) กับค่าเฉลี่ยสเปเชียลของเกรเดียนต์ เพื่อแสดงจุดที่โมเดลสนใจมากที่สุดสำหรับวัตถุคลาสนั้นๆ
-*   **Grad-CAM++:** พัฒนาต่อยอดจาก Grad-CAM โดยคำนวณเกรเดียนต์อันดับสอง (Second-order gradients) ช่วยให้แสดงพื้นที่การตอบสนองได้สมบูรณ์ขึ้นเมื่อมีวัตถุประเภทเดียวกันปรากฏขึ้นหลายชิ้นในภาพเดียว (Multiple Instances)
-*   **Eigen-CAM:** เป็นวิธีแบบไร้เกรเดียนต์ (Gradient-free) โดยการหา Principal Component (PCA) ชิ้นแรกของเลเยอร์ฟีเจอร์ เหมาะสำหรับการดูโครงสร้างทางกายภาพที่โมเดลดึงออกมาโดยไม่ต้องอ้างอิงประเภทคลาส (Class-agnostic) และทำงานได้รวดเร็วมาก
+โปรเจกต์นี้ประกอบด้วยสคริปต์การตั้งค่าระบบและตัวอย่างโค้ดสำหรับศึกษาและทดลองใช้เทคนิค Class Activation Mapping (CAM) กับโมเดล YOLOv8 ซึ่งเทคนิค Explainable AI (XAI) เหล่านี้ช่วยให้เรามองเห็นภาพพื้นที่ในรูปภาพที่โมเดลให้ความสำคัญในการตรวจจับวัตถุ
 
 ---
 
-## 🛠️ 2. ขั้นตอนการตั้งค่าสภาพแวดล้อมเพื่อทดลองรันโค้ดจริง
+## 📖 ทฤษฎีเบื้องหลัง (Theoretical Background)
 
-เพื่อรันโค้ด Python ในการดึงค่าจากโมเดล YOLO แนะนำให้ตั้งค่าตามขั้นตอนด้านล่างนี้:
+### 1. Class Activation Mapping (CAM) คืออะไร?
+Class Activation Mapping คือเทคนิคการสร้างแผนภาพความร้อน (Heatmap) ทับซ้อนบนรูปภาพต้นฉบับ เพื่อแสดงให้เห็นว่าพิกเซลหรือพื้นที่ส่วนใดในรูปภาพส่งผลต่อการตัดสินใจของโมเดลในการจำแนกหรือระบุตำแหน่งของวัตถุมากที่สุด (ตัวอย่างเช่น การวิเคราะห์ว่าโมเดลโฟกัสที่จุดใดในการแยกแยะสุนัขหรือแมว) โดยสีโทนร้อน (เช่น สีแดง, สีส้ม) จะแสดงถึงบริเวณที่มีระดับความสำคัญสูง
 
-### ขั้นตอนที่ 1: ตรวจสอบและติดตั้ง Python
-หากเครื่องคอมพิวเตอร์ของคุณยังไม่มี Python สามารถดาวน์โหลดและติดตั้งได้จาก [Python.org](https://www.python.org/downloads/) (แนะนำเวอร์ชัน 3.10 หรือ 3.11) *อย่าลืมติ๊กเลือก "Add Python to PATH" ตอนติดตั้ง*
+### 2. Grad-CAM (Gradient-weighted Class Activation Mapping)
+* **หลักการทำงาน:** Grad-CAM ใช้ค่าเกรเดียนต์ (Gradients) ของผลลัพธ์ของคลาสเป้าหมายที่ไหลย้อนกลับเข้ามายังเลเยอร์คอนโวลูชันสุดท้าย (Final Convolutional Layer) เพื่อระบุความสำคัญของแต่ละฟีเจอร์แมป
+* **สมการคำนวณ:** ระบบคำนวณหาเกรเดียนต์ของคะแนนคลาส $y^c$ เทียบกับค่าเปิดใช้งานฟีเจอร์แมป $A^k$ จากนั้นทำการหาค่าเฉลี่ยเกรเดียนต์แบบ Global Average Pooling เพื่อเป็นน้ำหนักความสำคัญ $\alpha_k^c$ แล้วนำน้ำหนักนี้ไปรวมแบบเชิงเส้นกับฟีเจอร์แมป และผ่านฟังก์ชัน ReLU เพื่อคัดเอาเฉพาะส่วนที่มีผลเชิงบวกต่อโมเดล:
+  $$L_{\text{Grad-CAM}}^c = \text{ReLU}\left(\sum_k \alpha_k^c A^k\right)$$
 
-### ขั้นตอนที่ 2: สร้างสภาพแวดล้อมเสมือน (Virtual Environment)
-เปิด PowerShell/Terminal แล้วย้ายเข้าไปในไดเรกทอรีนี้ จากนั้นรันคำสั่ง:
-```bash
-# 1. ย้ายเข้าโฟลเดอร์ Week1
-cd c:\Users\Acer\Desktop\Project\Week1
+### 3. เทคนิค CAM รูปแบบต่างๆ ที่ใช้ในการทดลองนี้
+* **Grad-CAM++:** พัฒนาต่อยอดจาก Grad-CAM เพื่อให้ตรวจจับตำแหน่งของวัตถุคลาสเดียวกันที่มีมากกว่า 1 ชิ้นในภาพได้ดีขึ้น โดยการนำเกรเดียนต์อันดับสอง (Second-order gradients) มาร่วมคำนวณน้ำหนักความสำคัญพิกเซล
+* **Eigen-CAM:** วิธีการแบบไม่ต้องคำนวณเกรเดียนต์ (Gradient-free) โดยใช้การหาค่าองค์ประกอบหลักอันดับแรก (First Principal Component) ของฟีเจอร์แมปที่ได้จากเลเยอร์สุดท้าย มีข้อดีคือทำงานเร็วมาก และทนทานต่อปัญหาเกรเดียนต์หายหรือระเบิด (Vanishing/Exploding Gradients)
+* **Layer-CAM:** ใช้น้ำหนักที่คำนวณจากเกรเดียนต์ค่าบวกในแต่ละพิกเซลโดยตรง สามารถนำมาใช้กับเลเยอร์ระดับลึกหรือตื้นได้ดี ทำให้ได้แผนภาพความร้อนที่รายละเอียดคมชัดขึ้นในหลายระดับความละเอียด
 
-# 2. สร้าง Virtual Environment ชื่อ venv
-python -m venv venv
+### ⚖️ การเปรียบเทียบระหว่าง YOLOv8-nano และ YOLO11-nano (SIDA Project Context)
 
-# 3. เปิดใช้งาน (Activate) Virtual Environment
-# สำหรับ Windows (PowerShell)
-.\venv\Scripts\Activate.ps1
-# (หากพบ Permission Error ให้รัน Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process ก่อน)
-```
-
-### ขั้นตอนที่ 3: ติดตั้งไลบรารีที่จำเป็น
-เมื่ออยู่ในสถานะ `(venv)` แล้ว ให้รันคำสั่งติดตั้งตัวแปรหลัก:
-```bash
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
-pip install ultralytics grad-cam opencv-python matplotlib
-```
-*(หมายเหตุ: หากเครื่องมีการ์ดจอ NVIDIA และต้องการใช้ GPU ให้ติดตั้ง PyTorch รุ่น CUDA)*
+| คุณสมบัติ | YOLOv8-nano (`yolov8n`) | YOLO11-nano (`yolo11n`) |
+| :--- | :--- | :--- |
+| **สถาปัตยกรรม (Backbone/Neck)** | ใช้บล็อก **C2f** (Cross Stage Partial Bottleneck) | ใช้บล็อก **C3k2** (เร็วกว่าและมีประสิทธิภาพโครงสร้างดีขึ้น) |
+| **กลไกความใส่ใจ (Attention)** | ไม่มีกลไก Attention ในระดับโครงสร้างโมเดลพื้นฐาน | มีการผสานเลเยอร์ **C2PSA** (Channel-to-Pixel Spatial Attention) ซึ่งใช้กลไก Multi-head Self-Attention เพื่อวิเคราะห์ความสัมพันธ์ระยะไกลของฟิกเซล |
+| **จำนวนพารามิเตอร์** | ~3.2 ล้านพารามิเตอร์ | ~2.6 ล้านพารามิเตอร์ (มีขนาดโมเดลเล็กลงแต่ฉลาดขึ้น) |
+| **ความแม่นยำ (COCO mAP)** | ปานกลาง (มาตรฐาน YOLOv8) | สูงกว่า YOLOv8-nano ประมาณ 1-3% mAP |
+| **พฤติกรรมในแผนภาพความร้อน (CAM)** | แผนภาพความร้อนจะเกาะกลุ่มกันตามฟีเจอร์คอนโวลูชันปกติ | ด้วยกลไกของ C2PSA แผนภาพความร้อนสามารถวิเคราะห์พิกเซลที่มีผลสำคัญในระยะไกลและขอบเขตวัตถุได้แม่นยำขึ้น |
 
 ---
 
-## 🚀 3. ไฟล์การทดลองและวิธีการใช้งาน
+## 🛠️ ขั้นตอนการตั้งค่าสภาพแวดล้อม (Environment Setup)
 
-ในไดเรกทอรีนี้ประกอบด้วย 3 รูปแบบการทดลองหลัก:
+เราแนะนำให้ใช้งานผ่าน Conda Environment (หรือ Python Virtual Environment) เพื่อไม่ให้กระทบต่อไลบรารีส่วนกลางของเครื่อง
 
-### 🌐 รูปแบบที่ A: สนามทดลองอินเตอร์แอคทีฟ (ไม่ต้องใช้ Python)
-*   **ไฟล์:** [yolo_xai.html](file:///c:/Users/Acer/Desktop/Project/Week1/yolo_xai.html)
-*   **วิธีใช้:** เพียงแค่ดับเบิลคลิกไฟล์นี้เพื่อเปิดบน Web Browser (Chrome, Edge)
-*   **สิ่งที่ทำได้:** 
-    *   ทดลองเปลี่ยน XAI Algorithm (Grad-CAM, Grad-CAM++, Eigen-CAM)
-    *   ทดลองเปลี่ยน Target Layer เพื่อดูระดับการประมวลผล (Backbone ละเอียดน้อย-โครงสร้างหลัก, Head ละเอียดสูง-การจำแนกประเภท)
-    *   คลิกที่แต่ละ Bounding Box เพื่อคำนวณ Heatmap ของวัตถุชิ้นนั้นๆ แบบ Real-time
-    *   ลากวาดกรอบตรวจจับเองเพื่อดูบริเวณรอบขอบเขต
-    *   ดูแชนเนลโครงข่ายย่อย (Feature Channels 0-15) ว่ามองเห็นรูปภาพเป็นอย่างไร
-
-### 🐍 รูปแบบที่ B: โค้ดสคริปต์ Python สำหรับรันจริง
-*   **ไฟล์:** [yolo_xai_demo.py](file:///c:/Users/Acer/Desktop/Project/Week1/yolo_xai_demo.py)
-*   **วิธีใช้:** รันด้วยคำสั่ง:
-    ```bash
-    python yolo_xai_demo.py
-    ```
-*   **ผลลัพธ์:** สคริปต์จะใช้โมเดล YOLOv8n และสร้างแผนภาพความร้อน (Heatmap) ทับลงบนรูปภาพตัวอย่าง `seaweed_insect_detection.png` และเซฟออกมาเป็นภาพเปรียบเทียบในไดเรกทอรีนี้
-
-### 📓 รูปแบบที่ C: สมุดโน้ตอธิบายทีละขั้นตอน (Interactive Notebook)
-*   **ไฟล์:** [yolo_xai_demo.ipynb](file:///c:/Users/Acer/Desktop/Project/Week1/yolo_xai_demo.ipynb)
-*   **วิธีใช้:** เปิดไฟล์นี้ใน VS Code (ที่ติดตั้ง Extension Jupyter แล้ว) หรือผ่าน `jupyter notebook`
-*   **ประโยชน์:** เหมาะสำหรับเปิดอ่านทฤษฎีควบคู่ไปกับการรันภาพเพื่อดูผลลัพธ์การเรียนรู้ไปทีละบล็อก
+1. **เปิด PowerShell** (คลิกขวาเปิดด้วยสิทธิ์ Administrator หากเป็นการติดตั้ง Python ครั้งแรก)
+2. ย้ายไปยังโฟลเดอร์โปรเจกต์สัปดาห์ที่ 1:
+   ```powershell
+   cd c:\Users\Acer\Desktop\Project\Week1
+   ```
+3. รันสคริปต์เตรียมระบบ:
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+   .\setup_env.ps1
+   ```
+   *สคริปต์นี้จะตรวจสอบตัวติดตั้ง Conda/Python บนเครื่องของคุณ สร้างสภาพแวดล้อมจำลอง และติดตั้งไลบรารีที่ระบุไว้ใน `requirements.txt` โดยอัตโนมัติ*
 
 ---
 
-## 📊 4. สรุปผลการเปรียบเทียบแต่ละเลเยอร์ (สำหรับรายงานอาจารย์)
+## 🚀 ขั้นตอนการทดลองรันสคริปต์ (Running the Experiment)
 
-เมื่อคุณทำการทดลองวิเคราะห์ผ่านเลเยอร์ต่างๆ ของ YOLO จะพบข้อสังเกตดังนี้:
-1.  **Backbone (เช่น SPPF หรือ Conv เลเยอร์ลึกๆ):** Heatmap มักจะฟุ้งและครอบคลุมบริเวณกว้างรอบๆ วัตถุ เนื่องจากเป็นฟีเจอร์ระดับสูง (High-level semantic features) ที่เน้นบริบทและรูปร่างโดยรวม
-2.  **Neck (เช่น C2f หรือ Concat ใน Path-Aggregation Network):** ความร้อนจะเริ่มบีบแคบลงตามพิกัดของวัตถุอย่างชัดเจน
-3.  **Head - Class Branch (cv3):** ความร้อนพุ่งตรงไปยังจุดเด่นเฉพาะตัวที่ระบุชนิดวัตถุ (เช่น หัวแมลง, ใบหูสุนัข, ลวดลายบนตัว)
-4.  **Head - Box Branch (cv2):** ความร้อนจะกระจายตัวอยู่ตามขอบเขตและมุมขอบของวัตถุ เพื่อช่วยในการทำนายขอบเขตพิกัดกล่อง (Bounding Box Regression)
+1. **เปิดใช้งานสภาพแวดล้อมจำลอง (Activate Environment):**
+   * หากตั้งค่าสำเร็จด้วย **Conda**:
+     ```powershell
+     conda activate yolo_gradcam
+     ```
+   * หากตั้งค่าด้วย **Virtualenv** (`.venv`):
+     ```powershell
+     .\.venv\Scripts\Activate.ps1
+     ```
+2. **รันการทดลอง:**
+   ```powershell
+   python gradcam_yolo.py
+   ```
+3. **ตรวจสอบผลลัพธ์:**
+    * สคริปต์จะทำการตรวจสอบรูปภาพตัวอย่าง `sample_cat_dog.jpg` (หากไม่มีจะดาวน์โหลดให้ทันที)
+    * ดึงโมเดลทั้ง **YOLOv8-nano (`yolov8n.pt`)** และ **YOLO11-nano (`yolo11n.pt`)** มาวิเคราะห์เปรียบเทียบ
+    * คำนวณแผนภาพความร้อน 4 รูปแบบ (GradCAM, GradCAMPlusPlus, EigenCAM, LayerCAM) สำหรับแต่ละโมเดล
+    * รูปภาพผลลัพธ์ความร้อนทั้งหมดจะถูกเซฟลงในโฟลเดอร์ `outputs/` ในรูปแบบ:
+      * `outputs/yolov8n_[method]_result_0.jpg`
+      * `outputs/yolo11n_[method]_result_0.jpg`
+
+---
+
+## 📂 โครงสร้างของโปรเจกต์ (Project Structure)
+
+* [requirements.txt](file:///c:/Users/Acer/Desktop/Project/Week1/requirements.txt) - ไฟล์บันทึกรายชื่อไลบรารีที่ต้องใช้ (`ultralytics`, `YOLOv8-Explainer`, `opencv-python` ฯลฯ)
+* [setup_env.ps1](file:///c:/Users/Acer/Desktop/Project/Week1/setup_env.ps1) - สคริปต์ PowerShell สำหรับช่วยตั้งค่า Virtual Environment หรือ Conda อัตโนมัติ
+* [gradcam_yolo.py](file:///c:/Users/Acer/Desktop/Project/Week1/gradcam_yolo.py) - สคริปต์หลักในการคำนวณและวาดกล่องข้อความพร้อมสร้างภาพผลลัพธ์ CAM
+* โฟลเดอร์ `outputs/` - แหล่งจัดเก็บรูปภาพผลลัพธ์แผนภาพความร้อนที่รันเสร็จแล้ว

@@ -1,0 +1,7 @@
+ultralytics>=8.0.0
+YOLOv8-Explainer
+opencv-python
+matplotlib
+numpy
+scipy
+scikit-image
