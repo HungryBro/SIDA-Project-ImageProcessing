@@ -1,0 +1,18 @@
+{
+  "seed": 1101,
+  "image_size": 640,
+  "train_single_per_class": 60,
+  "val_single_per_class": 10,
+  "test_single_per_class": 10,
+  "train_multi_count": 60,
+  "val_multi_count": 15,
+  "test_multi_count": 30,
+  "hard_count": 30,
+  "empty_count": 10,
+  "repeated_count": 15,
+  "classes": [
+    "circle",
+    "triangle",
+    "square"
+  ]
+}

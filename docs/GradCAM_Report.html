@@ -1,0 +1,1357 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDA: YOLOv8 vs YOLO11 Grad-CAM & XAI Report</title>
+
+    <!-- Google Fonts & FontAwesome -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <style>
+        :root {
+            --bg-color: #121214; /* Very dark soft charcoal background */
+            --panel-bg: #1e1e24; /* Warm dark gray card background */
+            --panel-border: #2a2b36; /* Soft dark gray border */
+            --accent-cyan: #38bdf8; /* Soft blue/cyan */
+            --accent-blue: #60a5fa; /* Soft blue */
+            --accent-purple: #a78bfa; /* Soft purple */
+            --accent-pink: #f472b6; /* Soft pink */
+            --text-main: #e4e4e7; /* Soft Zinc white text */
+            --text-muted: #a1a1aa; /* Zinc 400 muted text */
+            --glass-blur: none;
+            --transition-speed: 0.25s;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            --hover-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Prompt', sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.015) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.015) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header block */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        header h1 {
+            font-family: 'Prompt', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f4f4f5;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        header p.subtitle {
+            font-family: 'Prompt', sans-serif;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .meta-badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: #2a2b36;
+            border: 1px solid #3e4052;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            color: #e4e4e7;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .badge i {
+            color: var(--accent-blue);
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+            background: #121214;
+            padding: 6px;
+            border-radius: 14px;
+            border: 1px solid #2a2b36;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 10px 20px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn.active {
+            color: #ffffff;
+            background: #1e1e24;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid #3e4052;
+        }
+
+        /* Content Sections */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Card panels */
+        .panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .panel h2 {
+            font-family: 'Prompt', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #f4f4f5;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid #2a2b36;
+            padding-bottom: 12px;
+        }
+
+        .panel h2 i {
+            color: var(--accent-blue);
+        }
+
+        /* Comparison Table */
+        table.comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        table.comparison-table th,
+        table.comparison-table td {
+            padding: 14px 20px;
+            text-align: left;
+            border-bottom: 1px solid #2a2b36;
+        }
+
+        table.comparison-table th {
+            font-family: 'Prompt', sans-serif;
+            background: #16161a;
+            color: #f4f4f5;
+            font-weight: 600;
+        }
+
+        table.comparison-table tr:hover {
+            background: #25252d;
+        }
+
+        /* Highlights list */
+        .highlight-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .highlight-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: #d4d4d8;
+        }
+
+        .highlight-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Image Grids */
+        .original-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .comparison-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .comparison-row {
+            background: #16161a;
+            border: 1px solid #2a2b36;
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .comparison-row-title {
+            font-family: 'Prompt', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #f4f4f5;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comparison-row-title span {
+            background: rgba(96, 165, 250, 0.1);
+            color: #93c5fd;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            font-weight: 600;
+        }
+
+        .row-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .image-side-by-side {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .image-side-by-side {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Image Cards */
+        .image-card {
+            background: var(--panel-bg);
+            border: 1px solid #2a2b36;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all var(--transition-speed) ease;
+            position: relative;
+            box-shadow: var(--card-shadow);
+        }
+
+        .image-card:hover {
+            transform: translateY(-4px);
+            border-color: #3e4052;
+            box-shadow: var(--hover-shadow);
+        }
+
+        .image-card-header {
+            padding: 12px 16px;
+            background: #16161a;
+            border-bottom: 1px solid #2a2b36;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #e4e4e7;
+        }
+
+        .image-card-header span.model-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .yolov8-tag {
+            background: rgba(96, 165, 250, 0.1);
+            color: #93c5fd;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+
+        .yolo11-tag {
+            background: rgba(167, 139, 250, 0.1);
+            color: #c084fc;
+            border: 1px solid rgba(167, 139, 250, 0.2);
+        }
+
+        .image-card-body {
+            position: relative;
+            cursor: pointer;
+            background: #0d0d0f;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #2a2b36;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .image-card:hover .image-card-body img {
+            transform: scale(1.03);
+        }
+
+        .zoom-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 20, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
+        }
+
+        .image-card-body:hover .zoom-overlay {
+            opacity: 1;
+        }
+
+        .zoom-overlay i {
+            font-size: 1.8rem;
+            color: #fff;
+            background: rgba(24, 24, 27, 0.8);
+            padding: 15px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .image-card-footer {
+            padding: 14px 16px;
+            background: var(--panel-bg);
+        }
+
+        .image-card-footer p.caption {
+            font-family: 'Prompt', sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* CAM Method Cards */
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .method-card {
+            background: var(--panel-bg);
+            border: 1px solid #2a2b36;
+            border-radius: 16px;
+            padding: 24px;
+            transition: all var(--transition-speed) ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        .method-card:hover {
+            transform: translateY(-3px);
+            border-color: #3e4052;
+            background: #25252d;
+            box-shadow: var(--hover-shadow);
+        }
+
+        .method-card-title {
+            font-family: 'Prompt', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gradcam-color { color: var(--accent-pink); }
+        .gradcamplusplus-color { color: var(--accent-cyan); }
+        .eigencam-color { color: var(--accent-blue); }
+        .layercam-color { color: var(--accent-purple); }
+
+        .method-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .method-tag-container {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .method-tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .tag-strength {
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .tag-weakness {
+            background: rgba(239, 68, 68, 0.1);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        /* Lightbox modal - keep dark for premium photo rendering */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 20, 0.98);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-img-wrapper {
+            position: relative;
+            max-width: 90%;
+            max-height: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-caption {
+            font-family: 'Prompt', sans-serif;
+            color: #ffffff;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #a1a1aa;
+            font-size: 2.2rem;
+            cursor: pointer;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .lightbox-close:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>SIDA: Seaweed Insect Detection and Analysis</h1>
+            <p class="subtitle">ระบบวิเคราะห์จุดสนใจของโมเดลสำหรับการตรวจจับแมลงด้วย Grad-CAM & XAI (Week 1)</p>
+            <div class="meta-badges">
+                <div class="badge"><i class="fas fa-layer-group"></i> เปรียบเทียบ: YOLOv8-nano vs YOLO11-nano</div>
+                <div class="badge"><i class="fas fa-microscope"></i> อัลกอริทึม: Grad-CAM, Grad-CAM++, Eigen-CAM,
+                    Layer-CAM</div>
+                <div class="badge"><i class="fas fa-code-branch"></i> การทดสอบ: ตรวจสอบแบบเจาะจงคลาส & วัตถุหลายชิ้น
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('overview')">
+                <i class="fas fa-info-circle"></i> ทฤษฎีและการเปรียบเทียบ
+            </button>
+            <button class="tab-btn" onclick="switchTab('standard')">
+                <i class="fas fa-images"></i> การรันมาตรฐาน (All-Class)
+            </button>
+            <button class="tab-btn" onclick="switchTab('dog-only')">
+                <i class="fas fa-filter"></i> การทดสอบคลาสเดี่ยว (Dog Only)
+            </button>
+            <button class="tab-btn" onclick="switchTab('multi-object')">
+                <i class="fas fa-users"></i> การทดสอบหลายวัตถุ (Multi-Object)
+            </button>
+        </div>
+
+        <!-- TAB 1: OVERVIEW & THEORY -->
+        <div id="overview" class="tab-content active">
+            <!-- Table Panel -->
+            <div class="panel">
+                <h2><i class="fas fa-balance-scale"></i> YOLOv8-nano vs YOLO11-nano</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">
+                    จากการทดสอบโมเดลสำเร็จรูป (Pre-trained Models) ทั้งสองรุ่นของ Ultralytics
+                    มีการเปลี่ยนแปลงโครงสร้างที่สำคัญส่งผลต่อการตีความข้อมูลและระดับความแม่นยำ ดังนี้:
+                </p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>คุณลักษณะ</th>
+                            <th>YOLOv8-nano (yolov8n)</th>
+                            <th>YOLO11-nano (yolo11n)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>โครงสร้างหลัก (Backbone/Neck)</strong></td>
+                            <td>ใช้บล็อก C2f (Cross Stage Partial Bottleneck) ในการประมวลผล</td>
+                            <td>เปลี่ยนมาใช้บล็อก C3k2 ซึ่งมีน้ำหนักเบาและไหลลื่นดีกว่าเดิม</td>
+                        </tr>
+                        <tr>
+                            <td><strong>กลไกความสนใจ (Attention Mechanism)</strong></td>
+                            <td>ไม่มีกลไกความสนใจติดตั้งเป็นโครงสร้างมาตรฐาน</td>
+                            <td>เพิ่มโมดูล <strong>C2PSA</strong> (Channel-to-Pixel Spatial Attention)
+                                ช่วยวิเคราะห์ความสัมพันธ์พิกเซลระยะไกลแบบ Self-Attention</td>
+                        </tr>
+                        <tr>
+                            <td><strong>จำนวนพารามิเตอร์</strong></td>
+                            <td>~3.2 ล้านพารามิเตอร์</td>
+                            <td>~2.6 ล้านพารามิเตอร์ (ขนาดเล็กลงประมาณ 18%)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ความแม่นยำบน COCO Dataset</strong></td>
+                            <td>ค่ามาตรฐาน YOLOv8</td>
+                            <td>mAP สูงขึ้นประมาณ 1-3% เมื่อเทียบกับ YOLOv8 ในสเกลเดียวกัน</td>
+                        </tr>
+                        <tr>
+                            <td><strong>การสะท้อนผลลัพธ์ผ่าน CAM</strong></td>
+                            <td>สัญญาณความสนใจกระจายตัวรอบวัตถุตามบล็อก CNN ทั่วไป</td>
+                            <td>สัญญาณบีบรัดเข้าสู่สัณฐานขอบเขตวัตถุได้เรียบร้อยและกว้างกว่าจากความสามารถของ C2PSA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CAM Methods Description Panel -->
+            <div class="panel">
+                <h2><i class="fas fa-brain"></i> อัลกอริทึม Class Activation Mapping (CAM) ทั้ง 4 รูปแบบ</h2>
+                <div class="methods-grid">
+                    <!-- Grad-CAM -->
+                    <div class="method-card">
+                        <div class="method-card-title"><i class="fas fa-dot-circle gradcam-color"></i> Grad-CAM</div>
+                        <p>ดึงค่าเกรเดียนต์ (Gradients)
+                            คลาสเป้าหมายย้อนกลับมาหาฟีเจอร์แมปเลเยอร์สุดท้ายเพื่อเฉลี่ยความเด่น</p>
+                        <div class="method-tag-container">
+                            <span class="method-tag tag-strength">เจาะจงคลาสเป้าหมาย</span>
+                            <span class="method-tag tag-weakness">เบลอ / จับวัตถุซ้ำได้ไม่ดี</span>
+                        </div>
+                    </div>
+                    <!-- Grad-CAM++ -->
+                    <div class="method-card">
+                        <div class="method-card-title"><i class="fas fa-plus-circle gradcamplusplus-color"></i>
+                            Grad-CAM++</div>
+                        <p>พัฒนาขึ้นโดยใส่เกรเดียนต์อันดับสอง
+                            ช่วยให้ส่องแผนภาพความร้อนครอบคลุมวัตถุประเภทเดียวกันได้ครบถ้วนขึ้น</p>
+                        <div class="method-tag-container">
+                            <span class="method-tag tag-strength">จับหลายวัตถุได้พร้อมกัน</span>
+                            <span class="method-tag tag-weakness">ยังคงมีความเบลอเป็นปื้น</span>
+                        </div>
+                    </div>
+                    <!-- Eigen-CAM -->
+                    <div class="method-card">
+                        <div class="method-card-title"><i class="fas fa-bolt eigencam-color"></i> Eigen-CAM</div>
+                        <p>ใช้วิธีวิเคราะห์องค์ประกอบหลัก (PCA) บนฟีเจอร์แมปโดยไม่ต้องคำนวณเกรเดียนต์
+                            ทำงานเร็วและรูปทรงสวย</p>
+                        <div class="method-tag-container">
+                            <span class="method-tag tag-strength">รวดเร็ว / รูปร่างวัตถุคมชัด</span>
+                            <span class="method-tag tag-weakness">ไม่ระบุแยกคลาส (โชว์หมด)</span>
+                        </div>
+                    </div>
+                    <!-- Layer-CAM -->
+                    <div class="method-card">
+                        <div class="method-card-title"><i class="fas fa-layer-group layercam-color"></i> Layer-CAM</div>
+                        <p>ใช้น้ำหนักเกรเดียนต์ค่าบวกคูณเข้าฟีเจอร์แมปพิกเซลต่อพิกเซล
+                            ให้พิกัดจุดความร้อนคมชัดที่สุดในทุกเลเยอร์</p>
+                        <div class="method-tag-container">
+                            <span class="method-tag tag-strength">ความละเอียดระดับพิกเซล / คมมาก</span>
+                            <span class="method-tag tag-weakness">ภาพเกลี่ยยากถ้าเลเยอร์ไม่เหมาะ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Dataset Note Panel -->
+            <div class="panel">
+                <h2><i class="fas fa-project-diagram"></i> การประยุกต์ใช้กับโครงการ SIDA (ตรวจจับแมลงในสาหร่าย)</h2>
+                <p style="color: var(--text-muted); margin-bottom: 15px;">
+                    ในขณะที่การรันวิเคราะห์นี้ใช้โมเดลสำเร็จรูป (Pre-trained) ในการหาวัตถุทั่วไป 80 อย่าง (หมา, แมว, คน
+                    ฯลฯ) ในโครงการ SIDA โครงการนี้จะต้องดำเนินการ <strong>จูนปรับปรุงโมเดลเฉพาะทาง (Fine-tuning /
+                        Transfer Learning)</strong>:
+                </p>
+                <ul class="highlight-list" style="color: var(--text-muted); font-size: 0.95rem;">
+                    <li>ถ่ายรูปภาพแมลงแต่ละสายพันธุ์ที่อยู่บนสาหร่าย และวาดกล่องข้อความกำกับ (Label) เพื่อสร้าง Dataset
+                    </li>
+                    <li>นำโครงสร้างของ YOLO11-nano (ซึ่งมีโมดูล Attention C2PSA คอยคุมพิกเซล)
+                        มาทำการเทรนซ้ำเพื่อให้ตรวจจับแมลงได้เฉพาะจุด</li>
+                    <li>ใช้ <strong>Layer-CAM</strong> หรือ <strong>Grad-CAM++</strong> มารันตรวจสอบหลังเทรนเสร็จ
+                        เพื่อทดสอบความถูกต้องว่าโมเดลตรวจจับแมลงหลายๆ ตัวในภาพพร้อมกันได้ครบ และเพ่งเล็งจุดสนใจหลักไปที่
+                        "ตัวแมลง" จริงๆ ไม่ใช่เรื่องของเฉดสีสาหร่าย</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB 2: STANDARD EXPERIMENT -->
+        <div id="standard" class="tab-content">
+            <!-- Original Image Panel -->
+            <div class="panel">
+                <h2><i class="fas fa-image"></i> รูปภาพต้นฉบับ (Original Image)</h2>
+                <div class="original-images-grid">
+                    <div class="image-card" style="max-width: 500px; margin: 0 auto;">
+                        <div class="image-card-header">
+                            <span style="font-weight: 600;">sample_cat_dog.jpg</span>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">224 x 224</span>
+                        </div>
+                        <div class="image-card-body"
+                            onclick="openLightbox('../assets/input/sample_cat_dog.jpg', 'รูปภาพต้นฉบับ: สุนัขและแมวอยู่เคียงข้างกัน')">
+                            <img src="../assets/input/sample_cat_dog.jpg" alt="Cat and Dog">
+                            <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                        </div>
+                        <div class="image-card-footer">
+                            <p class="caption">รูปภาพตัวอย่างมาตรฐานที่ใช้ในการประเมินโมเดล มีสุนัขอยู่ด้านซ้าย
+                                และแมวอยู่ด้านขวาบนเบาะนอน</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heatmaps Comparison Grid -->
+            <div class="panel">
+                <h2><i class="fas fa-fire"></i> ผลลัพธ์แผนภาพความร้อนแบบมาตรฐาน (All Classes Target)</h2>
+                <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">
+                    รันแบบระบุคลาสทั้งหมด (All Classes) เพื่อเปรียบเทียบดูว่าโมเดล YOLOv8n และ YOLO11n
+                    จัดสรรระดับความสำคัญให้แก่สุนัขและแมวในภาพอย่างไรผ่าน 4 วิธีการ
+                </p>
+
+                <div class="comparison-grid">
+                    <!-- Row 1: Grad-CAM -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Grad-CAM <span>ดั้งเดิม</span></div>
+                        <p class="row-description">เปรียบเทียบการสร้างความร้อนปื้นใหญ่บนจุดเด่นของวัตถุ</p>
+                        <div class="image-side-by-side">
+                            <!-- v8 -->
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/standard/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/standard/yolov8/gradcam_result_0.jpg', 'YOLOv8-nano + Grad-CAM (All Classes): ไฮไลต์ปื้นความร้อนสีแดงเน้นที่สุนัขเป็นหลัก ส่วนแมวมีความร้อนจับอยู่เบาบาง')">
+                                    <img src="../outputs/standard/yolov8/gradcam_result_0.jpg" alt="YOLOv8 GradCAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">โมเดลแยกตรวจจับสุนัขและแมวถูกต้อง
+                                        ความร้อนสว่างเป็นปื้นกว้างเกาะอยู่ที่ตัวสุนัข ส่วนฝั่งแมวมีความร้อนน้อยกว่า</p>
+                                </div>
+                            </div>
+                            <!-- v11 -->
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/standard/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/standard/yolo11/gradcam_result_0.jpg', 'YOLO11-nano + Grad-CAM (All Classes): ความร้อนหุ้มตัวสุนัขและมีพลังโฟกัสไปหาตัวแมวที่คมขึ้นเนื่องจากโมดูลความใส่ใจ')">
+                                    <img src="../outputs/standard/yolo11/gradcam_result_0.jpg" alt="YOLO11 GradCAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">การตอบสนองความร้อนมีความสมดุลขึ้น
+                                        โดยความร้อนเกาะอยู่ที่บริเวณลำตัวสุนัขและแมวทั้ง 2 ตัวอย่างชัดเจน</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Grad-CAM++ -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Grad-CAM++ <span>ปรับปรุงภาพวัตถุหลายชิ้น</span></div>
+                        <p class="row-description">เน้นพื้นที่สำคัญของวัตถุประเภทเดียวกันให้ครบถ้วนขึ้น</p>
+                        <div class="image-side-by-side">
+                            <!-- v8 -->
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/standard/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/standard/yolov8/gradcamplusplus_result_0.jpg', 'YOLOv8-nano + Grad-CAM++: แผนภาพเกลี่ยปื้นสีแดงครอบคลุมขึ้นมาที่บริเวณสุนัขและแมวมากขึ้น')">
+                                    <img src="../outputs/standard/yolov8/gradcamplusplus_result_0.jpg" alt="YOLOv8 Grad-CAM++">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">
+                                        ความร้อนกระจายตัวกว้างขึ้นและสว่างขึ้นที่ตัวแมวทางขวาเมื่อเทียบกับ Grad-CAM
+                                        ดั้งเดิม</p>
+                                </div>
+                            </div>
+                            <!-- v11 -->
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/standard/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/standard/yolo11/gradcamplusplus_result_0.jpg', 'YOLO11-nano + Grad-CAM++: โฟกัสจุดเด่นบนตัวสุนัขและใบหน้าแมวอย่างเหมาะสมและสม่ำเสมอ')">
+                                    <img src="../outputs/standard/yolo11/gradcamplusplus_result_0.jpg" alt="YOLO11 Grad-CAM++">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">
+                                        ความร้อนสอดคล้องกับตำแหน่งทางกายภาพของสุนัขและแมวทั้งคู่ได้อย่างพอดี
+                                        ไม่สว่างเลอะออกนอกรูปทรง</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Eigen-CAM -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Eigen-CAM <span>Gradient-Free (PCA)</span></div>
+                        <p class="row-description">แสดงรูปร่างวัตถุเด่นโดยไม่ใช้เกรเดียนต์ รันเร็วและแม่นยำตามขอบ</p>
+                        <div class="image-side-by-side">
+                            <!-- v8 -->
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/standard/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/standard/yolov8/eigencam_result_0.jpg', 'YOLOv8-nano + Eigen-CAM: ดีเทลขอบของสุนัขชัดเจนมากรวมถึงตัวแมวด้วย แต่ตรวจจับขวดน้ำ (bottle 0.30) ที่ริมขวาผิดพลาด')">
+                                    <img src="../outputs/standard/yolov8/eigencam_result_0.jpg" alt="YOLOv8 Eigen-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption"><strong>พบการจับตำแหน่งผิดพลาด:</strong> ตัวโมเดล v8
+                                        มีกรอบตรวจเจอขวดน้ำ (bottle 0.30) ด้านริมขวาสุด จึงส่งความร้อนขึ้นเบาๆ
+                                        รอบพื้นที่นั้น</p>
+                                </div>
+                            </div>
+                            <!-- v11 -->
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/standard/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/standard/yolo11/eigencam_result_0.jpg', 'YOLO11-nano + Eigen-CAM: รูปทรงของหมาและแมวจับขอบชัด ไม่มีขวดน้ำกวนใจ')">
+                                    <img src="../outputs/standard/yolo11/eigencam_result_0.jpg" alt="YOLO11 Eigen-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption"><strong>ทำงานได้สะอาดกว่า:</strong> ตรวจเจอเฉพาะสุนัข (92%)
+                                        และแมว (91%) แสงสีส้มแดงล้อมรอบสัณฐานสัตว์ทั้งคู่ได้อย่างสะอาดเรียบร้อย</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Layer-CAM -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Layer-CAM <span>ความละเอียดพิกเซล</span></div>
+                        <p class="row-description">แสดงพื้นที่เปิดใช้งานแบบจุดคมชัดสูง ไม่ขยายเบลอเป็นวงกว้าง</p>
+                        <div class="image-side-by-side">
+                            <!-- v8 -->
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/standard/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/standard/yolov8/layercam_result_0.jpg', 'YOLOv8-nano + Layer-CAM: แผนภาพเกาะรายละเอียดแคบเป็นขอบร่างของสุนัขและแมว')">
+                                    <img src="../outputs/standard/yolov8/layercam_result_0.jpg" alt="YOLOv8 Layer-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">แสงความร้อนสีแดงสว่างขึ้นเป็นจุดเจาะจงที่หน้าอกและขาของสุนัข
+                                        รวมถึงส่วนหัวของแมว</p>
+                                </div>
+                            </div>
+                            <!-- v11 -->
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/standard/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/standard/yolo11/layercam_result_0.jpg', 'YOLO11-nano + Layer-CAM: ความร้อนชี้ชัดถึงส่วนโครงหน้าสุนัขและแมวได้อย่างคมชัดสูง')">
+                                    <img src="../outputs/standard/yolo11/layercam_result_0.jpg" alt="YOLO11 Layer-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">
+                                        ความสว่างพิกเซลกระชับอยู่ที่ส่วนใบหน้าและจุดดึงสายตาของทั้งสุนัขและแมวได้อย่างแม่นยำ
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: EVALUATION DOG ONLY -->
+        <div id="dog-only" class="tab-content">
+            <!-- Explain Panel -->
+            <div class="panel">
+                <h2><i class="fas fa-filter"></i> การทดสอบ: ตรวจสอบเฉพาะคลาส "สุนัข" (Dog-Only Class Specificity)</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <strong>วัตถุประสงค์เพื่อดึงจุดอ่อนของ Eigen-CAM:</strong> เราส่งค่าเกรเดียนต์กลับเพื่อบอกระบบว่า
+                    "สนใจวิเคราะห์เฉพาะคลาสสุนัข" เท่านั้น ผลลัพธ์แสดงให้เห็นว่า:
+                </p>
+                <ul class="highlight-list" style="color: var(--text-muted); font-size: 0.92rem; margin-top: 10px;">
+                    <li><strong>ตระกูลที่ใช้เกรเดียนต์ (Grad-CAM, Grad-CAM++, Layer-CAM):</strong>
+                        จะส่องความร้อนเฉพาะสุนัขทางซ้ายเท่านั้น ส่วนแมวทางขวาจะมืดสนิท
+                        (ถูกต้องตามหลักการวิเคราะห์แยกประเภท)</li>
+                    <li><strong>Eigen-CAM (จุดอ่อน):</strong> เนื่องจากไม่มีการระบุข้อมูลคลาสผ่านเกรเดียนต์
+                        มันจึงยังคงส่องความร้อนสีส้มแดงไปที่ตัวแมวอยู่ดีเพราะแมวถือเป็นฟีเจอร์ที่เด่นในเลเยอร์นั้น</li>
+                </ul>
+            </div>
+
+            <!-- Heatmaps Comparison Grid -->
+            <div class="panel">
+                <h2><i class="fas fa-fire"></i> ผลลัพธ์แผนภาพความร้อนคลาสสุนัขเท่านั้น (Dog-Only Target)</h2>
+                <div class="comparison-grid">
+                    <!-- Row 1: Grad-CAM -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Grad-CAM <span>(Dog Only)</span></div>
+                        <div class="image-side-by-side">
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/comparison/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolov8/dog_only_gradcam.jpg', 'YOLOv8-nano + Grad-CAM (Dog Only): วัตถุแมวทางขวาไม่มีแสงสีแดงจับเลย ความร้อนจับเฉพาะที่ลำตัวสุนัขทางซ้ายเท่านั้น')">
+                                    <img src="../outputs/comparison/yolov8/dog_only_gradcam.jpg"
+                                        alt="YOLOv8 Dog Only GradCAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">สลัดความสนใจแมวออกไปหมด
+                                        ความร้อนจับเฉพาะตรงกลางสุนัขตามฟังก์ชันความจำเพาะคลาส</p>
+                                </div>
+                            </div>
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/comparison/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolo11/dog_only_gradcam.jpg', 'YOLO11-nano + Grad-CAM (Dog Only): แผนภาพเกาะกลุ่มตัวสุนัขเรียบร้อยดี ปล่อยแมวมืดสนิท')">
+                                    <img src="../outputs/comparison/yolo11/dog_only_gradcam.jpg"
+                                        alt="YOLO11 Dog Only GradCAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">การส่องเฉพาะตำแหน่งสุนัขทำงานได้ถูกต้อง
+                                        ความร้อนรวมตัวหนาแน่นกว่าในพื้นที่จำกัด</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Grad-CAM++ -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Grad-CAM++ <span>(Dog Only)</span></div>
+                        <div class="image-side-by-side">
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/comparison/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolov8/dog_only_gradcamplusplus.jpg', 'YOLOv8-nano + Grad-CAM++ (Dog Only): ครอบคลุมพื้นที่สุนัขทั้งตัวได้กว้างขวางขึ้น โดยแมวไม่ได้รับผลกระทบ')">
+                                    <img src="../outputs/comparison/yolov8/dog_only_gradcamplusplus.jpg"
+                                        alt="YOLOv8 Dog Only Grad-CAM++">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">
+                                        ส่องความร้อนคุมทั่วแผ่นหลังและลำตัวสุนัขได้ครบสัดส่วนโดยแมวทางขวายังมืดอยู่</p>
+                                </div>
+                            </div>
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/comparison/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolo11/dog_only_gradcamplusplus.jpg', 'YOLO11-nano + Grad-CAM++ (Dog Only): วงความร้อนสอดคล้องกับขนาดตัวสุนัขได้อย่างพอดีและชัดเจน')">
+                                    <img src="../outputs/comparison/yolo11/dog_only_gradcamplusplus.jpg"
+                                        alt="YOLO11 Dog Only Grad-CAM++">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">
+                                        ให้ระดับความร้อนครอบคลุมจุดเด่นทางสรีระของสุนัขได้อย่างมีระบบระเบียบสูง</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Eigen-CAM -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Eigen-CAM <span>(จุดอ่อน:
+                                แสดงผลแมวด้วยแม้จะสั่งให้ดูแค่หมา)</span></div>
+                        <div class="image-side-by-side">
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/comparison/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolov8/dog_only_eigencam.jpg', 'YOLOv8-nano + Eigen-CAM (Dog Only - จุดอ่อน): เนื่องจากไม่ได้ใช้เกรเดียนต์ ถึงแม้เราจะเลือกตรวจเฉพาะสุนัข แต่มันก็ยังไฮไลต์ความร้อนสีส้มบนตัวแมวอยู่ดี')">
+                                    <img src="../outputs/comparison/yolov8/dog_only_eigencam.jpg"
+                                        alt="YOLOv8 Dog Only Eigen-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption"><strong>แสดงจุดด้อยหลัก:</strong> โมเดลวาดกล่องครอบเฉพาะสุนัข
+                                        แต่ความร้อนยังสว่างจ้าบนตัวแมวเพราะมองเป็นฟีเจอร์เด่น</p>
+                                </div>
+                            </div>
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/comparison/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolo11/dog_only_eigencam.jpg', 'YOLO11-nano + Eigen-CAM (Dog Only - จุดอ่อน): ความร้อนแสดงผลบนตัวแมวเช่นกันเนื่องจากเป็นข้อจำกัดของทฤษฎี Eigen-CAM')">
+                                    <img src="../outputs/comparison/yolo11/dog_only_eigencam.jpg"
+                                        alt="YOLO11 Dog Only Eigen-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">พฤติกรรมเป็นไปตามขีดจำกัดของอัลกอริทึมที่ไม่คัดแยกคลาส (Non-class
+                                        discriminative) ความร้อนสปอตไลท์ไปที่แมวด้วย</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Layer-CAM -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Layer-CAM <span>(Dog Only)</span></div>
+                        <div class="image-side-by-side">
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/comparison/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolov8/dog_only_layercam.jpg', 'YOLOv8-nano + Layer-CAM (Dog Only): วาดขอบและตำแหน่งสำคัญบนสุนัขอย่างละเอียดและตัดแมวออก')">
+                                    <img src="../outputs/comparison/yolov8/dog_only_layercam.jpg"
+                                        alt="YOLOv8 Dog Only Layer-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">
+                                        ระบุพิกัดความสว่างเจาะลงที่ขาและอกสุนัขอย่างคมชัดโดยไม่มีสัญญาณหลุดลอดไปทางฝั่งขวา
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/comparison/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolo11/dog_only_layercam.jpg', 'YOLO11-nano + Layer-CAM (Dog Only): โฟกัสหัวและลำตัวหมาอย่างแหลมคมเป็นจุดๆ ปราศจากแมว')">
+                                    <img src="../outputs/comparison/yolo11/dog_only_layercam.jpg"
+                                        alt="YOLO11 Dog Only Layer-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">การล็อกตำแหน่งเป้าหมายสุนัขทำงานได้ยอดเยี่ยม
+                                        ความสว่างเกาะกลุ่มขอบโครงร่างหน้าของสุนัขอย่างคมกริบ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: EVALUATION MULTI-OBJECT -->
+        <div id="multi-object" class="tab-content">
+            <!-- Original Image Panel -->
+            <div class="panel">
+                <h2><i class="fas fa-image"></i> รูปภาพต้นฉบับสำหรับการทดสอบหลายวัตถุ (Multi-Object Original Image)</h2>
+                <div class="original-images-grid">
+                    <div class="image-card" style="max-width: 500px; margin: 0 auto;">
+                        <div class="image-card-header">
+                            <span style="font-weight: 600;">test_bus.jpg</span>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">640 x 480</span>
+                        </div>
+                        <div class="image-card-body"
+                            onclick="openLightbox('../assets/input/test_bus.jpg', 'รูปภาพต้นฉบับ: คนหลายคนกำลังสัญจรอยู่ข้างรถประจำทาง')">
+                            <img src="../assets/input/test_bus.jpg" alt="Bus and People">
+                            <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                        </div>
+                        <div class="image-card-footer">
+                            <p class="caption">รูปภาพมีวัตถุประเภทคน (person) จำนวนมากเดินถนนอยู่ข้างรถบัสขนาดใหญ่
+                                เหมาะสำหรับการทดสอบความสามารถในการแสดงผลหลายวัตถุ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explain Panel -->
+            <div class="panel">
+                <h2><i class="fas fa-users"></i> การทดสอบ: ตรวจสอบหลายวัตถุ (Multi-Object Detection)</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">
+                    <strong>วัตถุประสงค์เพื่อดึงจุดอ่อนของ Grad-CAM ดั้งเดิม:</strong>
+                    ภาพนี้มีผู้คนเดินเท้าหลายคนอยู่ด้วยกัน:
+                </p>
+                <ul class="highlight-list" style="color: var(--text-muted); font-size: 0.92rem; margin-top: 10px;">
+                    <li><strong>Grad-CAM ดั้งเดิม (จุดอ่อน):</strong>
+                        วงความร้อนจะไปส่องเข้มสะท้อนอยู่แค่ตรงผู้ชายคนขวาหรือคนซ้ายสุดคนเดียว
+                        ไม่กระจายตัวคลุมคนทุกคนเนื่องจากตัวเฉลี่ย GAP</li>
+                    <li><strong>Grad-CAM++, Eigen-CAM, Layer-CAM (จุดเด่น):</strong>
+                        จุดสว่างสีส้มแดงกระจายตัวแผ่คลุมไปที่ผู้คนทุกคนและตัวถังรถบัสได้อย่างสอดคล้อง</li>
+                </ul>
+            </div>
+
+            <!-- Heatmaps Comparison Grid -->
+            <div class="panel">
+                <h2><i class="fas fa-fire"></i> ผลลัพธ์แผนภาพความร้อนแบบหลายวัตถุ (Multi-Object Heatmaps)</h2>
+                <div class="comparison-grid">
+                    <!-- Row 1: Grad-CAM -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Grad-CAM <span>(จุดอ่อน: ไฮไลต์ตกหล่นวัตถุอื่นและเบลอ)</span>
+                        </div>
+                        <div class="image-side-by-side">
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/comparison/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolov8/multi_object_gradcam.jpg', 'YOLOv8-nano + Grad-CAM (Multi-Object - จุดอ่อน): แผนภาพแสดงจุดแดงสว่างเจาะจงเฉพาะคนริมขวาสุดเป็นแผ่นใหญ่ ส่วนคนอื่นๆ ตรงกลางและรถบัสแทบไม่มีสีความร้อนปรากฏ')">
+                                    <img src="../outputs/comparison/yolov8/multi_object_gradcam.jpg"
+                                        alt="YOLOv8 Multi-Object GradCAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption"><strong>แสดงจุดอ่อน:</strong>
+                                        ความร้อนเป็นปื้นใหญ่อยู่ที่ผู้ชายคนขวาสุด
+                                        แต่กลับละเลยผู้คนที่เดินอยู่ฝั่งซ้ายและตรงกลาง</p>
+                                </div>
+                            </div>
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/comparison/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolo11/multi_object_gradcam.jpg', 'YOLO11-nano + Grad-CAM (Multi-Object - จุดอ่อน): มีการตอบสนองที่สุนทรีย์ขึ้นเล็กน้อยแต่ก็ยังมีจุดอ่อนในการจับคนไม่ครบทุกตำแหน่ง')">
+                                    <img src="../outputs/comparison/yolo11/multi_object_gradcam.jpg"
+                                        alt="YOLO11 Multi-Object GradCAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">ความร้อนพยายามจับบริเวณคนสองฝั่ง
+                                        แต่คนสัญจรกลางภาพยังไม่ได้รับสัญญาณไฮไลต์ที่เด่นชัดพอ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Grad-CAM++ -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Grad-CAM++ <span>(จุดเด่น:
+                                ไฮไลต์ครอบคลุมวัตถุซ้ำได้สมบูรณ์ขึ้น)</span></div>
+                        <div class="image-side-by-side">
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/comparison/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolov8/multi_object_gradcamplusplus.jpg', 'YOLOv8-nano + Grad-CAM++: สังเกตความร้อนสีเหลืองและเขียวแผ่ไปจับตำแหน่งของคนหลายๆ คนพร้อมกันดีขึ้น')">
+                                    <img src="../outputs/comparison/yolov8/multi_object_gradcamplusplus.jpg"
+                                        alt="YOLOv8 Multi-Object Grad-CAM++">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption"><strong>แสดงผลดีขึ้นชัดเจน:</strong>
+                                        ความร้อนสีเหลืองแดงกระจายตัวคุมทั้งชายคนขวา คนกลุ่มกลาง
+                                        และจุดสำคัญตัวถังรถประจำทาง</p>
+                                </div>
+                            </div>
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/comparison/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolo11/multi_object_gradcamplusplus.jpg', 'YOLO11-nano + Grad-CAM++: ความร้อนแผ่ไปยังผู้คนสัญจรทุกคนบนถนนและพื้นที่รอบรถบัสได้อย่างสม่ำเสมอ')">
+                                    <img src="../outputs/comparison/yolo11/multi_object_gradcamplusplus.jpg"
+                                        alt="YOLO11 Multi-Object Grad-CAM++">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">
+                                        การประสานกันของเกรเดียนต์อันดับสองคัดสัญญาณและกระจายพื้นที่ความสนใจวัตถุได้ถ้วนทั่วทุกตำแหน่ง
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Eigen-CAM -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Eigen-CAM <span>(จุดเด่น:
+                                โครงร่างวัตถุเนียนสวยตามพื้นที่เด่น)</span></div>
+                        <div class="image-side-by-side">
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/comparison/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolov8/multi_object_eigencam.jpg', 'YOLOv8-nano + Eigen-CAM: รูปทรงของรถบัสและคนเดินถนนมีแผนภาพความร้อนสีน้ำเงินและส้มล้อมรอบอย่างสวยงามตามฟิสิกส์รูปร่าง')">
+                                    <img src="../outputs/comparison/yolov8/multi_object_eigencam.jpg"
+                                        alt="YOLOv8 Multi-Object Eigen-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">
+                                        โครงร่างของรถบัสและคนเดินถนนทางซ้ายและขวาถูกเน้นเป็นกรอบรูปร่างที่นิ่งและเรียบร้อยมาก
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/comparison/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolo11/multi_object_eigencam.jpg', 'YOLO11-nano + Eigen-CAM: ด้วยกลไกความสนใจภายในของโมเดลความร้อนครอบคลุมพื้นที่อย่างเป็นระเบียบสูง')">
+                                    <img src="../outputs/comparison/yolo11/multi_object_eigencam.jpg"
+                                        alt="YOLO11 Multi-Object Eigen-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">การวาดรูปร่างของฟีเจอร์เด่นทำได้นุ่มนวลและไม่เลอะเทอะ
+                                        โดยเน้นความสำคัญที่ขอบตัวรถและตัวบุคคลอย่างกลมกลืน</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Layer-CAM -->
+                    <div class="comparison-row">
+                        <div class="comparison-row-title">Layer-CAM <span>(จุดเด่น: คมจัด
+                                เจาะพิกเซลแยกชิ้นวัตถุได้คมกริบ)</span></div>
+                        <div class="image-side-by-side">
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLOv8-nano</span>
+                                    <span class="model-tag yolov8-tag">outputs/comparison/yolov8</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolov8/multi_object_layercam.jpg', 'YOLOv8-nano + Layer-CAM: แผนภาพชี้ชัดความร้อนเป้าหมายแยกชิ้นกันอย่างชัดเจนตามแนวร่างของคนแต่ละคน')">
+                                    <img src="../outputs/comparison/yolov8/multi_object_layercam.jpg"
+                                        alt="YOLOv8 Multi-Object Layer-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">
+                                        ความสว่างสีแดงจุดประกายแยกชิ้นขาดจากกันที่ศีรษะและขาของบุคคลแต่ละคนได้อย่างแม่นยำระดับสูง
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="image-card">
+                                <div class="image-card-header">
+                                    <span>YOLO11-nano</span>
+                                    <span class="model-tag yolo11-tag">outputs/comparison/yolo11</span>
+                                </div>
+                                <div class="image-card-body"
+                                    onclick="openLightbox('../outputs/comparison/yolo11/multi_object_layercam.jpg', 'YOLO11-nano + Layer-CAM: ความคมชัดระดับพิกเซลจับตามโครงสร้างตัวคนเดินถนนทุกคนได้อย่างคมชัดสูง')">
+                                    <img src="../outputs/comparison/yolo11/multi_object_layercam.jpg"
+                                        alt="YOLO11 Multi-Object Layer-CAM">
+                                    <div class="zoom-overlay"><i class="fas fa-search-plus"></i></div>
+                                </div>
+                                <div class="image-card-footer">
+                                    <p class="caption">ด้วยประสิทธิภาพของ YOLO11
+                                        ความร้อนสว่างขึ้นแยกพิกเซลตามตัวบุคคลทุกคนได้อย่างถูกต้องและคมกริบไร้ความเบลอปน
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal Container -->
+    <div id="lightboxModal" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-img-wrapper" onclick="event.stopPropagation()">
+            <img id="lightboxImg" src="" alt="Zoomed view">
+        </div>
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- Vanilla Javascript for tab switching and lightbox functionality -->
+    <script>
+        function switchTab(tabId) {
+            // Hide all contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show active content & active button
+            document.getElementById(tabId).classList.add('active');
+
+            // Find button that has matching onclick attribute
+            const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(tabId));
+            if (activeBtn) activeBtn.classList.add('active');
+        }
+
+        function openLightbox(imgSrc, captionText) {
+            const modal = document.getElementById('lightboxModal');
+            const modalImg = document.getElementById('lightboxImg');
+            const modalCaption = document.getElementById('lightboxCaption');
+
+            modal.style.display = 'flex';
+            // Slight timeout to let style.display take effect before adding class for transition
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+
+            modalImg.src = imgSrc;
+            modalCaption.innerText = captionText;
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        // Close lightbox on Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>

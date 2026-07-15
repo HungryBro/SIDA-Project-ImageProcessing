@@ -1,0 +1,9 @@
+path: .
+train: images/train
+val: images/val
+test: images/test
+multi_test: images/multi_test
+names:
+  0: circle
+  1: triangle
+  2: square

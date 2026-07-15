@@ -1,0 +1,33 @@
+{
+  "dataset_dir": "data/shapes_v2",
+  "status": "passed",
+  "errors": [],
+  "warnings": [],
+  "image_counts": {
+    "train": 295,
+    "val": 48,
+    "test": 30,
+    "multi_test": 30
+  },
+  "label_counts": {
+    "circle": 186,
+    "square": 186,
+    "triangle": 186
+  },
+  "split_class_counts": {
+    "train:circle": 125,
+    "train:square": 125,
+    "train:triangle": 125,
+    "val:circle": 21,
+    "val:triangle": 21,
+    "val:square": 21,
+    "test:circle": 10,
+    "test:square": 10,
+    "test:triangle": 10,
+    "multi_test:triangle": 30,
+    "multi_test:square": 30,
+    "multi_test:circle": 30
+  },
+  "duplicate_groups": [],
+  "cross_split_duplicate_groups": []
+}
