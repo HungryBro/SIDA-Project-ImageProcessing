@@ -7,7 +7,8 @@ class, hard-case, empty-background, and locked multi-object splits.
 
 Every object receives a YOLO label, object mask, rationale mask, boundary mask,
 and metadata row.  The generator is deterministic for a given seed and never
-modifies the original ``data/shapes`` dataset unless explicitly requested.
+creates the v2 dataset under ``data/shapes_v2`` unless another output directory
+is explicitly requested.
 """
 
 from __future__ import annotations

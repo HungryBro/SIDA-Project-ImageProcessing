@@ -12,10 +12,10 @@ from evaluate_shape_detection import evaluate
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model", type=Path, default=Path("outputs/shapes/baseline_v2/weights/best.pt"))
+    parser.add_argument("--model", type=Path, default=Path("outputs/shapes_v2/baseline_v2/weights/best.pt"))
     parser.add_argument("--images", type=Path, default=Path("data/shapes_v2/images/val"))
     parser.add_argument("--labels", type=Path, default=Path("data/shapes_v2/labels/val"))
-    parser.add_argument("--output-dir", type=Path, default=Path("outputs/shapes/baseline_v2/calibration"))
+    parser.add_argument("--output-dir", type=Path, default=Path("outputs/shapes_v2/baseline_v2/calibration"))
     parser.add_argument("--device", default="cpu")
     args = parser.parse_args()
 

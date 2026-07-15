@@ -19,7 +19,7 @@ from ultralytics.utils.ops import xywh2xyxy
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INPUT_DIR = PROJECT_ROOT / "assets" / "input"
 MODEL_DIR = PROJECT_ROOT / "models"
-OUTPUT_DIR = PROJECT_ROOT / "outputs"
+OUTPUT_DIR = PROJECT_ROOT / "outputs" / "archive" / "legacy_cam"
 
 # Copy of standard letterbox function for YOLO input resizing
 def letterbox(
@@ -369,7 +369,7 @@ def run_gradcam_experiment():
         weight_file = str(model_info["weight"])
         target_layers = model_info["layers"]
         
-        # 1. RUN STANDARD EXPERIMENT (outputs/standard/yolov8/ or outputs/standard/yolo11/)
+        # 1. RUN STANDARD EXPERIMENT (outputs/archive/legacy_cam/standard/)
         # Targets all classes on sample_cat_dog.jpg
         print(f"\n--- [Standard Run] Target: All Classes (sample_cat_dog.jpg) ---")
         for label, method_class_name in cam_methods.items():
@@ -391,7 +391,7 @@ def run_gradcam_experiment():
             except Exception as e:
                 print(f"[-] Error: {e}")
         
-        # 2. RUN COMPARISON EVALUATION (outputs/comparison/yolov8/ or outputs/comparison/yolo11/)
+        # 2. RUN COMPARISON EVALUATION (outputs/archive/legacy_cam/comparison/)
         # Test Case A: Dog Only (shows EigenCAM weakness)
         print(f"\n--- [Evaluation A] Class-Specific: Dog Only (sample_cat_dog.jpg) ---")
         for label, method_class_name in cam_methods.items():

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shape Reasoning v2 — Experiment Report</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2d;
+      --panel-2: #18233b;
+      --text: #eef3ff;
+      --muted: #aab6d1;
+      --line: #2b3a5c;
+      --cyan: #58d9ff;
+      --green: #55d98b;
+      --amber: #ffc857;
+      --red: #ff7b8b;
+      --shadow: 0 16px 38px rgba(0,0,0,.22);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 80% -10%, #21365f 0, transparent 38%), var(--bg);
+      color: var(--text);
+      font: 15px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1220px; margin: 0 auto; padding: 36px 22px 70px; }
+    .hero { padding: 38px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(135deg, rgba(27,42,75,.96), rgba(15,24,44,.96)); box-shadow: var(--shadow); }
+    .eyebrow { color: var(--cyan); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: 12px; }
+    h1 { margin: 8px 0 8px; font-size: clamp(30px, 5vw, 56px); line-height: 1.08; letter-spacing: -.04em; }
+    h2 { margin: 52px 0 14px; font-size: 27px; letter-spacing: -.025em; }
+    h3 { margin: 0 0 8px; font-size: 18px; }
+    p { color: var(--muted); margin: 8px 0 14px; }
+    .lead { max-width: 850px; font-size: 18px; color: #d9e3fa; }
+    .meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .tag, .status { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.05); color: #dbe5fb; font-size: 13px; }
+    .status.pass { border-color: rgba(85,217,139,.45); color: var(--green); background: rgba(85,217,139,.1); }
+    .status.partial { border-color: rgba(255,200,87,.45); color: var(--amber); background: rgba(255,200,87,.1); }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card { grid-column: span 4; padding: 21px; border: 1px solid var(--line); border-radius: 17px; background: rgba(18,26,45,.9); box-shadow: var(--shadow); }
+    .card.wide { grid-column: span 8; }
+    .card.full { grid-column: 1 / -1; }
+    .metric { font-size: 34px; line-height: 1.1; font-weight: 800; color: white; }
+    .metric.green { color: var(--green); }
+    .metric.amber { color: var(--amber); }
+    .label { margin-top: 5px; color: var(--muted); font-size: 13px; }
+    .callout { padding: 17px 20px; border-left: 4px solid var(--cyan); background: rgba(88,217,255,.08); border-radius: 0 12px 12px 0; color: #dbe7ff; }
+    .callout strong { color: white; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0 4px; overflow: hidden; }
+    th, td { padding: 11px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: #c7d5f2; background: rgba(255,255,255,.045); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    td { color: #dbe4f8; }
+    tr:last-child td { border-bottom: 0; }
+    .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .good { color: var(--green); font-weight: 700; }
+    .warn { color: var(--amber); font-weight: 700; }
+    .small { color: var(--muted); font-size: 13px; }
+    .two { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .figure { margin: 0; padding: 11px; border: 1px solid var(--line); border-radius: 14px; background: #0d1426; }
+    .figure img { display: block; width: 100%; height: auto; border-radius: 9px; background: #202c47; }
+    figcaption { padding: 8px 3px 1px; color: var(--muted); font-size: 12px; }
+    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+    .gallery .figure img { aspect-ratio: 1; object-fit: cover; }
+    code { padding: 2px 5px; border-radius: 5px; background: rgba(255,255,255,.08); color: #dce8ff; }
+    .artifact-list { columns: 2; column-gap: 35px; padding-left: 19px; }
+    .artifact-list li { break-inside: avoid; margin: 5px 0; color: var(--muted); }
+    .footer { margin-top: 52px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    @media (max-width: 850px) { .card, .card.wide { grid-column: 1 / -1; } .gallery, .two { grid-template-columns: 1fr; } .artifact-list { columns: 1; } .hero { padding: 25px; } }
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Experiment report · Shapes v2</div>
+    <h1>Shape Reasoning v2</h1>
+    <p class="lead">การประเมินโมเดล YOLO11n สำหรับตรวจจับวงกลม สามเหลี่ยม และสี่เหลี่ยมในภาพหลายวัตถุ พร้อมตรวจสอบว่าโมเดลตอบสนองต่อรูปทรงเชิงเรขาคณิตและให้คำอธิบายที่มีความหมายหรือไม่</p>
+    <div class="meta">
+      <span class="status pass">Detection gate: PASS</span>
+      <span class="status partial">Reasoning gate: PARTIAL</span>
+      <span class="tag">YOLO11n · 30 epochs</span>
+      <span class="tag">640×640 · CPU · seed 42</span>
+    </div>
+  </header>
+
+  <h2>Executive summary</h2>
+  <div class="grid">
+    <section class="card"><div class="metric green">1.000</div><div class="label">Overall precision / recall / exact-count accuracy</div><p>บน multi-object test, locked original และ robustness variants</p></section>
+    <section class="card"><div class="metric green">90 / 90</div><div class="label">ถูกต้องบน locked original multi-test</div><p>ไม่พบ wrong class, missed detection หรือ duplicate</p></section>
+    <section class="card"><div class="metric green">97.14%</div><div class="label">Counterfactual pass rate</div><p>70 คู่ รวม control ที่ไม่เปลี่ยนรูปทรง</p></section>
+    <section class="card wide"><h3>ข้อสรุปหลัก</h3><p>การเพิ่มภาพหลายวัตถุและกรณีรูปทรงซ้ำใน Dataset v2 แก้ distribution shift ของ baseline เดิมได้อย่างชัดเจน โมเดลตรวจจับได้ดีมาก แต่ผล Grad-CAM ยังไม่พอจะสรุปว่าโมเดลกำลังใช้ “มุม” หรือ “เส้นขอบ” ตาม rationale ของมนุษย์อย่างเฉพาะเจาะจง</p></section>
+    <section class="card"><h3>Model artifact</h3><p><a href="baseline_v2/weights/best.pt">ดาวน์โหลด best.pt</a></p><p class="small">ไฟล์ checkpoint ที่ใช้ใน evaluation ทั้งหมด</p></section>
+  </div>
+
+  <h2>1. Experiment design</h2>
+  <div class="grid">
+    <section class="card wide"><h3>สิ่งที่ปรับปรุงจาก baseline เดิม</h3><p>Baseline เดิมฝึกด้วยภาพวัตถุเดี่ยว แต่ถูกทดสอบกับภาพสามวัตถุ จึงเกิดปัญหา distribution shift, class confusion และ duplicate detection</p><p>V2 เพิ่มภาพหลายวัตถุ ภาพที่มีรูปทรงชนิดเดิมซ้ำกัน ฉากยาก ภาพพื้นหลังเปล่า รวมถึง object mask, boundary mask, rationale mask และ dataset validator</p></section>
+    <section class="card"><h3>Dataset</h3><table><tr><td>Train</td><td class="num">295 images</td></tr><tr><td>Validation</td><td class="num">48 images</td></tr><tr><td>Single-object test</td><td class="num">30 images</td></tr><tr><td>Locked multi-test</td><td class="num">30 images</td></tr><tr><td>Annotations</td><td class="num">558 objects</td></tr></table></section>
+    <section class="card"><h3>Training configuration</h3><table><tr><td>Model</td><td>YOLO11n</td></tr><tr><td>Epochs</td><td class="num">30</td></tr><tr><td>Batch</td><td class="num">16</td></tr><tr><td>Image size</td><td class="num">640</td></tr><tr><td>Device</td><td>CPU</td></tr><tr><td>Seed</td><td class="num">42</td></tr></table></section>
+  </div>
+
+  <h2>2. Detection performance</h2>
+  <div class="callout"><strong>Detection gate ผ่านเต็มรูปแบบ:</strong> โมเดลนับจำนวนวัตถุถูกต้องและแยก class ได้ครบในทุก evaluation split ที่รายงาน</div>
+  <div class="card full">
+    <table>
+      <thead><tr><th>Split</th><th>Images / objects</th><th>Precision</th><th>Recall</th><th>Exact count</th><th>Mean IoU</th><th>Error summary</th></tr></thead>
+      <tbody>
+        <tr><td>Validation</td><td>48 / —</td><td class="good">0.997</td><td class="good">1.000</td><td>—</td><td>—</td><td>ใช้เลือก threshold</td></tr>
+        <tr><td>V2 multi-object test</td><td>30 / 90</td><td class="good">1.000</td><td class="good">1.000</td><td class="good">1.000</td><td>0.987</td><td>0 wrong class · 0 duplicate · 0 miss</td></tr>
+        <tr><td>Locked original multi-test</td><td>30 / 90</td><td class="good">1.000</td><td class="good">1.000</td><td class="good">1.000</td><td>0.987</td><td>90 correct · 0 FP · 0 FN</td></tr>
+        <tr><td>Robustness variants</td><td>90 / 90</td><td class="good">1.000</td><td class="good">1.000</td><td class="good">1.000</td><td>0.988</td><td>background / color / color-background ผ่านทั้งหมด</td></tr>
+      </tbody>
+    </table>
+    <p class="small">Mean IoU เป็นค่าเฉลี่ยโดยประมาณจาก metric JSON ของแต่ละ split; class-level IoU: circle 0.989, triangle 0.987, square 0.986 บน locked original</p>
+  </div>
+  <div class="two" style="margin-top:16px">
+    <figure class="figure"><img src="baseline_v2/BoxF1_curve.png" alt="Box F1 curve"><figcaption>Validation Box F1 curve</figcaption></figure>
+    <figure class="figure"><img src="baseline_v2/confusion_matrix_normalized.png" alt="Normalized confusion matrix"><figcaption>Normalized confusion matrix</figcaption></figure>
+  </div>
+
+  <h2>3. Confidence / NMS calibration</h2>
+  <section class="card full"><p>เลือกค่าจาก validation เท่านั้น ก่อนยืนยันบน locked test:</p><table><tr><th>Parameter</th><th>Selected value</th><th>Selection result</th></tr><tr><td>Confidence threshold</td><td class="num">0.20</td><td>Precision 1.000 · Recall 1.000</td></tr><tr><td>NMS IoU</td><td class="num">0.50</td><td>Exact-count accuracy 1.000 · 0 duplicate</td></tr><tr><td>Match IoU</td><td class="num">0.50</td><td>ใช้สำหรับจับคู่ prediction กับ ground truth</td></tr></table><p><a href="baseline_v2/calibration/threshold_sweep.csv">ดู threshold sweep ทั้งหมด</a></p></section>
+
+  <h2>4. Counterfactual geometry test</h2>
+  <div class="grid">
+    <section class="card wide"><table><thead><tr><th>Counterfactual</th><th>Pairs</th><th>Pass rate</th><th>Mean confidence Δ</th><th>Interpretation</th></tr></thead><tbody>
+      <tr><td>Circle → octagon</td><td>10</td><td class="warn">80%</td><td class="num">−0.227</td><td>ยาก เพราะ octagon ใกล้เคียง circle</td></tr>
+      <tr><td>Circle → hexagon</td><td>10</td><td class="good">100%</td><td class="num">−0.986</td><td>ความมั่นใจลดลงชัดเจน</td></tr>
+      <tr><td>Triangle → clipped apex</td><td>10</td><td class="good">100%</td><td class="num">−0.359</td><td>ไวต่อการทำลายมุมยอด</td></tr>
+      <tr><td>Square → rounded corners</td><td>10</td><td class="good">100%</td><td class="num">−0.992</td><td>ไวต่อความเป็นเหลี่ยม</td></tr>
+      <tr><td>Unchanged controls</td><td>30</td><td class="good">100%</td><td class="num">0.000</td><td>ไม่เกิดการเปลี่ยน confidence โดยไม่จำเป็น</td></tr>
+      <tr><td><strong>Overall</strong></td><td><strong>70</strong></td><td class="good"><strong>97.14%</strong></td><td>—</td><td>สนับสนุน geometric sensitivity</td></tr>
+    </tbody></table></section>
+    <section class="card"><h3>อ่านผลอย่างระมัดระวัง</h3><p>Counterfactual สนับสนุนว่าโมเดลไวต่อการเปลี่ยนรูปทรงจริง โดยเฉพาะการทำลายมุมหรือทำมุมให้โค้ง</p><p>แต่ผลนี้ยังไม่พิสูจน์ว่าโมเดลใช้ rationale เดียวกับมนุษย์ หรือกำลังนับจำนวนมุมอย่างชัดเจน</p><p><a href="baseline_v2/evaluation/counterfactual_metrics.json">ดูข้อมูล counterfactual</a></p></section>
+  </div>
+
+  <h2>5. Grad-CAM and faithfulness</h2>
+  <div class="callout"><strong>ข้อค้นพบสำคัญ:</strong> heatmap มีความเกี่ยวข้องกับ object ที่ตรวจจับ แต่ยังไม่ localize rationale mask เช่น มุมหรือเส้นขอบได้ดีพอ โดยเฉพาะ triangle และ square</div>
+  <div class="card full"><table><thead><tr><th>Class</th><th>Object energy</th><th>Other-object energy</th><th>Rationale energy</th><th>Top-CAM IoU</th><th>Top-CAM confidence drop</th><th>Random drop</th></tr></thead><tbody>
+    <tr><td>Circle</td><td class="num">0.823</td><td class="num">0.096</td><td class="num">0.038</td><td class="num">0.029</td><td class="num good">0.267</td><td class="num">0.009</td></tr>
+    <tr><td>Triangle</td><td class="num">0.386</td><td class="num">0.250</td><td class="num">0.005</td><td class="num">0.009</td><td class="num good">0.063</td><td class="num">−0.001</td></tr>
+    <tr><td>Square</td><td class="num">0.610</td><td class="num">0.241</td><td class="num">0.003</td><td class="num">0.008</td><td class="num good">0.241</td><td class="num">0.001</td></tr>
+  </tbody></table><p class="small">Top-CAM deletion ทำให้ confidence ลดลงมากกว่าการลบแบบสุ่มทุก class จึงมี evidence ด้าน faithfulness แต่ rationale precision/IoU ยังต่ำ</p><p><a href="baseline_v2/evaluation/cam_metrics.csv">CAM metrics</a> · <a href="baseline_v2/evaluation/faithfulness_metrics.csv">Faithfulness metrics</a> · <a href="baseline_v2/cam/gradcam/predictions.json">Grad-CAM prediction records</a></p></section>
+
+  <h3 style="margin-top:28px">Grad-CAM gallery — representative locked multi-test image</h3>
+  <p class="small">แต่ละภาพเป็น class-specific Grad-CAM แบบเต็มภาพ; กรอบเป็น prediction ของ class เป้าหมาย</p>
+  <div class="gallery">
+    <figure class="figure"><img src="baseline_v2/cam/gradcam/overlays/circle/multi_000.jpg" alt="Circle Grad-CAM overlay"><figcaption>Circle · multi_000</figcaption></figure>
+    <figure class="figure"><img src="baseline_v2/cam/gradcam/overlays/triangle/multi_000.jpg" alt="Triangle Grad-CAM overlay"><figcaption>Triangle · multi_000</figcaption></figure>
+    <figure class="figure"><img src="baseline_v2/cam/gradcam/overlays/square/multi_000.jpg" alt="Square Grad-CAM overlay"><figcaption>Square · multi_000</figcaption></figure>
+    <figure class="figure"><img src="baseline_v2/cam/gradcam/overlays/circle/multi_001.jpg" alt="Circle Grad-CAM overlay second example"><figcaption>Circle · multi_001</figcaption></figure>
+    <figure class="figure"><img src="baseline_v2/cam/gradcam/overlays/triangle/multi_001.jpg" alt="Triangle Grad-CAM overlay second example"><figcaption>Triangle · multi_001</figcaption></figure>
+    <figure class="figure"><img src="baseline_v2/cam/gradcam/overlays/square/multi_001.jpg" alt="Square Grad-CAM overlay second example"><figcaption>Square · multi_001</figcaption></figure>
+  </div>
+
+  <h2>6. Gates and limitations</h2>
+  <div class="grid">
+    <section class="card"><h3><span class="status pass">PASS</span> Detection gate</h3><p>โมเดลตรวจจับทั้งสาม class และจำนวนวัตถุได้ถูกต้องในทุก split ที่รายงาน รวม robustness variants</p></section>
+    <section class="card"><h3><span class="status partial">PARTIAL</span> Reasoning gate</h3><p>Counterfactual ผ่านสูงและ CAM มี faithfulness แต่ heatmap ยังไม่แสดง rationale เชิงเรขาคณิตอย่างจำเพาะ</p></section>
+    <section class="card wide"><h3>ข้อจำกัดที่ควรสื่อสาร</h3><ul><li>CAM เป็น evidence ของ feature importance ไม่ใช่ proof ว่าโมเดลมี symbolic geometric reasoning</li><li>Rationale mask ของ triangle/square มี overlap ต่ำ แม้ detection จะถูกต้อง</li><li>ความแรงของ heatmap ถูก normalize ต่อภาพ จึงไม่ควรเทียบสีแดงข้ามภาพเป็น absolute score</li><li>ผลทั้งหมดเป็น synthetic shape benchmark; ยังไม่แทนความยากของภาพธรรมชาติ</li></ul></section>
+  </div>
+
+  <h2>7. Recommended next experiments</h2>
+  <section class="card full"><ol><li>เพิ่ม geometry supervision เช่น segmentation หรือ keypoint/vertex head</li><li>ทดสอบ contour-based counterfactual สำหรับ circle แทนการคาดหวังให้ทั้งพื้นที่วงกลมเป็น positive heatmap</li><li>เปรียบเทียบ Grad-CAM กับ explanation จาก segmentation/keypoint branch</li><li>คง YOLO11n detector นี้เป็น control model เพื่อแยก “ตรวจจับถูก” ออกจาก “อธิบายได้ตาม rationale ของมนุษย์”</li></ol></section>
+
+  <h2>Artifacts</h2>
+  <section class="card full"><ul class="artifact-list">
+    <li><a href="SHAPE_REASONING_V2_REPORT.md">Source report (Markdown)</a></li>
+    <li><a href="baseline_v2/results.csv">Training history CSV</a></li>
+    <li><a href="baseline_v2/args.yaml">Training arguments</a></li>
+    <li><a href="baseline_v2/BoxPR_curve.png">Precision–Recall curve</a></li>
+    <li><a href="baseline_v2/BoxP_curve.png">Precision curve</a></li>
+    <li><a href="baseline_v2/BoxR_curve.png">Recall curve</a></li>
+    <li><a href="baseline_v2/confusion_matrix.png">Confusion matrix</a></li>
+    <li><a href="baseline_v2/evaluation/v2_multi_test_metrics.json">V2 multi-test metrics</a></li>
+    <li><a href="baseline_v2/evaluation/locked_original_multi_test_metrics.json">Locked original metrics</a></li>
+    <li><a href="baseline_v2/evaluation/robustness_metrics.json">Robustness metrics</a></li>
+    <li><a href="baseline_v2/evaluation/counterfactual_metrics.json">Counterfactual metrics</a></li>
+    <li><a href="baseline_v2/evaluation/cam_metrics.csv">CAM metrics</a></li>
+    <li><a href="baseline_v2/evaluation/faithfulness_metrics.csv">Faithfulness metrics</a></li>
+    <li><a href="baseline_v2/cam/gradcam/overlays/">Grad-CAM overlays directory</a></li>
+  </ul></section>
+
+  <footer class="footer">Generated from the Shape Reasoning v2 artifacts in <code>outputs/shapes_v2/</code>. Metrics shown here are copied from the stored evaluation outputs; no new model training was run to create this report.</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,902 @@
+[
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_000.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_000.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_000.npy",
+    "prediction_count": 1,
+    "confidence": 0.9922146201133728,
+    "matched_iou": 0.985624372959137
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_001.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_001.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_001.npy",
+    "prediction_count": 1,
+    "confidence": 0.9949434399604797,
+    "matched_iou": 0.9898726940155029
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_002.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_002.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_002.npy",
+    "prediction_count": 1,
+    "confidence": 0.9852914810180664,
+    "matched_iou": 0.9874287843704224
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_003.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_003.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_003.npy",
+    "prediction_count": 1,
+    "confidence": 0.9950974583625793,
+    "matched_iou": 0.9924569129943848
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_004.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_004.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_004.npy",
+    "prediction_count": 1,
+    "confidence": 0.989966630935669,
+    "matched_iou": 0.9908013343811035
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_005.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_005.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_005.npy",
+    "prediction_count": 1,
+    "confidence": 0.9982675313949585,
+    "matched_iou": 0.9903355836868286
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_006.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_006.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_006.npy",
+    "prediction_count": 1,
+    "confidence": 0.9883108735084534,
+    "matched_iou": 0.9920509457588196
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_007.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_007.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_007.npy",
+    "prediction_count": 1,
+    "confidence": 0.9959024786949158,
+    "matched_iou": 0.9874937534332275
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_008.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_008.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_008.npy",
+    "prediction_count": 1,
+    "confidence": 0.991737425327301,
+    "matched_iou": 0.9948857426643372
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_009.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_009.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_009.npy",
+    "prediction_count": 1,
+    "confidence": 0.9921107888221741,
+    "matched_iou": 0.9913410544395447
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_010.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_010.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_010.npy",
+    "prediction_count": 1,
+    "confidence": 0.9950032830238342,
+    "matched_iou": 0.988235592842102
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_011.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_011.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_011.npy",
+    "prediction_count": 1,
+    "confidence": 0.9962330460548401,
+    "matched_iou": 0.9822386503219604
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_012.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_012.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_012.npy",
+    "prediction_count": 1,
+    "confidence": 0.9938619136810303,
+    "matched_iou": 0.9887696504592896
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_013.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_013.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_013.npy",
+    "prediction_count": 1,
+    "confidence": 0.9901407361030579,
+    "matched_iou": 0.980457603931427
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_014.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_014.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_014.npy",
+    "prediction_count": 1,
+    "confidence": 0.9927794337272644,
+    "matched_iou": 0.9875180125236511
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_015.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_015.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_015.npy",
+    "prediction_count": 1,
+    "confidence": 0.990423858165741,
+    "matched_iou": 0.9850517511367798
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_016.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_016.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_016.npy",
+    "prediction_count": 1,
+    "confidence": 0.9949329495429993,
+    "matched_iou": 0.9919854402542114
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_017.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_017.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_017.npy",
+    "prediction_count": 1,
+    "confidence": 0.9964616894721985,
+    "matched_iou": 0.9867801666259766
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_018.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_018.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_018.npy",
+    "prediction_count": 1,
+    "confidence": 0.9975320100784302,
+    "matched_iou": 0.9927991032600403
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_019.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_019.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_019.npy",
+    "prediction_count": 1,
+    "confidence": 0.9909597635269165,
+    "matched_iou": 0.9925445318222046
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_020.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_020.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_020.npy",
+    "prediction_count": 1,
+    "confidence": 0.9908191561698914,
+    "matched_iou": 0.9825040102005005
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_021.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_021.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_021.npy",
+    "prediction_count": 1,
+    "confidence": 0.9923402070999146,
+    "matched_iou": 0.9948168992996216
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_022.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_022.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_022.npy",
+    "prediction_count": 1,
+    "confidence": 0.9943072199821472,
+    "matched_iou": 0.984937310218811
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_023.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_023.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_023.npy",
+    "prediction_count": 1,
+    "confidence": 0.995807409286499,
+    "matched_iou": 0.9856473207473755
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_024.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_024.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_024.npy",
+    "prediction_count": 1,
+    "confidence": 0.9915426969528198,
+    "matched_iou": 0.9975135326385498
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_025.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_025.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_025.npy",
+    "prediction_count": 1,
+    "confidence": 0.9874225854873657,
+    "matched_iou": 0.9898598194122314
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_026.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_026.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_026.npy",
+    "prediction_count": 1,
+    "confidence": 0.9912973642349243,
+    "matched_iou": 0.9838754534721375
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_027.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_027.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_027.npy",
+    "prediction_count": 1,
+    "confidence": 0.9908349514007568,
+    "matched_iou": 0.9893366098403931
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_028.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_028.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_028.npy",
+    "prediction_count": 1,
+    "confidence": 0.988933801651001,
+    "matched_iou": 0.9891209602355957
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_029.jpg",
+    "class_id": 0,
+    "class_name": "circle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/circle/multi_029.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/circle/multi_029.npy",
+    "prediction_count": 1,
+    "confidence": 0.9902745485305786,
+    "matched_iou": 0.9937705397605896
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_000.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_000.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_000.npy",
+    "prediction_count": 1,
+    "confidence": 0.9796586036682129,
+    "matched_iou": 0.9780136346817017
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_001.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_001.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_001.npy",
+    "prediction_count": 1,
+    "confidence": 0.9863662719726562,
+    "matched_iou": 0.9850345849990845
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_002.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_002.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_002.npy",
+    "prediction_count": 1,
+    "confidence": 0.9849570989608765,
+    "matched_iou": 0.9830169081687927
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_003.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_003.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_003.npy",
+    "prediction_count": 1,
+    "confidence": 0.9866130948066711,
+    "matched_iou": 0.9903937578201294
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_004.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_004.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_004.npy",
+    "prediction_count": 1,
+    "confidence": 0.9882175326347351,
+    "matched_iou": 0.9911714792251587
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_005.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_005.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_005.npy",
+    "prediction_count": 1,
+    "confidence": 0.990833580493927,
+    "matched_iou": 0.9879648685455322
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_006.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_006.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_006.npy",
+    "prediction_count": 1,
+    "confidence": 0.9881261587142944,
+    "matched_iou": 0.9790425300598145
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_007.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_007.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_007.npy",
+    "prediction_count": 1,
+    "confidence": 0.9692600965499878,
+    "matched_iou": 0.984813392162323
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_008.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_008.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_008.npy",
+    "prediction_count": 1,
+    "confidence": 0.9797120690345764,
+    "matched_iou": 0.989054799079895
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_009.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_009.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_009.npy",
+    "prediction_count": 1,
+    "confidence": 0.9744938611984253,
+    "matched_iou": 0.9884650111198425
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_010.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_010.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_010.npy",
+    "prediction_count": 1,
+    "confidence": 0.9900534749031067,
+    "matched_iou": 0.9907998442649841
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_011.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_011.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_011.npy",
+    "prediction_count": 1,
+    "confidence": 0.9785934686660767,
+    "matched_iou": 0.9920013546943665
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_012.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_012.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_012.npy",
+    "prediction_count": 1,
+    "confidence": 0.9836896061897278,
+    "matched_iou": 0.9886237382888794
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_013.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_013.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_013.npy",
+    "prediction_count": 1,
+    "confidence": 0.992462158203125,
+    "matched_iou": 0.9824576377868652
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_014.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_014.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_014.npy",
+    "prediction_count": 1,
+    "confidence": 0.9865493178367615,
+    "matched_iou": 0.9878024458885193
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_015.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_015.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_015.npy",
+    "prediction_count": 1,
+    "confidence": 0.9855237603187561,
+    "matched_iou": 0.9897111058235168
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_016.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_016.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_016.npy",
+    "prediction_count": 1,
+    "confidence": 0.989884614944458,
+    "matched_iou": 0.9798331260681152
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_017.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_017.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_017.npy",
+    "prediction_count": 1,
+    "confidence": 0.9740778207778931,
+    "matched_iou": 0.9844285845756531
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_018.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_018.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_018.npy",
+    "prediction_count": 1,
+    "confidence": 0.972958505153656,
+    "matched_iou": 0.9817400574684143
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_019.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_019.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_019.npy",
+    "prediction_count": 1,
+    "confidence": 0.9925540089607239,
+    "matched_iou": 0.9906729459762573
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_020.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_020.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_020.npy",
+    "prediction_count": 1,
+    "confidence": 0.984398365020752,
+    "matched_iou": 0.9913240075111389
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_021.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_021.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_021.npy",
+    "prediction_count": 1,
+    "confidence": 0.9779079556465149,
+    "matched_iou": 0.9836750030517578
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_022.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_022.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_022.npy",
+    "prediction_count": 1,
+    "confidence": 0.9818456172943115,
+    "matched_iou": 0.9914104342460632
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_023.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_023.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_023.npy",
+    "prediction_count": 1,
+    "confidence": 0.9888732433319092,
+    "matched_iou": 0.9854887127876282
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_024.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_024.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_024.npy",
+    "prediction_count": 1,
+    "confidence": 0.9868437647819519,
+    "matched_iou": 0.9841194152832031
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_025.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_025.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_025.npy",
+    "prediction_count": 1,
+    "confidence": 0.9890891909599304,
+    "matched_iou": 0.9901978969573975
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_026.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_026.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_026.npy",
+    "prediction_count": 1,
+    "confidence": 0.9869727492332458,
+    "matched_iou": 0.9856206774711609
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_027.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_027.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_027.npy",
+    "prediction_count": 1,
+    "confidence": 0.9938110709190369,
+    "matched_iou": 0.9957477450370789
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_028.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_028.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_028.npy",
+    "prediction_count": 1,
+    "confidence": 0.9865357279777527,
+    "matched_iou": 0.9765551686286926
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_029.jpg",
+    "class_id": 1,
+    "class_name": "triangle",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/triangle/multi_029.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/triangle/multi_029.npy",
+    "prediction_count": 1,
+    "confidence": 0.9850643277168274,
+    "matched_iou": 0.9892114996910095
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_000.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_000.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_000.npy",
+    "prediction_count": 1,
+    "confidence": 0.9888671040534973,
+    "matched_iou": 0.9918596148490906
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_001.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_001.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_001.npy",
+    "prediction_count": 1,
+    "confidence": 0.9906630516052246,
+    "matched_iou": 0.990376889705658
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_002.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_002.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_002.npy",
+    "prediction_count": 1,
+    "confidence": 0.9873344898223877,
+    "matched_iou": 0.9938002228736877
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_003.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_003.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_003.npy",
+    "prediction_count": 1,
+    "confidence": 0.990845263004303,
+    "matched_iou": 0.9616285562515259
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_004.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_004.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_004.npy",
+    "prediction_count": 1,
+    "confidence": 0.991640567779541,
+    "matched_iou": 0.9649124145507812
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_005.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_005.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_005.npy",
+    "prediction_count": 1,
+    "confidence": 0.9937167763710022,
+    "matched_iou": 0.9837645292282104
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_006.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_006.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_006.npy",
+    "prediction_count": 1,
+    "confidence": 0.9897655844688416,
+    "matched_iou": 0.983253002166748
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_007.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_007.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_007.npy",
+    "prediction_count": 1,
+    "confidence": 0.9922521710395813,
+    "matched_iou": 0.9924275875091553
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_008.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_008.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_008.npy",
+    "prediction_count": 1,
+    "confidence": 0.9852324724197388,
+    "matched_iou": 0.9724706411361694
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_009.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_009.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_009.npy",
+    "prediction_count": 1,
+    "confidence": 0.9896155595779419,
+    "matched_iou": 0.9851022362709045
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_010.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_010.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_010.npy",
+    "prediction_count": 1,
+    "confidence": 0.9926891922950745,
+    "matched_iou": 0.9831807613372803
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_011.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_011.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_011.npy",
+    "prediction_count": 1,
+    "confidence": 0.9916782379150391,
+    "matched_iou": 0.9909325242042542
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_012.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_012.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_012.npy",
+    "prediction_count": 1,
+    "confidence": 0.9883623719215393,
+    "matched_iou": 0.9798372387886047
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_013.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_013.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_013.npy",
+    "prediction_count": 1,
+    "confidence": 0.9917506575584412,
+    "matched_iou": 0.9850269556045532
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_014.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_014.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_014.npy",
+    "prediction_count": 1,
+    "confidence": 0.989956259727478,
+    "matched_iou": 0.9900640845298767
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_015.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_015.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_015.npy",
+    "prediction_count": 1,
+    "confidence": 0.9933745265007019,
+    "matched_iou": 0.9908447265625
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_016.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_016.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_016.npy",
+    "prediction_count": 1,
+    "confidence": 0.9916003942489624,
+    "matched_iou": 0.9889432787895203
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_017.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_017.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_017.npy",
+    "prediction_count": 1,
+    "confidence": 0.9861888289451599,
+    "matched_iou": 0.972611665725708
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_018.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_018.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_018.npy",
+    "prediction_count": 1,
+    "confidence": 0.9854560494422913,
+    "matched_iou": 0.9945966005325317
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_019.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_019.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_019.npy",
+    "prediction_count": 1,
+    "confidence": 0.9895023107528687,
+    "matched_iou": 0.9914934635162354
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_020.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_020.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_020.npy",
+    "prediction_count": 1,
+    "confidence": 0.9874796271324158,
+    "matched_iou": 0.9876770973205566
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_021.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_021.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_021.npy",
+    "prediction_count": 1,
+    "confidence": 0.9886988997459412,
+    "matched_iou": 0.9875770211219788
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_022.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_022.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_022.npy",
+    "prediction_count": 1,
+    "confidence": 0.9847226738929749,
+    "matched_iou": 0.9889048337936401
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_023.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_023.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_023.npy",
+    "prediction_count": 1,
+    "confidence": 0.9888233542442322,
+    "matched_iou": 0.9910362958908081
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_024.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_024.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_024.npy",
+    "prediction_count": 1,
+    "confidence": 0.9865642786026001,
+    "matched_iou": 0.985550582408905
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_025.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_025.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_025.npy",
+    "prediction_count": 1,
+    "confidence": 0.9948914051055908,
+    "matched_iou": 0.9899867177009583
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_026.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_026.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_026.npy",
+    "prediction_count": 1,
+    "confidence": 0.9932767748832703,
+    "matched_iou": 0.9835907816886902
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_027.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_027.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_027.npy",
+    "prediction_count": 1,
+    "confidence": 0.9881812930107117,
+    "matched_iou": 0.9855798482894897
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_028.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_028.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_028.npy",
+    "prediction_count": 1,
+    "confidence": 0.9865801930427551,
+    "matched_iou": 0.9833402633666992
+  },
+  {
+    "image": "data/shapes_v2/locked_original/images/multi_029.jpg",
+    "class_id": 2,
+    "class_name": "square",
+    "overlay": "outputs/shapes_v2/baseline_v2/cam/gradcam/overlays/square/multi_029.jpg",
+    "raw_heatmap": "outputs/shapes_v2/baseline_v2/cam/gradcam/raw_heatmaps/square/multi_029.npy",
+    "prediction_count": 1,
+    "confidence": 0.9890838265419006,
+    "matched_iou": 0.9945447444915771
+  }
+]

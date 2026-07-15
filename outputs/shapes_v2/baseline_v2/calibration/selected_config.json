@@ -1,0 +1,18 @@
+{
+  "model": "outputs/shapes_v2/baseline_v2/weights/best.pt",
+  "dataset": "data/shapes_v2/images/val",
+  "confidence": 0.2,
+  "nms_iou": 0.5,
+  "device": "cpu",
+  "selection_split": "validation",
+  "selection_metrics": {
+    "confidence": 0.2,
+    "nms_iou": 0.5,
+    "precision": 1.0,
+    "recall": 1.0,
+    "exact_count_accuracy": 1.0,
+    "duplicate_count": 0,
+    "wrong_class": 0,
+    "missed_detection": 0
+  }
+}

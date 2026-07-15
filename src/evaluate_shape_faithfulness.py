@@ -12,12 +12,12 @@ from ultralytics import YOLO
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-MODEL_PATH = PROJECT_ROOT / "outputs" / "shapes" / "baseline_v2" / "weights" / "best.pt"
+MODEL_PATH = PROJECT_ROOT / "outputs" / "shapes_v2" / "baseline_v2" / "weights" / "best.pt"
 IMAGE_DIR = PROJECT_ROOT / "data" / "shapes_v2" / "locked_original" / "images"
 LABEL_DIR = PROJECT_ROOT / "data" / "shapes_v2" / "locked_original" / "labels"
-CAM_DIR = PROJECT_ROOT / "outputs" / "shapes" / "cam" / "gradcam" / "raw_heatmaps"
+CAM_DIR = PROJECT_ROOT / "outputs" / "shapes_v2" / "baseline_v2" / "cam" / "gradcam" / "raw_heatmaps"
 MASK_DIR = PROJECT_ROOT / "data" / "shapes_v2" / "locked_original" / "masks"
-OUTPUT_PATH = PROJECT_ROOT / "outputs" / "shapes" / "baseline_v2" / "evaluation" / "faithfulness_metrics.csv"
+OUTPUT_PATH = PROJECT_ROOT / "outputs" / "shapes_v2" / "baseline_v2" / "evaluation" / "faithfulness_metrics.csv"
 CLASS_NAMES = ("circle", "triangle", "square")
 IMAGE_SIZE = 640
 

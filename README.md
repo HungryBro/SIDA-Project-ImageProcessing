@@ -27,10 +27,10 @@ bash scripts/run_shape_v2.sh
 ```
 
 The v2 pipeline creates and validates `data/shapes_v2/`, trains
-`outputs/shapes/baseline_v2/weights/best.pt`, evaluates multi-object and
+`outputs/shapes_v2/baseline_v2/weights/best.pt`, evaluates multi-object and
 robustness performance, runs geometry counterfactuals, and generates a
 separate Grad-CAM report. The current results are summarized in
-[outputs/shapes/SHAPE_REASONING_V2_REPORT.md](outputs/shapes/SHAPE_REASONING_V2_REPORT.md).
+[outputs/shapes_v2/SHAPE_REASONING_V2_REPORT.md](outputs/shapes_v2/SHAPE_REASONING_V2_REPORT.md).
 
 โครงสร้างหลัก:
 
@@ -41,10 +41,11 @@ separate Grad-CAM report. The current results are summarized in
 - `data/shapes_v2/images/multi_test/` — ภาพที่มีหลายรูปทรงรวมกันสำหรับ stress test
 - `models/` — น้ำหนักโมเดล YOLO
 - `assets/input/` — ภาพ input สำหรับการทดลอง
-- `outputs/standard/` — ผลลัพธ์การรันปกติ
-- `outputs/comparison/` — ผลลัพธ์สำหรับเปรียบเทียบวิธี CAM
-- `docs/` — รายงาน สไลด์ และเอกสารประกอบ
+- `outputs/shapes_v2/` — ผลการทดลอง Shape Reasoning v2 ทั้งหมด
+- `outputs/archive/legacy_cam/` — ผล CAM จากการทดลองรุ่นเก่า
+- `docs/` — เอกสารหลักและรายงานประกอบ
+- `docs/reports/` — รายงาน HTML และสไลด์รุ่นเก่า
 
 รายละเอียดทฤษฎีและผลการทดลองอยู่ที่ [docs/README_Week1.md](docs/README_Week1.md)
-และ [docs/GradCAM_Report.html](docs/GradCAM_Report.html)
-ผลการทดลองรูปทรงอยู่ที่ [outputs/shapes/SHAPE_REASONING_V2_REPORT.md](outputs/shapes/SHAPE_REASONING_V2_REPORT.md)
+และ [docs/reports/GradCAM_Report.html](docs/reports/GradCAM_Report.html)
+ผลการทดลองรูปทรงอยู่ที่ [outputs/shapes_v2/SHAPE_REASONING_V2_REPORT.md](outputs/shapes_v2/SHAPE_REASONING_V2_REPORT.md)

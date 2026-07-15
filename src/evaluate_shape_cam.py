@@ -11,10 +11,10 @@ import numpy as np
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-CAM_DIR = PROJECT_ROOT / "outputs" / "shapes" / "cam" / "gradcam"
+CAM_DIR = PROJECT_ROOT / "outputs" / "shapes_v2" / "baseline_v2" / "cam" / "gradcam"
 MASK_DIR = PROJECT_ROOT / "data" / "shapes_v2" / "locked_original" / "masks"
 RATIONALE_DIR = PROJECT_ROOT / "data" / "shapes_v2" / "locked_original" / "rationale_masks"
-OUTPUT_PATH = PROJECT_ROOT / "outputs" / "shapes" / "baseline_v2" / "evaluation" / "cam_metrics.csv"
+OUTPUT_PATH = PROJECT_ROOT / "outputs" / "shapes_v2" / "baseline_v2" / "evaluation" / "cam_metrics.csv"
 CLASS_NAMES = ("circle", "triangle", "square")
 
 

@@ -1,0 +1,2759 @@
+{
+  "model": "/Users/dolphin/Desktop/Project/outputs/shapes_v2/baseline_v2/weights/best.pt",
+  "images": "/Users/dolphin/Desktop/Project/data/shapes_v2/robustness/images",
+  "labels": "/Users/dolphin/Desktop/Project/data/shapes_v2/robustness/labels",
+  "config": {
+    "confidence": 0.2,
+    "nms_iou": 0.5,
+    "match_iou": 0.5,
+    "device": "cpu"
+  },
+  "classes": {
+    "circle": {
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "mean_iou": 0.990906
+    },
+    "triangle": {
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "mean_iou": 0.984834
+    },
+    "square": {
+      "tp": 30,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "mean_iou": 0.989038
+    }
+  },
+  "overall": {
+    "tp": 90,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "exact_count_accuracy": 1.0,
+    "images": 90
+  },
+  "error_counts": {
+    "correct": 90,
+    "wrong_class": 0,
+    "missed_detection": 0,
+    "duplicate_same_class": 0,
+    "duplicate_cross_class": 0,
+    "background_false_positive": 0
+  },
+  "per_image": [
+    {
+      "image": "circle_000_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            293.836181640625,
+            118.24036407470703,
+            454.20135498046875,
+            279.489501953125
+          ],
+          "confidence": 0.9927442073822021
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.994397,
+          "confidence": 0.992744
+        }
+      ]
+    },
+    {
+      "image": "circle_000_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            294.05706787109375,
+            118.26788330078125,
+            454.19671630859375,
+            279.4493408203125
+          ],
+          "confidence": 0.9931117296218872
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.992921,
+          "confidence": 0.993112
+        }
+      ]
+    },
+    {
+      "image": "circle_000_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            293.847412109375,
+            118.18972778320312,
+            454.27423095703125,
+            279.5570373535156
+          ],
+          "confidence": 0.9933682084083557
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.99418,
+          "confidence": 0.993368
+        }
+      ]
+    },
+    {
+      "image": "circle_001_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            145.232177734375,
+            142.21380615234375,
+            337.00238037109375,
+            332.0445556640625
+          ],
+          "confidence": 0.9950037598609924
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.989911,
+          "confidence": 0.995004
+        }
+      ]
+    },
+    {
+      "image": "circle_001_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            145.24786376953125,
+            141.98443603515625,
+            336.92791748046875,
+            332.06231689453125
+          ],
+          "confidence": 0.9948333501815796
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.991658,
+          "confidence": 0.994833
+        }
+      ]
+    },
+    {
+      "image": "circle_001_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            145.22882080078125,
+            142.0655517578125,
+            336.96905517578125,
+            332.0753173828125
+          ],
+          "confidence": 0.9949042797088623
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.990995,
+          "confidence": 0.994904
+        }
+      ]
+    },
+    {
+      "image": "circle_002_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            200.63299560546875,
+            162.43206787109375,
+            443.04901123046875,
+            403.617431640625
+          ],
+          "confidence": 0.9853876233100891
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.993397,
+          "confidence": 0.985388
+        }
+      ]
+    },
+    {
+      "image": "circle_002_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            200.59295654296875,
+            162.62734985351562,
+            443.42633056640625,
+            403.7254333496094
+          ],
+          "confidence": 0.9859359264373779
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.991006,
+          "confidence": 0.985936
+        }
+      ]
+    },
+    {
+      "image": "circle_002_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            200.58741760253906,
+            162.52462768554688,
+            442.9820556640625,
+            403.7790222167969
+          ],
+          "confidence": 0.9855108261108398
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.993,
+          "confidence": 0.985511
+        }
+      ]
+    },
+    {
+      "image": "circle_003_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            225.6258544921875,
+            441.61614990234375,
+            405.28765869140625,
+            620.3292846679688
+          ],
+          "confidence": 0.9864116907119751
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.993337,
+          "confidence": 0.986412
+        }
+      ]
+    },
+    {
+      "image": "circle_003_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            225.54583740234375,
+            441.6241455078125,
+            405.39044189453125,
+            620.5238037109375
+          ],
+          "confidence": 0.9863052368164062
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.993984,
+          "confidence": 0.986305
+        }
+      ]
+    },
+    {
+      "image": "circle_003_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            225.5426788330078,
+            441.604736328125,
+            405.31890869140625,
+            620.4202880859375
+          ],
+          "confidence": 0.9872384071350098
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.994193,
+          "confidence": 0.987238
+        }
+      ]
+    },
+    {
+      "image": "circle_004_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            176.06033325195312,
+            27.073654174804688,
+            357.3835144042969,
+            207.37989807128906
+          ],
+          "confidence": 0.9948498606681824
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.988276,
+          "confidence": 0.99485
+        }
+      ]
+    },
+    {
+      "image": "circle_004_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            176.00064086914062,
+            26.95623779296875,
+            357.1907043457031,
+            207.53280639648438
+          ],
+          "confidence": 0.9955476522445679
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.990766,
+          "confidence": 0.995548
+        }
+      ]
+    },
+    {
+      "image": "circle_004_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            176.16033935546875,
+            27.049545288085938,
+            357.29815673828125,
+            207.5317840576172
+          ],
+          "confidence": 0.9948793649673462
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.988802,
+          "confidence": 0.994879
+        }
+      ]
+    },
+    {
+      "image": "circle_005_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            393.15771484375,
+            300.8001708984375,
+            619.0810546875,
+            525.699951171875
+          ],
+          "confidence": 0.9934216141700745
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.993702,
+          "confidence": 0.993422
+        }
+      ]
+    },
+    {
+      "image": "circle_005_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            392.99786376953125,
+            300.59881591796875,
+            619.102294921875,
+            525.7944946289062
+          ],
+          "confidence": 0.9931930899620056
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.993376,
+          "confidence": 0.993193
+        }
+      ]
+    },
+    {
+      "image": "circle_005_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            393.040771484375,
+            300.5826416015625,
+            619.4937133789062,
+            525.9405517578125
+          ],
+          "confidence": 0.9925242066383362
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.991276,
+          "confidence": 0.992524
+        }
+      ]
+    },
+    {
+      "image": "circle_006_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            411.9102783203125,
+            364.8277587890625,
+            614.84521484375,
+            569.87451171875
+          ],
+          "confidence": 0.9895087480545044
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.983234,
+          "confidence": 0.989509
+        }
+      ]
+    },
+    {
+      "image": "circle_006_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            411.05804443359375,
+            364.4205322265625,
+            615.4111938476562,
+            570.2274169921875
+          ],
+          "confidence": 0.9889510273933411
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.984162,
+          "confidence": 0.988951
+        }
+      ]
+    },
+    {
+      "image": "circle_006_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            411.8575134277344,
+            364.64630126953125,
+            614.8529052734375,
+            570.0198974609375
+          ],
+          "confidence": 0.9886475205421448
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.983635,
+          "confidence": 0.988648
+        }
+      ]
+    },
+    {
+      "image": "circle_007_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            78.92111206054688,
+            33.892608642578125,
+            312.1536865234375,
+            267.2219543457031
+          ],
+          "confidence": 0.9815946817398071
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.990666,
+          "confidence": 0.981595
+        }
+      ]
+    },
+    {
+      "image": "circle_007_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            78.99578857421875,
+            33.8419189453125,
+            312.0539855957031,
+            267.1095275878906
+          ],
+          "confidence": 0.9811619520187378
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.991462,
+          "confidence": 0.981162
+        }
+      ]
+    },
+    {
+      "image": "circle_007_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            78.97789764404297,
+            33.827667236328125,
+            312.10980224609375,
+            267.0923767089844
+          ],
+          "confidence": 0.9816403985023499
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.991435,
+          "confidence": 0.98164
+        }
+      ]
+    },
+    {
+      "image": "circle_008_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            156.809814453125,
+            326.4118957519531,
+            310.60589599609375,
+            480.9730529785156
+          ],
+          "confidence": 0.9895528554916382
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.986954,
+          "confidence": 0.989553
+        }
+      ]
+    },
+    {
+      "image": "circle_008_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            156.60809326171875,
+            326.2225341796875,
+            310.57843017578125,
+            481.1392822265625
+          ],
+          "confidence": 0.9908517003059387
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.988288,
+          "confidence": 0.990852
+        }
+      ]
+    },
+    {
+      "image": "circle_008_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            156.69888305664062,
+            326.4303283691406,
+            310.50579833984375,
+            481.1306457519531
+          ],
+          "confidence": 0.9898802042007446
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.989427,
+          "confidence": 0.98988
+        }
+      ]
+    },
+    {
+      "image": "circle_009_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            170.89419555664062,
+            406.85235595703125,
+            340.6966552734375,
+            575.6135864257812
+          ],
+          "confidence": 0.9900869727134705
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.992544,
+          "confidence": 0.990087
+        }
+      ]
+    },
+    {
+      "image": "circle_009_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            171.02841186523438,
+            406.768310546875,
+            340.7380676269531,
+            575.7958374023438
+          ],
+          "confidence": 0.9908316731452942
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.992509,
+          "confidence": 0.990832
+        }
+      ]
+    },
+    {
+      "image": "circle_009_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 0,
+          "class_name": "circle",
+          "box": [
+            171.05743408203125,
+            406.83819580078125,
+            340.71319580078125,
+            575.5802612304688
+          ],
+          "confidence": 0.9908735752105713
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "circle",
+          "ground_truth_class": "circle",
+          "iou": 0.993679,
+          "confidence": 0.990874
+        }
+      ]
+    },
+    {
+      "image": "square_000_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            44.11834716796875,
+            134.76763916015625,
+            266.2166442871094,
+            355.7498779296875
+          ],
+          "confidence": 0.992591142654419
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.992732,
+          "confidence": 0.992591
+        }
+      ]
+    },
+    {
+      "image": "square_000_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            44.129302978515625,
+            134.83599853515625,
+            266.250732421875,
+            355.8236083984375
+          ],
+          "confidence": 0.9927189350128174
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.991992,
+          "confidence": 0.992719
+        }
+      ]
+    },
+    {
+      "image": "square_000_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            43.81744384765625,
+            134.68991088867188,
+            266.2116394042969,
+            355.70611572265625
+          ],
+          "confidence": 0.9924803972244263
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.991956,
+          "confidence": 0.99248
+        }
+      ]
+    },
+    {
+      "image": "square_001_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            221.677001953125,
+            254.613037109375,
+            507.03125,
+            541.775634765625
+          ],
+          "confidence": 0.9939887523651123
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.989246,
+          "confidence": 0.993989
+        }
+      ]
+    },
+    {
+      "image": "square_001_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            221.62806701660156,
+            254.51499938964844,
+            507.2110595703125,
+            541.58349609375
+          ],
+          "confidence": 0.9938474297523499
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.989792,
+          "confidence": 0.993847
+        }
+      ]
+    },
+    {
+      "image": "square_001_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            221.77178955078125,
+            254.57476806640625,
+            507.14532470703125,
+            541.4561157226562
+          ],
+          "confidence": 0.993930459022522
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.989449,
+          "confidence": 0.99393
+        }
+      ]
+    },
+    {
+      "image": "square_002_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            79.81720733642578,
+            165.47705078125,
+            276.72711181640625,
+            361.46478271484375
+          ],
+          "confidence": 0.9965319633483887
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.981778,
+          "confidence": 0.996532
+        }
+      ]
+    },
+    {
+      "image": "square_002_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            79.95602416992188,
+            165.922119140625,
+            276.109130859375,
+            361.45074462890625
+          ],
+          "confidence": 0.9956692457199097
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.986329,
+          "confidence": 0.995669
+        }
+      ]
+    },
+    {
+      "image": "square_002_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            79.85028839111328,
+            166.07809448242188,
+            276.6163330078125,
+            361.1423645019531
+          ],
+          "confidence": 0.9964815378189087
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.983567,
+          "confidence": 0.996482
+        }
+      ]
+    },
+    {
+      "image": "square_003_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            154.94979858398438,
+            346.0064697265625,
+            379.4922790527344,
+            567.7581176757812
+          ],
+          "confidence": 0.9921202659606934
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.983656,
+          "confidence": 0.99212
+        }
+      ]
+    },
+    {
+      "image": "square_003_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            154.8787384033203,
+            345.94366455078125,
+            379.35296630859375,
+            567.84912109375
+          ],
+          "confidence": 0.9918311238288879
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.985254,
+          "confidence": 0.991831
+        }
+      ]
+    },
+    {
+      "image": "square_003_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            154.96420288085938,
+            346.1383056640625,
+            379.3185729980469,
+            567.677978515625
+          ],
+          "confidence": 0.9919484853744507
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.983415,
+          "confidence": 0.991948
+        }
+      ]
+    },
+    {
+      "image": "square_004_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            233.64146423339844,
+            79.5,
+            564.146484375,
+            411.19549560546875
+          ],
+          "confidence": 0.9920651316642761
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.996411,
+          "confidence": 0.992065
+        }
+      ]
+    },
+    {
+      "image": "square_004_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            233.26324462890625,
+            79.5653076171875,
+            564.24169921875,
+            411.28924560546875
+          ],
+          "confidence": 0.9920567870140076
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.995936,
+          "confidence": 0.992057
+        }
+      ]
+    },
+    {
+      "image": "square_004_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            233.38694763183594,
+            79.49090576171875,
+            564.3348388671875,
+            411.2264404296875
+          ],
+          "confidence": 0.9917932152748108
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.996948,
+          "confidence": 0.991793
+        }
+      ]
+    },
+    {
+      "image": "square_005_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            240.02561950683594,
+            232.6642303466797,
+            545.1845703125,
+            538.3799438476562
+          ],
+          "confidence": 0.9878635406494141
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.992645,
+          "confidence": 0.987864
+        }
+      ]
+    },
+    {
+      "image": "square_005_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            240.12109375,
+            232.4665985107422,
+            545.3688354492188,
+            538.2493286132812
+          ],
+          "confidence": 0.9879653453826904
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.992586,
+          "confidence": 0.987965
+        }
+      ]
+    },
+    {
+      "image": "square_005_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            240.04530334472656,
+            232.2459716796875,
+            545.0029296875,
+            538.3680419921875
+          ],
+          "confidence": 0.9876970648765564
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.992921,
+          "confidence": 0.987697
+        }
+      ]
+    },
+    {
+      "image": "square_006_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            71.03750610351562,
+            128.08660888671875,
+            365.1009521484375,
+            419.69293212890625
+          ],
+          "confidence": 0.9930370450019836
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.98526,
+          "confidence": 0.993037
+        }
+      ]
+    },
+    {
+      "image": "square_006_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            70.89834594726562,
+            127.88095092773438,
+            365.2744445800781,
+            419.6263732910156
+          ],
+          "confidence": 0.9928681254386902
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.984238,
+          "confidence": 0.992868
+        }
+      ]
+    },
+    {
+      "image": "square_006_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            70.65689086914062,
+            127.89285278320312,
+            365.37030029296875,
+            419.6687316894531
+          ],
+          "confidence": 0.9927138686180115
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.984913,
+          "confidence": 0.992714
+        }
+      ]
+    },
+    {
+      "image": "square_007_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            99.56071472167969,
+            164.69631958007812,
+            429.87420654296875,
+            494.2568664550781
+          ],
+          "confidence": 0.9917373061180115
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.9925,
+          "confidence": 0.991737
+        }
+      ]
+    },
+    {
+      "image": "square_007_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            99.2642822265625,
+            165.10870361328125,
+            430.05157470703125,
+            494.38311767578125
+          ],
+          "confidence": 0.9921477437019348
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.993063,
+          "confidence": 0.992148
+        }
+      ]
+    },
+    {
+      "image": "square_007_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            99.28334045410156,
+            164.9473876953125,
+            429.97314453125,
+            494.3927001953125
+          ],
+          "confidence": 0.9919496774673462
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.992899,
+          "confidence": 0.99195
+        }
+      ]
+    },
+    {
+      "image": "square_008_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            286.55682373046875,
+            384.2177734375,
+            485.6641845703125,
+            583.3626708984375
+          ],
+          "confidence": 0.9901154041290283
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.981121,
+          "confidence": 0.990115
+        }
+      ]
+    },
+    {
+      "image": "square_008_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            286.51019287109375,
+            384.00579833984375,
+            485.95611572265625,
+            583.4046020507812
+          ],
+          "confidence": 0.990844190120697
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.980762,
+          "confidence": 0.990844
+        }
+      ]
+    },
+    {
+      "image": "square_008_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            286.50604248046875,
+            384.1029052734375,
+            485.75567626953125,
+            583.4296875
+          ],
+          "confidence": 0.9899157285690308
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.981162,
+          "confidence": 0.989916
+        }
+      ]
+    },
+    {
+      "image": "square_009_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            210.66465759277344,
+            283.2010498046875,
+            518.6617431640625,
+            592.77099609375
+          ],
+          "confidence": 0.9842537641525269
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.993882,
+          "confidence": 0.984254
+        }
+      ]
+    },
+    {
+      "image": "square_009_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            210.51068115234375,
+            282.85906982421875,
+            518.7435913085938,
+            593.4330444335938
+          ],
+          "confidence": 0.9844067096710205
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.990912,
+          "confidence": 0.984407
+        }
+      ]
+    },
+    {
+      "image": "square_009_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 2,
+          "class_name": "square",
+          "box": [
+            210.67852783203125,
+            283.2005615234375,
+            518.5081787109375,
+            592.9317626953125
+          ],
+          "confidence": 0.9840270280838013
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "square",
+          "ground_truth_class": "square",
+          "iou": 0.993816,
+          "confidence": 0.984027
+        }
+      ]
+    },
+    {
+      "image": "triangle_000_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            423.72991943359375,
+            254.08306884765625,
+            583.787841796875,
+            400.21435546875
+          ],
+          "confidence": 0.9826364517211914
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.985855,
+          "confidence": 0.982636
+        }
+      ]
+    },
+    {
+      "image": "triangle_000_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            423.482421875,
+            253.7642822265625,
+            583.9492797851562,
+            400.43902587890625
+          ],
+          "confidence": 0.982790470123291
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.985776,
+          "confidence": 0.98279
+        }
+      ]
+    },
+    {
+      "image": "triangle_000_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            423.70477294921875,
+            253.9246368408203,
+            583.8349609375,
+            400.22662353515625
+          ],
+          "confidence": 0.98256516456604
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.984748,
+          "confidence": 0.982565
+        }
+      ]
+    },
+    {
+      "image": "triangle_001_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            295.38128662109375,
+            212.25807189941406,
+            504.4520263671875,
+            432.2584228515625
+          ],
+          "confidence": 0.9806000590324402
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.9868,
+          "confidence": 0.9806
+        }
+      ]
+    },
+    {
+      "image": "triangle_001_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            295.398193359375,
+            211.15182495117188,
+            503.88525390625,
+            432.5950622558594
+          ],
+          "confidence": 0.9852696061134338
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.991888,
+          "confidence": 0.98527
+        }
+      ]
+    },
+    {
+      "image": "triangle_001_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            295.4156188964844,
+            211.20440673828125,
+            503.5943298339844,
+            432.595458984375
+          ],
+          "confidence": 0.9841406345367432
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.993418,
+          "confidence": 0.984141
+        }
+      ]
+    },
+    {
+      "image": "triangle_002_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            205.27377319335938,
+            218.75369262695312,
+            361.3742980957031,
+            394.6998596191406
+          ],
+          "confidence": 0.9737855195999146
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.979978,
+          "confidence": 0.973786
+        }
+      ]
+    },
+    {
+      "image": "triangle_002_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            205.39727783203125,
+            218.435302734375,
+            361.56866455078125,
+            395.24609375
+          ],
+          "confidence": 0.9756213426589966
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.986785,
+          "confidence": 0.975621
+        }
+      ]
+    },
+    {
+      "image": "triangle_002_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            205.35018920898438,
+            218.7996826171875,
+            361.6172180175781,
+            394.2518310546875
+          ],
+          "confidence": 0.9729830026626587
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.979223,
+          "confidence": 0.972983
+        }
+      ]
+    },
+    {
+      "image": "triangle_003_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            240.59384155273438,
+            436.33673095703125,
+            394.6544494628906,
+            595.9390258789062
+          ],
+          "confidence": 0.9707754850387573
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.98816,
+          "confidence": 0.970775
+        }
+      ]
+    },
+    {
+      "image": "triangle_003_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            240.57327270507812,
+            436.5885009765625,
+            394.5683898925781,
+            595.556884765625
+          ],
+          "confidence": 0.9728029370307922
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.991683,
+          "confidence": 0.972803
+        }
+      ]
+    },
+    {
+      "image": "triangle_003_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            240.62164306640625,
+            436.3511962890625,
+            394.8037109375,
+            595.89501953125
+          ],
+          "confidence": 0.9725860357284546
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.987386,
+          "confidence": 0.972586
+        }
+      ]
+    },
+    {
+      "image": "triangle_004_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            216.1291961669922,
+            97.9608383178711,
+            394.77471923828125,
+            280.8426208496094
+          ],
+          "confidence": 0.9894710779190063
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.982341,
+          "confidence": 0.989471
+        }
+      ]
+    },
+    {
+      "image": "triangle_004_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            216.3354949951172,
+            97.70783233642578,
+            395.20318603515625,
+            280.68017578125
+          ],
+          "confidence": 0.9880879521369934
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.983066,
+          "confidence": 0.988088
+        }
+      ]
+    },
+    {
+      "image": "triangle_004_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            216.29046630859375,
+            97.78665161132812,
+            394.928955078125,
+            280.6192321777344
+          ],
+          "confidence": 0.9893765449523926
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.982565,
+          "confidence": 0.989377
+        }
+      ]
+    },
+    {
+      "image": "triangle_005_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            334.20172119140625,
+            443.04681396484375,
+            493.49517822265625,
+            599.4976196289062
+          ],
+          "confidence": 0.9788758754730225
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.985953,
+          "confidence": 0.978876
+        }
+      ]
+    },
+    {
+      "image": "triangle_005_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            334.078857421875,
+            442.8511962890625,
+            493.5616455078125,
+            600.2138671875
+          ],
+          "confidence": 0.9805713891983032
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.983098,
+          "confidence": 0.980571
+        }
+      ]
+    },
+    {
+      "image": "triangle_005_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            334.2340393066406,
+            442.9561767578125,
+            493.3586730957031,
+            599.1260986328125
+          ],
+          "confidence": 0.9796475172042847
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.984828,
+          "confidence": 0.979648
+        }
+      ]
+    },
+    {
+      "image": "triangle_006_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            190.98583984375,
+            116.27789306640625,
+            364.388916015625,
+            274.8045959472656
+          ],
+          "confidence": 0.9855330586433411
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.983628,
+          "confidence": 0.985533
+        }
+      ]
+    },
+    {
+      "image": "triangle_006_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            191.23927307128906,
+            115.86658477783203,
+            364.83203125,
+            274.7646484375
+          ],
+          "confidence": 0.9882996082305908
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.983762,
+          "confidence": 0.9883
+        }
+      ]
+    },
+    {
+      "image": "triangle_006_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            190.9371337890625,
+            116.42889404296875,
+            364.31341552734375,
+            275.03387451171875
+          ],
+          "confidence": 0.9855780005455017
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.981139,
+          "confidence": 0.985578
+        }
+      ]
+    },
+    {
+      "image": "triangle_007_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            61.9722900390625,
+            153.45242309570312,
+            284.2415466308594,
+            369.3484191894531
+          ],
+          "confidence": 0.9898452758789062
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.981493,
+          "confidence": 0.989845
+        }
+      ]
+    },
+    {
+      "image": "triangle_007_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            61.58447265625,
+            153.60586547851562,
+            284.41754150390625,
+            369.2607116699219
+          ],
+          "confidence": 0.9896528124809265
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.982583,
+          "confidence": 0.989653
+        }
+      ]
+    },
+    {
+      "image": "triangle_007_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            61.857666015625,
+            153.2672119140625,
+            284.7225036621094,
+            369.534912109375
+          ],
+          "confidence": 0.9897720217704773
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.978206,
+          "confidence": 0.989772
+        }
+      ]
+    },
+    {
+      "image": "triangle_008_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            354.7923583984375,
+            76.8458251953125,
+            566.016357421875,
+            265.987060546875
+          ],
+          "confidence": 0.987179696559906
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.977244,
+          "confidence": 0.98718
+        }
+      ]
+    },
+    {
+      "image": "triangle_008_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            354.36907958984375,
+            76.77349853515625,
+            565.89013671875,
+            266.87286376953125
+          ],
+          "confidence": 0.9880818128585815
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.984723,
+          "confidence": 0.988082
+        }
+      ]
+    },
+    {
+      "image": "triangle_008_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            354.44171142578125,
+            76.91299438476562,
+            565.7761840820312,
+            265.6943054199219
+          ],
+          "confidence": 0.9873068332672119
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.978121,
+          "confidence": 0.987307
+        }
+      ]
+    },
+    {
+      "image": "triangle_009_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            139.9244384765625,
+            247.25201416015625,
+            362.01495361328125,
+            471.75860595703125
+          ],
+          "confidence": 0.9861159324645996
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.989265,
+          "confidence": 0.986116
+        }
+      ]
+    },
+    {
+      "image": "triangle_009_color.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            139.46505737304688,
+            247.99481201171875,
+            362.1446838378906,
+            470.3197021484375
+          ],
+          "confidence": 0.9884864091873169
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.990724,
+          "confidence": 0.988486
+        }
+      ]
+    },
+    {
+      "image": "triangle_009_color_background.jpg",
+      "ground_truth_count": 1,
+      "prediction_count": 1,
+      "exact_count": true,
+      "predictions": [
+        {
+          "class_id": 1,
+          "class_name": "triangle",
+          "box": [
+            139.5191650390625,
+            248.07406616210938,
+            361.85321044921875,
+            470.4809265136719
+          ],
+          "confidence": 0.9871138334274292
+        }
+      ],
+      "errors": [
+        {
+          "type": "correct",
+          "prediction_index": 0,
+          "ground_truth_index": 0,
+          "predicted_class": "triangle",
+          "ground_truth_class": "triangle",
+          "iou": 0.99057,
+          "confidence": 0.987114
+        }
+      ]
+    }
+  ]
+}

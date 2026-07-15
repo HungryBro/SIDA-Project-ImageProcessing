@@ -19,10 +19,10 @@ from gradcam_yolo import yolov8_heatmap  # noqa: E402
 
 
 CLASS_NAMES = ("circle", "triangle", "square")
-MODEL_PATH = PROJECT_ROOT / "outputs" / "shapes" / "baseline_v2" / "weights" / "best.pt"
+MODEL_PATH = PROJECT_ROOT / "outputs" / "shapes_v2" / "baseline_v2" / "weights" / "best.pt"
 INPUT_DIR = PROJECT_ROOT / "data" / "shapes_v2" / "locked_original" / "images"
 LABEL_DIR = PROJECT_ROOT / "data" / "shapes_v2" / "locked_original" / "labels"
-OUTPUT_DIR = PROJECT_ROOT / "outputs" / "shapes" / "cam" / "gradcam"
+OUTPUT_DIR = PROJECT_ROOT / "outputs" / "shapes_v2" / "baseline_v2" / "cam" / "gradcam"
 YOLO11_TARGET_LAYERS = [22]
 
 

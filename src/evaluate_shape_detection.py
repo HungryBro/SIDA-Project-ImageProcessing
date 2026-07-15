@@ -275,14 +275,14 @@ def main() -> int:
     parser.add_argument(
         "--model",
         type=Path,
-        default=PROJECT_ROOT / "outputs/shapes/baseline_v2/weights/best.pt",
+        default=PROJECT_ROOT / "outputs/shapes_v2/baseline_v2/weights/best.pt",
     )
     parser.add_argument("--images", type=Path, default=PROJECT_ROOT / "data/shapes_v2/images/multi_test")
     parser.add_argument("--labels", type=Path, default=PROJECT_ROOT / "data/shapes_v2/labels/multi_test")
     parser.add_argument(
         "--output",
         type=Path,
-        default=PROJECT_ROOT / "outputs/shapes/multi_detection_metrics.json",
+        default=PROJECT_ROOT / "outputs/shapes_v2/baseline_v2/evaluation/multi_detection_metrics.json",
     )
     parser.add_argument("--conf", type=float, default=0.25)
     parser.add_argument("--nms-iou", type=float, default=0.7)

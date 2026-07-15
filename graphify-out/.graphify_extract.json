@@ -1,0 +1,5799 @@
+{
+  "nodes": [
+    {
+      "id": "evaluate_shape_counterfactuals_py",
+      "label": "evaluate_shape_counterfactuals.py",
+      "file_type": "code",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_evaluate_shape_counterfactuals_target_confidence",
+      "label": "target_confidence()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14"
+    },
+    {
+      "id": "yolo",
+      "label": "YOLO",
+      "file_type": "code",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14"
+    },
+    {
+      "id": "evaluate_shape_counterfactuals_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14"
+    },
+    {
+      "id": "evaluate_shape_counterfactuals_py_int",
+      "label": "int",
+      "file_type": "code",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14"
+    },
+    {
+      "id": "evaluate_shape_counterfactuals_py_str",
+      "label": "str",
+      "file_type": "code",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14"
+    },
+    {
+      "id": "evaluate_shape_counterfactuals_py_float",
+      "label": "float",
+      "file_type": "code",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14"
+    },
+    {
+      "id": "src_evaluate_shape_counterfactuals_evaluate",
+      "label": "evaluate()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L26"
+    },
+    {
+      "id": "src_evaluate_shape_counterfactuals_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L81"
+    },
+    {
+      "id": "src_evaluate_shape_counterfactuals_rationale_1",
+      "label": "Evaluate expected confidence changes on paired shape counterfactuals.",
+      "file_type": "rationale",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "evaluate_shape_faithfulness_py",
+      "label": "evaluate_shape_faithfulness.py",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_evaluate_shape_faithfulness_read_target",
+      "label": "read_target()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "evaluate_shape_faithfulness_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "evaluate_shape_faithfulness_py_int",
+      "label": "int",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "evaluate_shape_faithfulness_py_ndarray",
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "src_evaluate_shape_faithfulness_iou",
+      "label": "iou()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L43"
+    },
+    {
+      "id": "evaluate_shape_faithfulness_py_float",
+      "label": "float",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L43"
+    },
+    {
+      "id": "src_evaluate_shape_faithfulness_confidence_for_target",
+      "label": "confidence_for_target()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L55"
+    },
+    {
+      "id": "src_evaluate_shape_faithfulness_masked_image",
+      "label": "masked_image()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L69"
+    },
+    {
+      "id": "src_evaluate_shape_faithfulness_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L75"
+    },
+    {
+      "id": "src_evaluate_shape_faithfulness_rationale_1",
+      "label": "Run a simple deletion test: CAM-selected pixels vs random pixels.",
+      "file_type": "rationale",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "generate_shape_robustness_py",
+      "label": "generate_shape_robustness.py",
+      "file_type": "code",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_generate_shape_robustness_generate",
+      "label": "generate()",
+      "file_type": "code",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "generate_shape_robustness_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "generate_shape_robustness_py_int",
+      "label": "int",
+      "file_type": "code",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "src_generate_shape_robustness_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "src_generate_shape_robustness_rationale_1",
+      "label": "Create paired robustness variants from the held-out single-object test set.",
+      "file_type": "rationale",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "calibrate_shape_inference_py",
+      "label": "calibrate_shape_inference.py",
+      "file_type": "code",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_calibrate_shape_inference_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "calibrate_shape_inference_py_int",
+      "label": "int",
+      "file_type": "code",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "src_calibrate_shape_inference_rationale_1",
+      "label": "Sweep confidence/NMS settings on validation data and select a config.",
+      "file_type": "rationale",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "evaluate_shape_detection_py",
+      "label": "evaluate_shape_detection.py",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_evaluate_shape_detection_read_labels",
+      "label": "read_labels()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L19"
+    },
+    {
+      "id": "evaluate_shape_detection_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L19"
+    },
+    {
+      "id": "evaluate_shape_detection_py_int",
+      "label": "int",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L19"
+    },
+    {
+      "id": "evaluate_shape_detection_py_ndarray",
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L19"
+    },
+    {
+      "id": "src_evaluate_shape_detection_iou",
+      "label": "iou()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L44"
+    },
+    {
+      "id": "evaluate_shape_detection_py_float",
+      "label": "float",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L44"
+    },
+    {
+      "id": "src_evaluate_shape_detection_prediction_rows",
+      "label": "prediction_rows()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L56"
+    },
+    {
+      "id": "any",
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L56"
+    },
+    {
+      "id": "evaluate_shape_detection_py_str",
+      "label": "str",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L56"
+    },
+    {
+      "id": "src_evaluate_shape_detection_evaluate",
+      "label": "evaluate()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73"
+    },
+    {
+      "id": "src_evaluate_shape_detection_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L273"
+    },
+    {
+      "id": "src_evaluate_shape_detection_rationale_1",
+      "label": "Evaluate object detection with one-to-one matching and error taxonomy.",
+      "file_type": "rationale",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "generate_shapes_py",
+      "label": "generate_shapes.py",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_generate_shapes_rotate_points",
+      "label": "rotate_points()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L32"
+    },
+    {
+      "id": "generate_shapes_py_ndarray",
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L32"
+    },
+    {
+      "id": "generate_shapes_py_float",
+      "label": "float",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L32"
+    },
+    {
+      "id": "src_generate_shapes_safe_center",
+      "label": "_safe_center()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L40"
+    },
+    {
+      "id": "generate_shapes_py_int",
+      "label": "int",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L40"
+    },
+    {
+      "id": "bool",
+      "label": "bool",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L40"
+    },
+    {
+      "id": "src_generate_shapes_shape_points",
+      "label": "_shape_points()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L71"
+    },
+    {
+      "id": "generate_shapes_py_str",
+      "label": "str",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L71"
+    },
+    {
+      "id": "src_generate_shapes_make_shape",
+      "label": "make_shape()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91"
+    },
+    {
+      "id": "generate_shapes_py_object",
+      "label": "object",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91"
+    },
+    {
+      "id": "src_generate_shapes_yolo_label",
+      "label": "yolo_label()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L178"
+    },
+    {
+      "id": "src_generate_shapes_scene_overlaps",
+      "label": "_scene_overlaps()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L190"
+    },
+    {
+      "id": "src_generate_shapes_make_scene",
+      "label": "make_scene()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194"
+    },
+    {
+      "id": "src_generate_shapes_ensure_dirs",
+      "label": "_ensure_dirs()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L237"
+    },
+    {
+      "id": "generate_shapes_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L237"
+    },
+    {
+      "id": "src_generate_shapes_write_scene",
+      "label": "write_scene()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248"
+    },
+    {
+      "id": "src_generate_shapes_write_empty_scene",
+      "label": "write_empty_scene()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L304"
+    },
+    {
+      "id": "src_generate_shapes_write_single_split",
+      "label": "write_single_split()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322"
+    },
+    {
+      "id": "src_generate_shapes_write_multi_split",
+      "label": "write_multi_split()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L356"
+    },
+    {
+      "id": "src_generate_shapes_write_repeated_split",
+      "label": "write_repeated_split()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L394"
+    },
+    {
+      "id": "src_generate_shapes_write_dataset",
+      "label": "write_dataset()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419"
+    },
+    {
+      "id": "src_generate_shapes_write_empty_split",
+      "label": "write_empty_split()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L513"
+    },
+    {
+      "id": "src_generate_shapes_parse_args",
+      "label": "parse_args()",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L519"
+    },
+    {
+      "id": "namespace",
+      "label": "Namespace",
+      "file_type": "code",
+      "source_file": "generate_shapes.py",
+      "source_location": "L519"
+    },
+    {
+      "id": "src_generate_shapes_rationale_1",
+      "label": "Generate a controlled multi-object geometric-shape detection dataset.  The origi",
+      "file_type": "rationale",
+      "source_file": "generate_shapes.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_generate_shapes_rationale_99",
+      "label": "Return image, object mask, rationale mask, boundary mask, metadata.",
+      "file_type": "rationale",
+      "source_file": "generate_shapes.py",
+      "source_location": "L99"
+    },
+    {
+      "id": "src_generate_shapes_rationale_201",
+      "label": "Create one scene with non-overlapping objects and per-object artifacts.",
+      "file_type": "rationale",
+      "source_file": "generate_shapes.py",
+      "source_location": "L201"
+    },
+    {
+      "id": "generate_shape_counterfactuals_py",
+      "label": "generate_shape_counterfactuals.py",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_generate_shape_counterfactuals_polygon",
+      "label": "polygon()",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17"
+    },
+    {
+      "id": "generate_shape_counterfactuals_py_int",
+      "label": "int",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17"
+    },
+    {
+      "id": "generate_shape_counterfactuals_py_float",
+      "label": "float",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17"
+    },
+    {
+      "id": "generate_shape_counterfactuals_py_ndarray",
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17"
+    },
+    {
+      "id": "src_generate_shape_counterfactuals_render",
+      "label": "render()",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "generate_shape_counterfactuals_py_str",
+      "label": "str",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "src_generate_shape_counterfactuals_yolo_label",
+      "label": "yolo_label()",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L67"
+    },
+    {
+      "id": "src_generate_shape_counterfactuals_generate",
+      "label": "generate()",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L78"
+    },
+    {
+      "id": "generate_shape_counterfactuals_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L78"
+    },
+    {
+      "id": "src_generate_shape_counterfactuals_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L125"
+    },
+    {
+      "id": "src_generate_shape_counterfactuals_rationale_1",
+      "label": "Generate paired geometry counterfactuals for the three shape classes.",
+      "file_type": "rationale",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "evaluate_shape_cam_py",
+      "label": "evaluate_shape_cam.py",
+      "file_type": "code",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_evaluate_shape_cam_energy_in",
+      "label": "energy_in()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L21"
+    },
+    {
+      "id": "evaluate_shape_cam_py_ndarray",
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L21"
+    },
+    {
+      "id": "evaluate_shape_cam_py_float",
+      "label": "float",
+      "file_type": "code",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L21"
+    },
+    {
+      "id": "src_evaluate_shape_cam_top_fraction_mask",
+      "label": "top_fraction_mask()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L26"
+    },
+    {
+      "id": "src_evaluate_shape_cam_evaluate",
+      "label": "evaluate()",
+      "file_type": "code",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L31"
+    },
+    {
+      "id": "evaluate_shape_cam_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L31"
+    },
+    {
+      "id": "src_evaluate_shape_cam_rationale_1",
+      "label": "Evaluate class-specific shape Grad-CAM against generated rationale masks.",
+      "file_type": "rationale",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "gradcam_yolo_py",
+      "label": "gradcam_yolo.py",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_gradcam_yolo_letterbox",
+      "label": "letterbox()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "gradcam_yolo_py_ndarray",
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "src_gradcam_yolo_activationsandgradients",
+      "label": "ActivationsAndGradients",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L66"
+    },
+    {
+      "id": "src_gradcam_yolo_activationsandgradients_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "module",
+      "label": "Module",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "src_gradcam_yolo_activationsandgradients_save_activation",
+      "label": ".save_activation()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L78"
+    },
+    {
+      "id": "src_gradcam_yolo_activationsandgradients_save_gradient",
+      "label": ".save_gradient()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L84"
+    },
+    {
+      "id": "src_gradcam_yolo_activationsandgradients_post_process",
+      "label": ".post_process()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L93"
+    },
+    {
+      "id": "src_gradcam_yolo_activationsandgradients_call",
+      "label": ".__call__()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L99"
+    },
+    {
+      "id": "src_gradcam_yolo_activationsandgradients_release",
+      "label": ".release()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L106"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_target",
+      "label": "yolov8_target",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L111"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_target_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L112"
+    },
+    {
+      "id": "src_gradcam_yolo_box_iou_xywh",
+      "label": "box_iou_xywh()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L123"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_target_forward",
+      "label": ".forward()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L145"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_heatmap",
+      "label": "yolov8_heatmap",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L183"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_heatmap_init",
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L184"
+    },
+    {
+      "id": "gradcam_yolo_py_str",
+      "label": "str",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L184"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_heatmap_post_process",
+      "label": ".post_process()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L229"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_heatmap_draw_detections",
+      "label": ".draw_detections()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L233"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_heatmap_renormalize_cam",
+      "label": ".renormalize_cam()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L240"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_heatmap_process",
+      "label": ".process()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L245"
+    },
+    {
+      "id": "src_gradcam_yolo_yolov8_heatmap_call",
+      "label": ".__call__()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L293"
+    },
+    {
+      "id": "src_gradcam_yolo_download_sample_image",
+      "label": "download_sample_image()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L305"
+    },
+    {
+      "id": "src_gradcam_yolo_run_gradcam_experiment",
+      "label": "run_gradcam_experiment()",
+      "file_type": "code",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L324"
+    },
+    {
+      "id": "src_gradcam_yolo_rationale_67",
+      "label": "Class for extracting activations and registering gradients from targeted interme",
+      "file_type": "rationale",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L67"
+    },
+    {
+      "id": "src_gradcam_yolo_rationale_306",
+      "label": "Downloads a sample image if it doesn't exist already.",
+      "file_type": "rationale",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L306"
+    },
+    {
+      "id": "shape_gradcam_py",
+      "label": "shape_gradcam.py",
+      "file_type": "code",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_shape_gradcam_read_ground_truth",
+      "label": "read_ground_truth()",
+      "file_type": "code",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L29"
+    },
+    {
+      "id": "shape_gradcam_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L29"
+    },
+    {
+      "id": "shape_gradcam_py_int",
+      "label": "int",
+      "file_type": "code",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L29"
+    },
+    {
+      "id": "shape_gradcam_py_ndarray",
+      "label": "ndarray",
+      "file_type": "code",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L29"
+    },
+    {
+      "id": "src_shape_gradcam_box_iou",
+      "label": "box_iou()",
+      "file_type": "code",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L48"
+    },
+    {
+      "id": "shape_gradcam_py_float",
+      "label": "float",
+      "file_type": "code",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L48"
+    },
+    {
+      "id": "src_shape_gradcam_save_heatmap",
+      "label": "save_heatmap()",
+      "file_type": "code",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L60"
+    },
+    {
+      "id": "src_shape_gradcam_run",
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L71"
+    },
+    {
+      "id": "src_shape_gradcam_rationale_1",
+      "label": "Run class-specific Grad-CAM on the synthetic shape stress-test images.",
+      "file_type": "rationale",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "validate_shape_dataset_py",
+      "label": "validate_shape_dataset.py",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_validate_shape_dataset_image_digest",
+      "label": "image_digest()",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L24"
+    },
+    {
+      "id": "validate_shape_dataset_py_path",
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L24"
+    },
+    {
+      "id": "validate_shape_dataset_py_str",
+      "label": "str",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L24"
+    },
+    {
+      "id": "src_validate_shape_dataset_parse_label",
+      "label": "parse_label()",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L28"
+    },
+    {
+      "id": "validate_shape_dataset_py_float",
+      "label": "float",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L28"
+    },
+    {
+      "id": "validate_shape_dataset_py_int",
+      "label": "int",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L28"
+    },
+    {
+      "id": "src_validate_shape_dataset_validate",
+      "label": "validate()",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L63"
+    },
+    {
+      "id": "validate_shape_dataset_py_object",
+      "label": "object",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L63"
+    },
+    {
+      "id": "src_validate_shape_dataset_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L166"
+    },
+    {
+      "id": "src_validate_shape_dataset_rationale_1",
+      "label": "Validate a generated YOLO shape dataset before training.  The validator treats m",
+      "file_type": "rationale",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "evaluate_shape_counterfactuals_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_counterfactuals_py",
+      "target": "csv",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_counterfactuals_py",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_counterfactuals_py",
+      "target": "collections",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_counterfactuals_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_counterfactuals_py",
+      "target": "ultralytics",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_counterfactuals_py",
+      "target": "src_evaluate_shape_counterfactuals_target_confidence",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_target_confidence",
+      "target": "yolo",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_target_confidence",
+      "target": "evaluate_shape_counterfactuals_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_target_confidence",
+      "target": "evaluate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_target_confidence",
+      "target": "evaluate_shape_counterfactuals_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_target_confidence",
+      "target": "evaluate_shape_counterfactuals_py_float",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_counterfactuals_py",
+      "target": "src_evaluate_shape_counterfactuals_evaluate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "evaluate_shape_counterfactuals_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "evaluate_shape_counterfactuals_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "evaluate_shape_counterfactuals_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "evaluate_shape_counterfactuals_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "evaluate_shape_counterfactuals_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_counterfactuals_py",
+      "target": "src_evaluate_shape_counterfactuals_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_main",
+      "target": "evaluate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_target_confidence",
+      "target": "evaluate_shape_counterfactuals_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_target_confidence",
+      "target": "evaluate_shape_counterfactuals_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_target_confidence",
+      "target": "evaluate_shape_counterfactuals_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "yolo",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "evaluate_shape_counterfactuals_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "evaluate_shape_counterfactuals_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "src_evaluate_shape_counterfactuals_target_confidence",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "evaluate_shape_counterfactuals_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_main",
+      "target": "evaluate_shape_counterfactuals_py_path",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_main",
+      "target": "src_evaluate_shape_counterfactuals_evaluate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_rationale_1",
+      "target": "evaluate_shape_counterfactuals_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "csv",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "cv2",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "numpy",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "ultralytics",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "src_evaluate_shape_faithfulness_read_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_read_target",
+      "target": "evaluate_shape_faithfulness_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_read_target",
+      "target": "evaluate_shape_faithfulness_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_read_target",
+      "target": "evaluate_shape_faithfulness_py_ndarray",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "src_evaluate_shape_faithfulness_iou",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_iou",
+      "target": "evaluate_shape_faithfulness_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_iou",
+      "target": "evaluate_shape_faithfulness_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_iou",
+      "target": "evaluate_shape_faithfulness_py_float",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "src_evaluate_shape_faithfulness_confidence_for_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_confidence_for_target",
+      "target": "evaluate_shape_faithfulness_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_confidence_for_target",
+      "target": "evaluate_shape_faithfulness_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_confidence_for_target",
+      "target": "evaluate_shape_faithfulness_py_float",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "src_evaluate_shape_faithfulness_masked_image",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_masked_image",
+      "target": "evaluate_shape_faithfulness_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_masked_image",
+      "target": "evaluate_shape_faithfulness_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_masked_image",
+      "target": "evaluate_shape_faithfulness_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_masked_image",
+      "target": "evaluate_shape_faithfulness_py_ndarray",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_faithfulness_py",
+      "target": "src_evaluate_shape_faithfulness_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "evaluate_shape_faithfulness_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "evaluate_shape_faithfulness_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "evaluate_shape_faithfulness_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "evaluate_shape_faithfulness_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "evaluate_shape_faithfulness_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "evaluate_shape_faithfulness_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_read_target",
+      "target": "evaluate_shape_faithfulness_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_iou",
+      "target": "evaluate_shape_faithfulness_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_confidence_for_target",
+      "target": "evaluate_shape_faithfulness_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_confidence_for_target",
+      "target": "src_evaluate_shape_faithfulness_iou",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "src_evaluate_shape_faithfulness_read_target",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "evaluate_shape_faithfulness_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "src_evaluate_shape_faithfulness_masked_image",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "src_evaluate_shape_faithfulness_confidence_for_target",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_rationale_1",
+      "target": "evaluate_shape_faithfulness_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_robustness_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_robustness_py",
+      "target": "csv",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_robustness_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_robustness_py",
+      "target": "cv2",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_robustness_py",
+      "target": "numpy",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_robustness_py",
+      "target": "src_generate_shape_robustness_generate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_robustness_generate",
+      "target": "generate_shape_robustness_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_robustness_generate",
+      "target": "generate_shape_robustness_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_robustness_generate",
+      "target": "generate_shape_robustness_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_robustness_py",
+      "target": "src_generate_shape_robustness_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_robustness_main",
+      "target": "generate_shape_robustness_py_int",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_robustness_main",
+      "target": "generate_shape_robustness_py_path",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_robustness_main",
+      "target": "src_generate_shape_robustness_generate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_robustness_rationale_1",
+      "target": "generate_shape_robustness_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_robustness.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "calibrate_shape_inference_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "calibrate_shape_inference_py",
+      "target": "csv",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "calibrate_shape_inference_py",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "calibrate_shape_inference_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "calibrate_shape_inference_py",
+      "target": "evaluate_shape_detection",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "calibrate_shape_inference_py",
+      "target": "src_calibrate_shape_inference_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_calibrate_shape_inference_main",
+      "target": "calibrate_shape_inference_py_int",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_calibrate_shape_inference_rationale_1",
+      "target": "calibrate_shape_inference_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "numpy",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "ultralytics",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "src_evaluate_shape_detection_read_labels",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_read_labels",
+      "target": "evaluate_shape_detection_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_read_labels",
+      "target": "evaluate_shape_detection_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_read_labels",
+      "target": "evaluate_shape_detection_py_int",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_read_labels",
+      "target": "evaluate_shape_detection_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "src_evaluate_shape_detection_iou",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_iou",
+      "target": "evaluate_shape_detection_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_iou",
+      "target": "evaluate_shape_detection_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_iou",
+      "target": "evaluate_shape_detection_py_float",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "src_evaluate_shape_detection_prediction_rows",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_prediction_rows",
+      "target": "any",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_prediction_rows",
+      "target": "evaluate_shape_detection_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_prediction_rows",
+      "target": "any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "src_evaluate_shape_detection_evaluate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_float",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_float",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_float",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "any",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_detection_py",
+      "target": "src_evaluate_shape_detection_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L273",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_main",
+      "target": "evaluate_shape_detection_py_int",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L273",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_read_labels",
+      "target": "evaluate_shape_detection_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_iou",
+      "target": "evaluate_shape_detection_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_prediction_rows",
+      "target": "evaluate_shape_detection_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_prediction_rows",
+      "target": "evaluate_shape_detection_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_path",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "src_evaluate_shape_detection_read_labels",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "src_evaluate_shape_detection_prediction_rows",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "src_evaluate_shape_detection_iou",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "evaluate_shape_detection_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_main",
+      "target": "src_evaluate_shape_detection_evaluate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L292",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_rationale_1",
+      "target": "evaluate_shape_detection_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "csv",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "math",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "typing",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "cv2",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "numpy",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_rotate_points",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_rotate_points",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_rotate_points",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_rotate_points",
+      "target": "generate_shapes_py_float",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_rotate_points",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_safe_center",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_safe_center",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_safe_center",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_safe_center",
+      "target": "bool",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_safe_center",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_shape_points",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_shape_points",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_shape_points",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_shape_points",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_make_shape",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "bool",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "bool",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_yolo_label",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_yolo_label",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_yolo_label",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_yolo_label",
+      "target": "generate_shapes_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_yolo_label",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_yolo_label",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_scene_overlaps",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_scene_overlaps",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_scene_overlaps",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_scene_overlaps",
+      "target": "bool",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_make_scene",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "bool",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "generate_shapes_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_ensure_dirs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L237",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_ensure_dirs",
+      "target": "generate_shapes_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L237",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_ensure_dirs",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L237",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_write_scene",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_write_empty_scene",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L304",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_scene",
+      "target": "generate_shapes_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L304",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L304",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L304",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_scene",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L304",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_write_single_split",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "generate_shapes_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "bool",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "generate_shapes_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L322",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_write_multi_split",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_multi_split",
+      "target": "generate_shapes_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_multi_split",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_multi_split",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_multi_split",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_multi_split",
+      "target": "bool",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_multi_split",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_multi_split",
+      "target": "generate_shapes_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_write_repeated_split",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_repeated_split",
+      "target": "generate_shapes_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_repeated_split",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_repeated_split",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_repeated_split",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_repeated_split",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_repeated_split",
+      "target": "generate_shapes_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L394",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_write_dataset",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L419",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_write_empty_split",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_split",
+      "target": "generate_shapes_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_split",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_split",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_split",
+      "target": "generate_shapes_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_split",
+      "target": "generate_shapes_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_split",
+      "target": "generate_shapes_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L513",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shapes_py",
+      "target": "src_generate_shapes_parse_args",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L519",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_parse_args",
+      "target": "namespace",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L519",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_safe_center",
+      "target": "generate_shapes_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "generate_shapes_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "src_generate_shapes_safe_center",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "src_generate_shapes_shape_points",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_shape",
+      "target": "src_generate_shapes_rotate_points",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_yolo_label",
+      "target": "generate_shapes_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "src_generate_shapes_make_shape",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_make_scene",
+      "target": "src_generate_shapes_scene_overlaps",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L224",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "src_generate_shapes_ensure_dirs",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L257",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L260",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_scene",
+      "target": "src_generate_shapes_yolo_label",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L271",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_scene",
+      "target": "src_generate_shapes_ensure_dirs",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L305",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_scene",
+      "target": "generate_shapes_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L313",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "src_generate_shapes_make_shape",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L335",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_single_split",
+      "target": "src_generate_shapes_write_scene",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L343",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_multi_split",
+      "target": "src_generate_shapes_make_scene",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L379",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_multi_split",
+      "target": "src_generate_shapes_write_scene",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L381",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_repeated_split",
+      "target": "src_generate_shapes_make_scene",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L404",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_repeated_split",
+      "target": "src_generate_shapes_write_scene",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L406",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "src_generate_shapes_write_single_split",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L442",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "src_generate_shapes_write_multi_split",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L445",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "src_generate_shapes_write_repeated_split",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L450",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "src_generate_shapes_write_empty_split",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L462",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_empty_split",
+      "target": "src_generate_shapes_write_empty_scene",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L515",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_parse_args",
+      "target": "generate_shapes_py_path",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L521",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_rationale_1",
+      "target": "generate_shapes_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_rationale_99",
+      "target": "src_generate_shapes_make_shape",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_rationale_201",
+      "target": "src_generate_shapes_make_scene",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shapes.py",
+      "source_location": "L201",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "csv",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "math",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "cv2",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "numpy",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "src_generate_shape_counterfactuals_polygon",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_polygon",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_polygon",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_polygon",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_polygon",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_polygon",
+      "target": "generate_shape_counterfactuals_py_float",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_polygon",
+      "target": "generate_shape_counterfactuals_py_ndarray",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "src_generate_shape_counterfactuals_render",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_render",
+      "target": "generate_shape_counterfactuals_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_render",
+      "target": "generate_shape_counterfactuals_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_render",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_render",
+      "target": "generate_shape_counterfactuals_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_render",
+      "target": "generate_shape_counterfactuals_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_render",
+      "target": "generate_shape_counterfactuals_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_render",
+      "target": "generate_shape_counterfactuals_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "src_generate_shape_counterfactuals_yolo_label",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_yolo_label",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_yolo_label",
+      "target": "generate_shape_counterfactuals_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_yolo_label",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_yolo_label",
+      "target": "generate_shape_counterfactuals_py_str",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "src_generate_shape_counterfactuals_generate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_generate",
+      "target": "generate_shape_counterfactuals_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_generate",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_generate",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_generate",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "generate_shape_counterfactuals_py",
+      "target": "src_generate_shape_counterfactuals_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_main",
+      "target": "generate_shape_counterfactuals_py_int",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_render",
+      "target": "src_generate_shape_counterfactuals_polygon",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_generate",
+      "target": "src_generate_shape_counterfactuals_render",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_generate",
+      "target": "generate_shape_counterfactuals_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_generate",
+      "target": "src_generate_shape_counterfactuals_yolo_label",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_main",
+      "target": "generate_shape_counterfactuals_py_path",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_main",
+      "target": "src_generate_shape_counterfactuals_generate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shape_counterfactuals_rationale_1",
+      "target": "generate_shape_counterfactuals_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "generate_shape_counterfactuals.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_cam_py",
+      "target": "csv",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_cam_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_cam_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_cam_py",
+      "target": "cv2",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_cam_py",
+      "target": "numpy",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_cam_py",
+      "target": "src_evaluate_shape_cam_energy_in",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_energy_in",
+      "target": "evaluate_shape_cam_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_energy_in",
+      "target": "evaluate_shape_cam_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_energy_in",
+      "target": "evaluate_shape_cam_py_float",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_cam_py",
+      "target": "src_evaluate_shape_cam_top_fraction_mask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_top_fraction_mask",
+      "target": "evaluate_shape_cam_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_top_fraction_mask",
+      "target": "evaluate_shape_cam_py_float",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_top_fraction_mask",
+      "target": "evaluate_shape_cam_py_ndarray",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "evaluate_shape_cam_py",
+      "target": "src_evaluate_shape_cam_evaluate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_evaluate",
+      "target": "evaluate_shape_cam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_evaluate",
+      "target": "evaluate_shape_cam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_evaluate",
+      "target": "evaluate_shape_cam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_evaluate",
+      "target": "evaluate_shape_cam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_energy_in",
+      "target": "evaluate_shape_cam_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_top_fraction_mask",
+      "target": "evaluate_shape_cam_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_evaluate",
+      "target": "src_evaluate_shape_cam_top_fraction_mask",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_evaluate",
+      "target": "src_evaluate_shape_cam_energy_in",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_cam_rationale_1",
+      "target": "evaluate_shape_cam_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "evaluate_shape_cam.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "os",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "urllib_request",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "cv2",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "numpy",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "torch",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "pil",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "pytorch_grad_cam",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "pytorch_grad_cam_utils_image",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "ultralytics",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "ultralytics_utils_nms",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "ultralytics_utils_ops",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "src_gradcam_yolo_letterbox",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_letterbox",
+      "target": "gradcam_yolo_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "src_gradcam_yolo_activationsandgradients",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_activationsandgradients",
+      "target": "src_gradcam_yolo_activationsandgradients_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_activationsandgradients_init",
+      "target": "module",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_activationsandgradients",
+      "target": "src_gradcam_yolo_activationsandgradients_save_activation",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_activationsandgradients",
+      "target": "src_gradcam_yolo_activationsandgradients_save_gradient",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_activationsandgradients",
+      "target": "src_gradcam_yolo_activationsandgradients_post_process",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_activationsandgradients",
+      "target": "src_gradcam_yolo_activationsandgradients_call",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_activationsandgradients",
+      "target": "src_gradcam_yolo_activationsandgradients_release",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "src_gradcam_yolo_yolov8_target",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_target",
+      "target": "src_gradcam_yolo_yolov8_target_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "src_gradcam_yolo_box_iou_xywh",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_target",
+      "target": "src_gradcam_yolo_yolov8_target_forward",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "src_gradcam_yolo_yolov8_heatmap",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap",
+      "target": "src_gradcam_yolo_yolov8_heatmap_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_init",
+      "target": "gradcam_yolo_py_str",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap",
+      "target": "src_gradcam_yolo_yolov8_heatmap_post_process",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap",
+      "target": "src_gradcam_yolo_yolov8_heatmap_draw_detections",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L233",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap",
+      "target": "src_gradcam_yolo_yolov8_heatmap_renormalize_cam",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap",
+      "target": "src_gradcam_yolo_yolov8_heatmap_process",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L245",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap",
+      "target": "src_gradcam_yolo_yolov8_heatmap_call",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L293",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "src_gradcam_yolo_download_sample_image",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L305",
+      "weight": 1.0
+    },
+    {
+      "source": "gradcam_yolo_py",
+      "target": "src_gradcam_yolo_run_gradcam_experiment",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L324",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_activationsandgradients_call",
+      "target": "src_gradcam_yolo_yolov8_heatmap_post_process",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_target_init",
+      "target": "src_gradcam_yolo_yolov8_heatmap_init",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_target_forward",
+      "target": "src_gradcam_yolo_box_iou_xywh",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L159",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_init",
+      "target": "src_gradcam_yolo_yolov8_target",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_init",
+      "target": "src_gradcam_yolo_activationsandgradients",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_draw_detections",
+      "target": "gradcam_yolo_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L236",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_process",
+      "target": "gradcam_yolo_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_process",
+      "target": "src_gradcam_yolo_letterbox",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L247",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_process",
+      "target": "src_gradcam_yolo_yolov8_heatmap_post_process",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_process",
+      "target": "src_gradcam_yolo_yolov8_heatmap_renormalize_cam",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L266",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_process",
+      "target": "src_gradcam_yolo_yolov8_heatmap_draw_detections",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L281",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_call",
+      "target": "src_gradcam_yolo_yolov8_heatmap_process",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L297",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_download_sample_image",
+      "target": "gradcam_yolo_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_run_gradcam_experiment",
+      "target": "src_gradcam_yolo_download_sample_image",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L336",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_run_gradcam_experiment",
+      "target": "gradcam_yolo_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L369",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_run_gradcam_experiment",
+      "target": "src_gradcam_yolo_yolov8_heatmap",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L378",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_rationale_67",
+      "target": "src_gradcam_yolo_activationsandgradients",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_rationale_306",
+      "target": "src_gradcam_yolo_download_sample_image",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L306",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "sys",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "cv2",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "numpy",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "torch",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "gradcam_yolo",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "src_shape_gradcam_read_ground_truth",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_read_ground_truth",
+      "target": "shape_gradcam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_read_ground_truth",
+      "target": "shape_gradcam_py_int",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_read_ground_truth",
+      "target": "shape_gradcam_py_int",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_read_ground_truth",
+      "target": "shape_gradcam_py_ndarray",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "src_shape_gradcam_box_iou",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_box_iou",
+      "target": "shape_gradcam_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_box_iou",
+      "target": "shape_gradcam_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_box_iou",
+      "target": "shape_gradcam_py_float",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "src_shape_gradcam_save_heatmap",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_save_heatmap",
+      "target": "shape_gradcam_py_ndarray",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_save_heatmap",
+      "target": "shape_gradcam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "src_shape_gradcam_run",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "shape_gradcam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "shape_gradcam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "shape_gradcam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "shape_gradcam_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "shape_gradcam_py_float",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_read_ground_truth",
+      "target": "shape_gradcam_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_box_iou",
+      "target": "shape_gradcam_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_save_heatmap",
+      "target": "shape_gradcam_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "src_shape_gradcam_read_ground_truth",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "src_shape_gradcam_save_heatmap",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "shape_gradcam_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "src_shape_gradcam_box_iou",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "shape_gradcam_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L143",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_rationale_1",
+      "target": "shape_gradcam_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "argparse",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "hashlib",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "json",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "collections",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "cv2",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "numpy",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "src_validate_shape_dataset_image_digest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_image_digest",
+      "target": "validate_shape_dataset_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_image_digest",
+      "target": "validate_shape_dataset_py_str",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "src_validate_shape_dataset_parse_label",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_parse_label",
+      "target": "validate_shape_dataset_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_parse_label",
+      "target": "validate_shape_dataset_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_parse_label",
+      "target": "validate_shape_dataset_py_float",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_parse_label",
+      "target": "validate_shape_dataset_py_int",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_parse_label",
+      "target": "validate_shape_dataset_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "src_validate_shape_dataset_validate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "validate_shape_dataset_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "validate_shape_dataset_py_path",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "validate_shape_dataset_py_str",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "validate_shape_dataset_py_object",
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "validate_shape_dataset_py",
+      "target": "src_validate_shape_dataset_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_main",
+      "target": "validate_shape_dataset_py_int",
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_parse_label",
+      "target": "validate_shape_dataset_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_parse_label",
+      "target": "validate_shape_dataset_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "src_validate_shape_dataset_image_digest",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "validate_shape_dataset_py_str",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "src_validate_shape_dataset_parse_label",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "validate_shape_dataset_py_int",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "validate_shape_dataset_py_float",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_main",
+      "target": "validate_shape_dataset_py_path",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_main",
+      "target": "src_validate_shape_dataset_validate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_rationale_1",
+      "target": "validate_shape_dataset_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "calibrate_shape_inference_py",
+      "target": "src_evaluate_shape_detection_evaluate",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py",
+      "target": "src_gradcam_yolo_yolov8_heatmap",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_calibrate_shape_inference_main",
+      "target": "src_evaluate_shape_detection_evaluate",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "calibrate_shape_inference.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_shape_gradcam_run",
+      "target": "src_gradcam_yolo_yolov8_heatmap",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "shape_gradcam_py_path",
+      "target": "src_gradcam_yolo_yolov8_heatmap",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L18",
+      "weight": 0.8
+    },
+    {
+      "source": "shape_gradcam_py_int",
+      "target": "src_gradcam_yolo_yolov8_heatmap",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L18",
+      "weight": 0.8
+    },
+    {
+      "source": "shape_gradcam_py_ndarray",
+      "target": "src_gradcam_yolo_yolov8_heatmap",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L18",
+      "weight": 0.8
+    },
+    {
+      "source": "shape_gradcam_py_float",
+      "target": "src_gradcam_yolo_yolov8_heatmap",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "shape_gradcam.py",
+      "source_location": "L18",
+      "weight": 0.8
+    },
+    {
+      "source": "src_evaluate_shape_counterfactuals_evaluate",
+      "target": "bool",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "evaluate_shape_counterfactuals.py",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_faithfulness_run",
+      "target": "yolo",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "evaluate_shape_faithfulness.py",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "src_evaluate_shape_detection_evaluate",
+      "target": "yolo",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "evaluate_shape_detection.py",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_scene_overlaps",
+      "target": "any",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "generate_shapes.py",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generate_shapes_write_dataset",
+      "target": "any",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "generate_shapes.py",
+      "source_location": "L433",
+      "weight": 1.0
+    },
+    {
+      "source": "src_gradcam_yolo_yolov8_heatmap_init",
+      "target": "yolo",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "gradcam_yolo.py",
+      "source_location": "L207",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_parse_label",
+      "target": "any",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "src_validate_shape_dataset_validate",
+      "target": "any",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "validate_shape_dataset.py",
+      "source_location": "L147",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
